@@ -5,7 +5,7 @@ import LoginForm from './LoginForm';
 function Login() {
   const inputRefs = React.useRef([React.createRef(), React.createRef()]);
 
-  const [data, setData] = React.useState({});
+  const [/* data, */ setData] = React.useState({});
 
   const handleChange = (name, value) => {
     setData((prev) => ({ ...prev, [name]: value }));
