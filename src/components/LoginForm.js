@@ -1,13 +1,13 @@
-import React, { forwardRef, useImperativeHandle, useState } from 'react';
-import './styles/Login.scss';
+import React, { forwardRef, useImperativeHandle, useState } from "react";
+import "./styles/Login.scss";
 
 const LoginForm = forwardRef((props, ref) => {
-  const [value, setValue] = useState('');
-  const [error, setError] = useState('');
+  const [value, setValue] = useState("");
+  const [error, setError] = useState("");
 
   const handleChange = (event) => {
     setValue(event.target.value);
-    setError('');
+    setError("");
     props.onChange(event.target.name, event.target.value);
   };
 
@@ -16,21 +16,21 @@ const LoginForm = forwardRef((props, ref) => {
     //else return false
 
     if (props.validation) {
-      const rules = props.validation.split('|');
+      const rules = props.validation.split("|");
 
       for (let i = 0; i < rules.length; i++) {
         const current = rules[i];
 
-        if (current === 'required') {
+        if (current === "required") {
           if (!value) {
-            setError('This field is required');
+            setError("This field is required");
             return false;
           }
         }
 
-        const pair = current.split(':');
+        const pair = current.split(":");
         switch (pair[0]) {
-          case 'min':
+          case "min":
             if (value.length < pair[1]) {
               setError(
                 `This field must be at least ${pair[1]} charactesr long`
@@ -38,7 +38,7 @@ const LoginForm = forwardRef((props, ref) => {
               return false;
             }
             break;
-          case 'max':
+          case "max":
             if (value.length > pair[1]) {
               setError(
                 `This field must be no longer than ${pair[1]} charactesr long`
@@ -62,7 +62,7 @@ const LoginForm = forwardRef((props, ref) => {
   });
 
   return (
-    <div className='input-wrapper'>
+    <div className="input-wrapper">
       {props.label && <label>{props.label}</label>}
       <input
         placeholder={props.placeholder}
@@ -72,7 +72,7 @@ const LoginForm = forwardRef((props, ref) => {
         value={props.value ? props.value : value}
         autoComplete={props.autoComplete}
       />
-      {error && <p className='error'>{error}</p>}
+      {error && <p className="error">{error}</p>}
     </div>
   );
 });

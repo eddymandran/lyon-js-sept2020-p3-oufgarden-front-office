@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import LoginForm from './LoginForm';
+import LoginForm from "./LoginForm";
 
 function Login() {
   const inputRefs = React.useRef([React.createRef(), React.createRef()]);
@@ -28,30 +28,30 @@ function Login() {
       return;
     }
 
-    console.log('Logged In');
+    console.log("Logged In");
     //Carry on as normal
   };
 
   return (
-    <div className='App'>
-      <form onSubmit={submitForm} className='form'>
+    <div className="App">
+      <form onSubmit={submitForm} className="form">
         <h1>Ouf Login</h1>
         <LoginForm
           ref={inputRefs.current[0]}
-          name='username'
-          label='Username:'
+          name="username"
+          label="Username:"
           onChange={handleChange}
-          validation={'required|min:6|max:12'}
+          validation={"required|min:6|max:12"}
         />
         <LoginForm
           ref={inputRefs.current[1]}
-          type='password'
-          name='password'
-          label='Password:'
-          validation='required|min:6'
+          type="password"
+          name="password"
+          label="Password:"
+          validation="required|min:6"
           onChange={handleChange}
         />
-        <button type='submit'>Login</button>
+        <button type="submit">Login</button>
       </form>
     </div>
   );
