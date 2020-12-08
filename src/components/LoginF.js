@@ -1,11 +1,11 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import './styles/Login.scss';
+import React from "react";
+import { useForm } from "react-hook-form";
+import "./styles/Login.scss";
 
-const required = 'This field is required';
+const required = "This field is required";
 
 const errorMessage = (error) => {
-  return <div className='invalid-feedback'>{error}</div>;
+  return <div className="invalid-feedback">{error}</div>;
 };
 
 const LoginF = () => {
@@ -13,41 +13,41 @@ const LoginF = () => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <div className='container'>
-      <div className='box'>
+    <div className="container">
+      <div className="box">
         <h3>Client Login</h3>
 
-        <div className='col-sm-12'>
+        <div className="col-sm-12">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className='form-group'>
-              <div className='input-wrapper'>
-                <div className='field'>
+            <div className="form-group">
+              <div className="input-wrapper">
+                <div className="field">
                   <input
-                    className='form-control'
-                    type='email'
-                    placeholder='Email'
-                    name='Email'
+                    className="form-control"
+                    type="email"
+                    placeholder="Email"
+                    name="Email"
                     ref={register({ required: true, pattern: /^\S+@\S+$/i })}
                   />
                   {errors.Email &&
-                    errors.Email.type === 'required' &&
+                    errors.Email.type === "required" &&
                     errorMessage(required)}
                 </div>
-                <div className='form-group'>
+                <div className="form-group">
                   <input
-                    className='form-control'
-                    type='text'
-                    placeholder='Password'
-                    name='Password'
+                    className="form-control"
+                    type="text"
+                    placeholder="Password"
+                    name="Password"
                     ref={register({ required: true })}
                   />
                   {errors.Password &&
-                    errors.Password.type === 'required' &&
+                    errors.Password.type === "required" &&
                     errorMessage(required)}
                 </div>
 
-                <div className='form-group'>
-                  <button type='submit' className='button'>
+                <div className="form-group">
+                  <button type="submit" className="button">
                     Login
                   </button>
                 </div>
