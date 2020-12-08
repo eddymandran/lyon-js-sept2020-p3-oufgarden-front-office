@@ -22,8 +22,7 @@
   min-width: 500px;
   display: flex;
   flex-direction: column;
-  box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.1),
-    -7px -7px 20px rgba(241, 255, 255, 1);
+  box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.1), -7px -7px 20px rgb(175, 182, 182);
 
   align-items: center;
 }
@@ -39,6 +38,10 @@
   margin-bottom: 5px;
   font-weight: bold;
   width: 100%;
+}
+
+.form-control {
+  margin: 10px;
 }
 
 .input-wrapper {
