@@ -1,13 +1,14 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './Navbar';
+import Login from './Login';
 
 function App() {
   return (
     <div className='App'>
       <Router>
         <Switch>
-          <Route exact path='/login' />
+          <Route exact path='/login' component={Login} />
           <Route exact path='/articles' />
           <Route exact path='/articles/:id' />
           <Route exact path='/garden' />
