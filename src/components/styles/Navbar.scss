@@ -1,0 +1,103 @@
+.menu {
+  background-color: ghostwhite;
+  box-shadow: 0px -1px 8px gray;
+  width: 100%;
+  height: 10vh;
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px;
+}
+
+.articles {
+  background-image: url('../../images/ouf.png');
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25vw;
+  height: 10vh;
+  cursor: pointer;
+  &:active {
+    background-color: #e6e6e6;
+    background-image: url('../../images/ouf-active.png');
+    background-position: center;
+  }
+  &:hover {
+    background-image: url('../../images/ouf-active.png');
+    background-position: center;
+    background-color: #e6e6e6;
+  }
+}
+
+.calendar {
+  background-image: url('../../images/calendar.png');
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25vw;
+  height: 10vh;
+  cursor: pointer;
+  &:hover {
+    background-image: url('../../images/calendar-active.png');
+    background-position: center;
+    background-color: #e6e6e6;
+  }
+  &:active {
+    background-image: url('../../images/calendar-active.png');
+    background-position: center;
+    background-color: #e6e6e6;
+  }
+}
+
+.jardin {
+  background-image: url('../../images/jardin.png');
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25vw;
+  height: 10vh;
+  cursor: pointer;
+  &:active {
+    background-image: url('../../images/jardin-active.png');
+    background-position: center;
+    background-color: #e6e6e6;
+  }
+  &:hover {
+    background-image: url('../../images/jardin-active.png');
+    background-position: center;
+    background-color: #e6e6e6;
+  }
+}
+
+.user {
+  background-image: url('../../images/user.png');
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25vw;
+  height: 10vh;
+  cursor: pointer;
+  &:active {
+    background-image: url('../../images/user-active.png');
+    background-color: #e6e6e6;
+    background-position: center;
+  }
+  &:hover {
+    background-image: url('../../images/user-active.png');
+    background-position: center;
+    background-color: #e6e6e6;
+  }
+}
