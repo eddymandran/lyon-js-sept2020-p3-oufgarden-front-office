@@ -29,6 +29,7 @@
 
 .box h3 {
   margin: 30px;
+  font-size: 30px;
 }
 
 .field {
@@ -42,6 +43,7 @@
 
 .form-control {
   margin: 10px;
+  font-size: 20px;
 }
 
 .input-wrapper {
@@ -81,6 +83,7 @@ button {
   transition: ease all 250ms;
   box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.1), -7px -7px 20px rgb(255, 255, 255);
   border: unset;
+  font-size: 20px;
 }
 
 button:hover {
@@ -91,4 +94,5 @@ button:hover {
 }
 .invalid-feedback {
   display: block !important;
+  color: red;
 }
