@@ -1,31 +1,40 @@
-import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from "./Navbar";
-import LoginF from "./LoginF";
+import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navbar from './Navbar';
+import Login from './Login';
+import Feed from './Feed';
+import { ToastProvider } from 'react-toast-notifications';
 
-function App() {
+/* import { UserProvider } from './_context/UserContext'; */
+import history from '../history';
+
+const App = () => {
   return (
-    <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path="/login" component={LoginF} />
-          <Route exact path="/articles" />
-          <Route exact path="/articles/:id" />
-          <Route exact path="/garden" />
-          <Route exact path="/garden/:id" />
-          <Route exact path="/garden/:id/action" />
-          <Route exact path="/garden/:id/action/:id" />
-          <Route exact path="/garden/:id/slot" />
-          <Route exact path="/garden/:id/slot/confirm" />
-          <Route exact path="/garden/:id/slot/success" />
-          <Route exact path="/user" />
-          <Route exact path="/user/:id" />
-        </Switch>
-
-        <Navbar />
-      </Router>
+    <div>
+      <ToastProvider placement='top-right'>
+        {/* <UserProvider> */}
+        <Router history={history}>
+          <Navbar />
+          <div className='App'>
+            <Switch>
+              <Route exact path='/' component={Login} />
+              <Route exact path='/feed' component={Feed} />
+              <Route exact path='/articles' /* component={Articles}  */ />
+              <Route exact path='/articles/:id' />
+              <Route exact path='/garden' />
+              <Route exact path='/garden/:id' />
+              <Route exact path='/garden/:id/action' />
+              <Route exact path='/garden/:id/action/:id' />
+              <Route exact path='/garden/:id/Plot' />
+              <Route exact path='/garden/:id/Plot/confirm' />
+              <Route exact path='/garden/:id/Plot/success' />
+            </Switch>
+          </div>
+        </Router>
+        {/* </UserProvider> */}
+      </ToastProvider>
     </div>
   );
-}
+};
 
 export default App;
