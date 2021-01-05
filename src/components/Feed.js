@@ -2,7 +2,7 @@ import React, { useState, useEffect /* useContext  */ } from 'react';
 import { getCollection } from '../services/API';
 /* import { UserContext } from './Contexts/UserContextProvider'; */
 
-const ListArticles = () => {
+const Feed = () => {
   /*  const { userDetails } = useContext(UserContext); */
 
   const [articles, setArticles] = useState([]);
@@ -77,9 +77,11 @@ const ListArticles = () => {
                 return (
                   <div key={e.id} className="ArticlesRow">
                     <div className="articlesInfos">
-                      <p>
-                        {e.title} {e.image} {e.text}
-                      </p>
+                      <h1>{e.title}</h1>
+                      <img src={e.url} alt="jardin" />
+                      <p>{e.content}</p>
+                      <p>{e.created_at}</p>
+                      <p>{e.updated_at}</p>
                     </div>
                   </div>
                 );
@@ -88,9 +90,11 @@ const ListArticles = () => {
               return (
                 <div key={e.id} className="ArticlesRow">
                   <div className="articlesInfos">
-                    <p>
-                      {e.title} {e.image} {e.text}
-                    </p>
+                    <h1>{e.title}</h1>
+                    <img src={e.url} alt="jardin" />
+                    <p>{e.content}</p>
+                    <p>{e.created_at}</p>
+                    <p>{e.updated_at}</p>
                   </div>
                 </div>
               );
@@ -99,51 +103,4 @@ const ListArticles = () => {
     </div>
   );
 };
-export default ListArticles;
-
-/* const Feed = () => {
-  const [articles, setArticles] = useState([]);
-  const [articlesFiltered, setArticlesFiltered] = useState([]);
-
-/* filtrer appartion des articles 
-  useEffect(() => {
-    getCollection('articles').then((data) => setArticles(data));
-  }, []);
-
-  useEffect(() => {
-    const articleToFilter = () => {
-      articles
-        .filter((article) => {
-          if (
-            // article.garden_id === user.garden_id ||
-            article.garden_id === null
-          ) {
-            return true;
-          }
-          return false;
-        })
-        .map((article) => {
-          return article.article_id;
-        });
-    };
-    setArticlesFiltered(articleToFilter);
-  }, []);
-
-  return (
-    <div className="articlesList">
-      {articlesFiltered.map((e) => {
-        return (
-          <div key={e.id} className="Articles">
-            <div className="articlesInfo">
-              <p>
-                {e.title} {e.image} {e.text}
-              </p>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
-
-export default Feed; */
+export default Feed;
