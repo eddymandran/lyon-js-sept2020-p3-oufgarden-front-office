@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { getCollection } from '../services/API';
+import { UserContext } from './Contexts/UserContextProvider';
 
 const ListArticles = () => {
+  const { userDetails } = useContext(UserContext);
+
   const [articles, setArticles] = useState([]);
   const [articlesFiltered, setArticlesFiltered] = useState([]);
   const [tagList, setTagList] = useState([]);
