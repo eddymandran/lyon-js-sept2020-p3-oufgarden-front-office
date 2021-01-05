@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getCollection } from '../services/API';
 
-const ListArticles = (props) => {
+const ListArticles = () => {
   const [articles, setArticles] = useState([]);
   const [articlesFiltered, setArticlesFiltered] = useState([]);
   const [tagList, setTagList] = useState([]);
