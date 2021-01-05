@@ -60,16 +60,21 @@ button {
 }
 .infoCreation {
   margin: 10px;
+  width: 70vw;
+  text-align: center;
 }
 
 button:hover {
   cursor: pointer;
   color: #292929;
 }
+
 .invalid-feedback {
   display: block !important;
   color: red;
+  font-size: 12px;
 }
+
 .stay-connected-container {
   display: flex;
   justify-content: center;
