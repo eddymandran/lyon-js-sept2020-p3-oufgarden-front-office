@@ -1,5 +1,7 @@
 import React, { useState, useEffect /* useContext  */ } from 'react';
 import { getCollection } from '../services/API';
+import './style/Feed.scss';
+
 /* import { UserContext } from './Contexts/UserContextProvider'; */
 
 const Feed = () => {
@@ -46,7 +48,9 @@ const Feed = () => {
   };
 
   return (
-    <div>
+    <div className="containerFeed">
+      <input />
+      <div className="divPres" />
       <div className="filterContainer">
         {allTags &&
           allTags.map((tag) => {
@@ -77,11 +81,13 @@ const Feed = () => {
                 return (
                   <div key={e.id} className="ArticlesRow">
                     <div className="articlesInfos">
-                      <h1>{e.title}</h1>
-                      <img src={e.url} alt="jardin" />
-                      <p>{e.content}</p>
-                      <p>{e.created_at}</p>
-                      <p>{e.updated_at}</p>
+                      <img className="imgArticle" src={e.url} alt="jardin" />
+                      <div className="text">
+                        <h1>{e.title}</h1>
+                        <p>{e.content}</p>
+                        <p>{e.created_at}</p>
+                        <p>{e.updated_at}</p>
+                      </div>
                     </div>
                   </div>
                 );
@@ -90,11 +96,13 @@ const Feed = () => {
               return (
                 <div key={e.id} className="ArticlesRow">
                   <div className="articlesInfos">
-                    <h1>{e.title}</h1>
-                    <img src={e.url} alt="jardin" />
-                    <p>{e.content}</p>
-                    <p>{e.created_at}</p>
-                    <p>{e.updated_at}</p>
+                    <img className="imgArticle" src={e.url} alt="jardin" />
+                    <div className="text">
+                      <h1>{e.title}</h1>
+                      <p>{e.content}</p>
+                      <p>{e.created_at}</p>
+                      <p>{e.updated_at}</p>
+                    </div>
                   </div>
                 </div>
               );
