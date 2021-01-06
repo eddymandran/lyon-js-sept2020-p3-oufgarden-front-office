@@ -1,4 +1,5 @@
 import React, { useState, useEffect /* useContext  */ } from 'react';
+import ReactHtmlParser from 'react-html-parser';
 import { getCollection } from '../services/API';
 import './style/Feed.scss';
 
@@ -86,9 +87,9 @@ const Feed = () => {
                     <div className="articlesInfos">
                       <img className="imgArticle" src={e.url} alt="jardin" />
                       <div className="text">
-                        {e.title}
+                        {e.title && ReactHtmlParser(e.title)}
                         <br />
-                        {e.content}
+                        {e.content && ReactHtmlParser(e.content)}
                       </div>
                     </div>
                   </div>
@@ -100,9 +101,9 @@ const Feed = () => {
                   <div className="articlesInfos">
                     <img className="imgArticle" src={e.url} alt="jardin" />
                     <div className="text">
-                      {e.title}
+                      {ReactHtmlParser(e.title)}
                       <br />
-                      {e.content}
+                      {ReactHtmlParser(e.content)}
                     </div>
                   </div>
                 </div>
