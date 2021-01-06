@@ -52,9 +52,7 @@ const Feed = () => {
   return (
     <div className="containerFeed">
       <input />
-      <button type="button" className="buttonPres">
-        Like
-      </button>
+
       <div className="filterContainer">
         {allTags &&
           allTags.map((tag) => {

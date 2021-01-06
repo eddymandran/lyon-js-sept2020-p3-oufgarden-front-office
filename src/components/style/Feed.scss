@@ -1,20 +1,10 @@
-.buttonPres {
-  background-color: white;
-  margin: 10px;
-  border: solide;
-  border-radius: black;
-  padding: 5px;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  font-weight: bold;
-}
-
 .containerFeed {
   background: #f2efec;
-}
-.articlesInfos {
-  text-align: center;
+  background: #b8916a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 input {
@@ -28,17 +18,32 @@ input {
   margin: 15px;
 }
 
-.articlesInfos .text {
+.articlesInfos {
+  text-align: center;
+  text-align: center;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+
+  color: rgb(2, 2, 2);
+}
+
+.text {
   text-align: center;
   margin: 0 auto;
   left: 0;
   right: 0;
   top: 30%;
   color: rgb(2, 2, 2);
-  width: 70%;
+  width: 90vw;
+  background-color: white;
+  border-radius: 0% 0% 20px 20px;
+  /* position: absolute;
+  z-index: 1; */
 }
 
 .imgArticle {
-  border-radius: 10%;
   width: 90vw;
+  position: relative;
+  border-radius: 20px 20px 0% 0%;
 }
