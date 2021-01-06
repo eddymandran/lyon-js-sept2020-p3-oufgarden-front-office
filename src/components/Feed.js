@@ -15,6 +15,7 @@ const Feed = () => {
   useEffect(() => {
     getCollection('articles').then((elem) => {
       setArticles(elem);
+      console.log(elem);
     });
   }, []);
 
@@ -50,7 +51,9 @@ const Feed = () => {
   return (
     <div className="containerFeed">
       <input />
-      <div className="divPres" />
+      <button type="button" className="buttonPres">
+        Like
+      </button>
       <div className="filterContainer">
         {allTags &&
           allTags.map((tag) => {
@@ -83,10 +86,9 @@ const Feed = () => {
                     <div className="articlesInfos">
                       <img className="imgArticle" src={e.url} alt="jardin" />
                       <div className="text">
-                        <h1>{e.title}</h1>
-                        <p>{e.content}</p>
-                        <p>{e.created_at}</p>
-                        <p>{e.updated_at}</p>
+                        {e.title}
+                        <br />
+                        {e.content}
                       </div>
                     </div>
                   </div>
@@ -98,10 +100,9 @@ const Feed = () => {
                   <div className="articlesInfos">
                     <img className="imgArticle" src={e.url} alt="jardin" />
                     <div className="text">
-                      <h1>{e.title}</h1>
-                      <p>{e.content}</p>
-                      <p>{e.created_at}</p>
-                      <p>{e.updated_at}</p>
+                      {e.title}
+                      <br />
+                      {e.content}
                     </div>
                   </div>
                 </div>
