@@ -1,5 +1,6 @@
 import React, { useState, useEffect /* useContext  */ } from 'react';
 import ReactHtmlParser from 'react-html-parser';
+import Select from 'react-select';
 import { getCollection } from '../services/API';
 import './style/Feed.scss';
 
@@ -16,9 +17,17 @@ const Feed = () => {
   useEffect(() => {
     getCollection('articles').then((elem) => {
       setArticles(elem);
-      console.log(elem);
     });
   }, []);
+
+  const articleOption = articles.map((elem) => {
+    return {
+      value: elem.id,
+      label: `${elem.title}`,
+    };
+  });
+
+  const handleSelectArticleChange = () => {};
 
   useEffect(() => {
     getCollection('tags').then((data) => setAllTags(data));
@@ -51,7 +60,19 @@ const Feed = () => {
 
   return (
     <div className="containerFeed">
-      <input className="searchBar" />
+      <div className="searchArticleSelect">
+        <Select
+          isMulti
+          name="articles"
+          placeholder="rechercher votre articles"
+          option={articleOption}
+          className="basic-multi-select"
+          classNamePrefix="select"
+          onChange={(e) => {
+            handleSelectArticleChange(e);
+          }}
+        />
+      </div>
       {/* <button type="button" className="buttonPres">
         Like
       </button> */}
