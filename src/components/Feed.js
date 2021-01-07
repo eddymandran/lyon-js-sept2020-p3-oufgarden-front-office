@@ -51,8 +51,10 @@ const Feed = () => {
 
   return (
     <div className="containerFeed">
-      <input className="inputVisuel" />
-
+      <input className="searchBar" type="text" />
+      {/* <button type="button" className="buttonPres">
+        Like
+      </button> */}
       <div className="filterContainer">
         {allTags &&
           allTags.map((tag) => {
@@ -81,13 +83,13 @@ const Feed = () => {
               })
               .map((e) => {
                 return (
-                  <div key={e.id} className="ArticlesRow">
+                  <div key={e.id} className="articlesRow">
                     <div className="articlesInfos">
                       <img className="imgArticle" src={e.url} alt="jardin" />
                       <div className="text">
-                        {e.title && ReactHtmlParser(e.title)}
+                        {ReactHtmlParser(e.title)}
                         <br />
-                        {e.content && ReactHtmlParser(e.content)}
+                        {ReactHtmlParser(e.content)}
                       </div>
                     </div>
                   </div>
@@ -95,7 +97,7 @@ const Feed = () => {
               })
           : articles.map((e) => {
               return (
-                <div key={e.id} className="ArticlesRow">
+                <div key={e.id} className="articlesRow">
                   <div className="articlesInfos">
                     <img className="imgArticle" src={e.url} alt="jardin" />
                     <div className="text">

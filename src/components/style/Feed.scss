@@ -1,72 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+
 .containerFeed {
-  background: #f2efec;
-  background: #f3f1ef;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  align-items: center;
+  background: #f2efec;
+  height: 100%;
+  padding: 3%;
 }
-.articleListContainer {
-  width: 90vw;
+
+.searchBar {
+  background-color: white;
+  border-radius: 50px;
+  border: unset;
+  outline: none;
+  padding: 8px;
+  margin: 5px;
+  width: 80vw;
 }
+
 .filterContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
   overflow: scroll;
+  position: relative;
   width: 90vw;
   height: 10vh;
 }
 
-.inputVisuel {
-  margin-top: 10px;
-  background-color: white;
-  border: unset;
-  border-radius: 50px;
-  padding: 8px;
-  width: 60vw;
-  outline: none;
-}
 .filterButton {
-  margin: 20px;
-  background-color: #ffffff;
-  border: unset;
-  border-radius: 50px;
-  padding: 8px;
+  font-family: 'Montserrat', sans-serif;
   width: 40vw;
-  outline: none;
-  color: black;
-  font-weight: bold;
+  background-color: white;
+  color: #082852;
   &:focus {
-    border: black solid 2px;
+    border: 2px solid #082852;
+  }
+  &:active {
+    border: 2px solid #082852;
   }
 }
-.articlesInfos {
-  text-align: center;
-  text-align: center;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
+
+.articleListContainer {
+  border-radius: 20px;
   width: 90vw;
-  color: rgb(2, 2, 2);
+  padding-bottom: 25%;
 }
 
-.text {
-  text-align: center;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  top: 30%;
-  color: rgb(2, 2, 2);
-  width: 90vw;
+.articlesRow {
   background-color: white;
-  border-radius: 0% 0% 20px 20px;
-  /* position: absolute;
-  z-index: 1; */
+  border-radius: 20px;
+  width: 90vw;
+  margin-bottom: 3%;
 }
 
 .imgArticle {
+  border-radius: 20px 20px 0px 0px;
   width: 90vw;
-  position: relative;
-  border-radius: 20px 20px 0% 0%;
+}
+
+.text {
+  background-color: white;
+  border-radius: 0px 0px 20px 20px;
+  padding: 5%;
+  font-family: 'Montserrat', sans-serif;
 }
