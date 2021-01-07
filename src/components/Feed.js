@@ -51,10 +51,10 @@ const Feed = () => {
 
   return (
     <div className="containerFeed">
-      <input />
-      <button type="button" className="buttonPres">
+      <input className="searchBar" />
+      {/* <button type="button" className="buttonPres">
         Like
-      </button>
+      </button> */}
       <div className="filterContainer">
         {allTags &&
           allTags.map((tag) => {
@@ -83,7 +83,7 @@ const Feed = () => {
               })
               .map((e) => {
                 return (
-                  <div key={e.id} className="ArticlesRow">
+                  <div key={e.id} className="articlesRow">
                     <div className="articlesInfos">
                       <img className="imgArticle" src={e.url} alt="jardin" />
                       <div className="text">
@@ -97,7 +97,7 @@ const Feed = () => {
               })
           : articles.map((e) => {
               return (
-                <div key={e.id} className="ArticlesRow">
+                <div key={e.id} className="articlesRow">
                   <div className="articlesInfos">
                     <img className="imgArticle" src={e.url} alt="jardin" />
                     <div className="text">
