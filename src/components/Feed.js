@@ -51,7 +51,7 @@ const Feed = () => {
 
   return (
     <div className="containerFeed">
-      <input />
+      <input className="inputVisuel" />
 
       <div className="filterContainer">
         {allTags &&
