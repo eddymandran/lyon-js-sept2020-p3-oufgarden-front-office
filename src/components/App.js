@@ -5,6 +5,7 @@ import { ToastProvider } from 'react-toast-notifications';
 import Navbar from './Navbar';
 import Login from './Login';
 import Feed from './Feed';
+import ArticlesDetails from './ArticlesDetails';
 
 /* import { UserProvider } from './_context/UserContext'; */
 import history from '../history';
@@ -21,7 +22,7 @@ const App = () => {
               <Route exact path="/" component={Login} />
               <Route exact path="/feed" component={Feed} />
               <Route exact path="/articles" /* component={Articles}  */ />
-              <Route exact path="/articles/:id" />
+              <Route exact path="/articles/:id" component={ArticlesDetails} />
               <Route exact path="/garden" />
               <Route exact path="/garden/:id" />
               <Route exact path="/garden/:id/action" />

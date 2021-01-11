@@ -1,4 +1,5 @@
 import React, { useState, useEffect /* useContext  */ } from 'react';
+import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import Select from 'react-select';
 import { getCollection } from '../services/API';
@@ -112,12 +113,13 @@ const Feed = () => {
                 return (
                   <div key={e.id} className="articlesRow">
                     <div className="articlesInfos">
-                      <img className="imgArticle" src={e.url} alt="jardin" />
-                      <div className="text">
-                        {ReactHtmlParser(e.title)}
-                        <br />
-                        {ReactHtmlParser(e.content)}
-                      </div>
+                      <Link to={`/articles/${e.id}`}>
+                        <img className="imgArticle" src={e.url} alt="jardin" />
+                        <div className="text">
+                          {ReactHtmlParser(e.title)}
+                          <br />
+                        </div>
+                      </Link>
                     </div>
                   </div>
                 );
@@ -126,12 +128,13 @@ const Feed = () => {
               return (
                 <div key={e.id} className="articlesRow">
                   <div className="articlesInfos">
-                    <img className="imgArticle" src={e.url} alt="jardin" />
-                    <div className="text">
-                      {ReactHtmlParser(e.title)}
-                      <br />
-                      {ReactHtmlParser(e.content)}
-                    </div>
+                    <Link to={`/articles/${e.id}`}>
+                      <img className="imgArticle" src={e.url} alt="jardin" />
+                      <div className="text">
+                        {ReactHtmlParser(e.title)}
+                        <br />
+                      </div>
+                    </Link>
                   </div>
                 </div>
               );
