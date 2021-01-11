@@ -1,4 +1,5 @@
 import React, { useState, useEffect /* useContext  */ } from 'react';
+import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import { getCollection } from '../services/API';
 import './style/Feed.scss';
@@ -12,6 +13,8 @@ const Feed = () => {
   const [articlesFiltered, setArticlesFiltered] = useState([]);
   const [tagList, setTagList] = useState([]);
   const [allTags, setAllTags] = useState([]);
+
+  const [favorite, setFavorite] = useState(false);
 
   useEffect(() => {
     getCollection('articles').then((elem) => {
@@ -47,6 +50,10 @@ const Feed = () => {
     } else {
       setTagList((prevState) => [...prevState, +target.id]);
     }
+  };
+
+  const handleFavorite = () => {
+    setFavorite(!favorite);
   };
 
   return (
@@ -86,11 +93,7 @@ const Feed = () => {
                   <div key={e.id} className="articlesRow">
                     <div className="articlesInfos">
                       <img className="imgArticle" src={e.url} alt="jardin" />
-                      <div className="text">
-                        {ReactHtmlParser(e.title)}
-                        <br />
-                        {ReactHtmlParser(e.content)}
-                      </div>
+                      <div className="text">{ReactHtmlParser(e.title)}</div>
                     </div>
                   </div>
                 );
@@ -99,12 +102,23 @@ const Feed = () => {
               return (
                 <div key={e.id} className="articlesRow">
                   <div className="articlesInfos">
-                    <img className="imgArticle" src={e.url} alt="jardin" />
-                    <div className="text">
-                      {ReactHtmlParser(e.title)}
-                      <br />
-                      {ReactHtmlParser(e.content)}
-                    </div>
+                    <Link to={`/articles/${e.id}`}>
+                      <div
+                        className="likeButton"
+                        onClick={() => {
+                          handleFavorite();
+                        }}
+                        onKeyPress={() => {
+                          handleFavorite();
+                        }}
+                        role="button"
+                        tabIndex={0}
+                      >
+                        ♥
+                      </div>
+                      <img className="imgArticle" src={e.url} alt="jardin" />
+                      <div className="text">{ReactHtmlParser(e.title)}</div>
+                    </Link>
                   </div>
                 </div>
               );

@@ -8,6 +8,7 @@ import Feed from './Feed';
 
 /* import { UserProvider } from './_context/UserContext'; */
 import history from '../history';
+import ArticlesDetails from './ArticlesDetails';
 
 const App = () => {
   return (
@@ -21,7 +22,7 @@ const App = () => {
               <Route exact path="/" component={Login} />
               <Route exact path="/feed" component={Feed} />
               <Route exact path="/articles" /* component={Articles}  */ />
-              <Route exact path="/articles/:id" />
+              <Route exact path="/articles/:id" component={ArticlesDetails} />
               <Route exact path="/garden" />
               <Route exact path="/garden/:id" />
               <Route exact path="/garden/:id/action" />

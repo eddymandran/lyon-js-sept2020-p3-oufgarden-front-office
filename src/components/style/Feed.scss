@@ -78,3 +78,26 @@
   padding: 5%;
   font-family: 'Montserrat', sans-serif;
 }
+
+.likeButton {
+  display: inline-block;
+  position: relative;
+  font-size: 32px;
+  cursor: pointer;
+  &::before {
+    font-size: 2em;
+    color: #000;
+    content: '♥';
+    position: absolute;
+    left: 10%;
+    top: 10%;
+  }
+  &::after {
+    font-size: 2em;
+    color: #f2efec;
+    content: '♥';
+    position: absolute;
+    left: 10%;
+    top: 10%;
+  }
+}
