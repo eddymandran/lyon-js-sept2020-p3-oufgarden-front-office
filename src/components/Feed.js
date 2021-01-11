@@ -28,7 +28,11 @@ const Feed = () => {
   });
 
   const handleSelectArticleChange = (elem) => {
-    setArticlesFiltered(elem.map((e) => e.value));
+    if (!elem) {
+      setArticlesFiltered([]);
+    } else {
+      setArticlesFiltered(elem.map((e) => e.value));
+    }
   };
 
   useEffect(() => {
