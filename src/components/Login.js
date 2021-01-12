@@ -23,7 +23,6 @@ const Login = (props) => {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
     API.post('/app/login', data)
       .then(() => {
         setIsLogged(true);
@@ -34,6 +33,7 @@ const Login = (props) => {
         props.history.push('/feed');
       })
       .catch((err) => {
+        // eslint-disable-next-line no-console
         console.log(err);
         addToast('Vos acces ne sont pas valides', {
           appearance: 'error',
