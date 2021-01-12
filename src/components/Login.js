@@ -7,12 +7,8 @@ import { useToasts } from 'react-toast-notifications';
 import API from '../services/API';
 // import { UserContext } from './_context/UserContext';
 
-/* require('dotenv').config(); */
-
 const Login = (props) => {
   const { addToast } = useToasts();
-  /* const { setIsAdmin } = useContext(UserContext);
-   */
   const { register, handleSubmit, errors } = useForm();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,17 +24,14 @@ const Login = (props) => {
 
   const onSubmit = (data) => {
     console.log(data);
-    API.post('/login', data)
-      .then((res) => {
-        if (res.data === 'logged') {
-          // setIsAdmin(true);
-          setIsLogged(true);
-          addToast('logged in successfully', {
-            appearance: 'success',
-            autoDismiss: true,
-          });
-          props.history.push('/feed');
-        }
+    API.post('/app/login', data)
+      .then(() => {
+        setIsLogged(true);
+        addToast('logged in successfully', {
+          appearance: 'success',
+          autoDismiss: true,
+        });
+        props.history.push('/feed');
       })
       .catch((err) => {
         console.log(err);
