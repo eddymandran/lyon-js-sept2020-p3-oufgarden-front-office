@@ -3,7 +3,11 @@ import React, { useState, useEffect /* useContext  */ } from 'react';
 import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import Select from 'react-select';
-import { getCollection } from '../services/API';
+import {
+  getCollection,
+  makeEntityDeleter,
+  makeEntityAdder,
+} from '../services/API';
 import './style/Feed.scss';
 
 /* import { UserContext } from './Contexts/UserContextProvider'; */
@@ -69,7 +73,15 @@ const Feed = () => {
   };
 
   const handleFavorite = () => {
-    setFavorite(!favorite);
+    if (articles.id !== favorite) {
+      makeEntityAdder('favorite', articles.id).then((result) => {
+        setFavorite(result.favorite === true);
+      });
+    } else {
+      makeEntityDeleter('favorite', articles.id).then((result) => {
+        setFavorite(result.favorite === false);
+      });
+    }
   };
 
   return (
@@ -88,7 +100,21 @@ const Feed = () => {
         />
       </div>
       <div className="filterContainer">
-        <button type="button" className="buttonPres" />
+        <button type="button" className="buttonPres">
+          {favorite &&
+            favorite.map((art) => {
+              return (
+                <div key={art.id} className="articlesRow" favorite={false}>
+                  <div className="articlesInfos">
+                    <img className="imgArticle" src={art.url} alt="jardin" />
+                    <div className="text">
+                      {ReactHtmlParser(articles.title)}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+        </button>
         {allTags &&
           allTags.map((tag) => {
             return (
@@ -116,7 +142,7 @@ const Feed = () => {
               })
               .map((e) => {
                 return (
-                  <div key={e.id} className="articlesRow">
+                  <div key={e.id} className="articlesRow" favorite={false}>
                     <div className="articlesInfos">
                       <img className="imgArticle" src={e.url} alt="jardin" />
                       <div className="text">{ReactHtmlParser(e.title)}</div>
@@ -139,6 +165,7 @@ const Feed = () => {
                         }}
                         role="button"
                         tabIndex={0}
+                        favorite={false}
                       >
                         {/* ♥ */}
                       </div>
