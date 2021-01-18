@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState, useEffect /* useContext  */ } from 'react';
 import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
+import Select from 'react-select';
 import { getCollection } from '../services/API';
 import './style/Feed.scss';
 
@@ -19,9 +21,23 @@ const Feed = () => {
   useEffect(() => {
     getCollection('articles').then((elem) => {
       setArticles(elem);
-      console.log(elem);
     });
   }, []);
+
+  const articleOption = articles.map((elem) => {
+    return {
+      value: elem.id,
+      label: `${elem.title}`,
+    };
+  });
+
+  const handleSelectArticleChange = (elem) => {
+    if (!elem) {
+      setArticlesFiltered([]);
+    } else {
+      setArticlesFiltered(elem.map((e) => e.value));
+    }
+  };
 
   useEffect(() => {
     getCollection('tags').then((data) => setAllTags(data));
@@ -58,11 +74,21 @@ const Feed = () => {
 
   return (
     <div className="containerFeed">
-      <input className="searchBar" />
-      {/* <button type="button" className="buttonPres">
-        Like
-      </button> */}
+      <div className="searchArticleSelect">
+        <Select
+          isMulti
+          name="articles"
+          placeholder="rechercher votre articles"
+          options={articleOption}
+          className="basic-multi-select"
+          classNamePrefix="select"
+          onChange={(e) => {
+            handleSelectArticleChange(e);
+          }}
+        />
+      </div>
       <div className="filterContainer">
+        <button type="button" className="buttonPres" />
         {allTags &&
           allTags.map((tag) => {
             return (
@@ -114,7 +140,7 @@ const Feed = () => {
                         role="button"
                         tabIndex={0}
                       >
-                        ♥
+                        {/* ♥ */}
                       </div>
                       <img className="imgArticle" src={e.url} alt="jardin" />
                       <div className="text">{ReactHtmlParser(e.title)}</div>
