@@ -5,6 +5,7 @@ import { ToastProvider } from 'react-toast-notifications';
 import Navbar from './Navbar';
 import Login from './Login';
 import Feed from './Feed';
+import GoogleCalendar from './GoogleCalendar';
 import ArticlesDetails from './ArticlesDetails';
 
 /* import { UserProvider } from './_context/UserContext'; */
@@ -30,6 +31,7 @@ const App = () => {
               <Route exact path="/garden/:id/Plot" />
               <Route exact path="/garden/:id/Plot/confirm" />
               <Route exact path="/garden/:id/Plot/success" />
+              <Route exact path="/calendar" component={GoogleCalendar} />
             </Switch>
           </div>
         </Router>

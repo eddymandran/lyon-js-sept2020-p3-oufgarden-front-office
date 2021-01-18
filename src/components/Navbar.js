@@ -15,7 +15,7 @@ const Navbar = () => {
           <div className="articles" />
         </Link>
         <Link to="/calendar">
-          <div className="calendar" />
+          <div className="calendarNav" />
         </Link>
         <Link to="/garden">
           <div className="jardin" />
