@@ -1,7 +1,7 @@
 import axios, { CancelToken } from 'axios';
 import queryString from 'query-string';
-
 import * as Promise from 'bluebird';
+import browserHistory from '../history';
 
 Promise.config({
   cancellation: true,
@@ -71,5 +71,21 @@ export const makeEntityUpdater = (collectionName) => (id, attributes) =>
   makeCancellable('patch', `/${collectionName}/${id}`, attributes).then(
     extractData
   );
+
+instance.interceptors.response.use(
+  (res) => res,
+  (err) => {
+    // eslint-disable-next-line
+
+    if (
+      err.response &&
+      err.response.status === 401 &&
+      window.location.pathname !== '/'
+    ) {
+      browserHistory.push(`/?redirectPath=${window.location.pathname}`);
+    }
+    return Promise.reject(err);
+  }
+);
 
 export default instance;
