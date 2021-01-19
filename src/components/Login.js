@@ -27,18 +27,16 @@ const Login = (props) => {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
     API.post('/login', data)
       .then((res) => {
-        if (res.data === 'logged') {
-          // setIsAdmin(true);
-          setIsLogged(true);
-          addToast('logged in successfully', {
-            appearance: 'success',
-            autoDismiss: true,
-          });
-          props.history.push('/feed');
-        }
+        // setIsAdmin(true);
+        console.log(res);
+        setIsLogged(true);
+        addToast('logged in successfully', {
+          appearance: 'success',
+          autoDismiss: true,
+        });
+        props.history.push('/feed');
       })
       .catch((err) => {
         console.log(err);
