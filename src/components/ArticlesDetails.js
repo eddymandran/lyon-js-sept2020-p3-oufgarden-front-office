@@ -12,24 +12,30 @@ const ArticlesDetails = (props) => {
   useEffect(() => {
     getEntity('articles', id).then((elem) => {
       setArticlesDetails(elem);
+      console.log(elem);
     });
   }, []);
 
   return (
     <div className="articleDetailsPage">
-      <div className="back-home">
-        <Link to="/feed">Back to feed</Link>
-      </div>
-      <div key={articlesDetails.id} className="articlesRow">
-        <div className="articlesInfos">
-          <img className="imgArticle" src={articlesDetails.url} alt="jardin" />
-          <div className="text">
-            {ReactHtmlParser(articlesDetails.title)}
-            <br />
-            {ReactHtmlParser(articlesDetails.content)}
-          </div>
+      {/* <div className="articlesInfos"> */}
+      <img
+        className="imgArticleDetails"
+        src={articlesDetails.url}
+        alt="jardin"
+      />
+      <div className="whitebar">
+        <div className="back-home">
+          <Link to="/feed">Retour</Link>
         </div>
       </div>
+      <div className="fullText">
+        <div className="title">{ReactHtmlParser(articlesDetails.title)}</div>
+        <div className="content">
+          {ReactHtmlParser(articlesDetails.content)}
+        </div>
+      </div>
+      {/* </div> */}
     </div>
   );
 };

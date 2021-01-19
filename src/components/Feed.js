@@ -1,8 +1,13 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState, useEffect /* useContext  */ } from 'react';
 import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import Select from 'react-select';
-import { getCollection } from '../services/API';
+import {
+  getCollection,
+  makeEntityDeleter,
+  makeEntityAdder,
+} from '../services/API';
 import './style/Feed.scss';
 
 /* import { UserContext } from './Contexts/UserContextProvider'; */
@@ -14,6 +19,8 @@ const Feed = () => {
   const [articlesFiltered, setArticlesFiltered] = useState([]);
   const [tagList, setTagList] = useState([]);
   const [allTags, setAllTags] = useState([]);
+
+  const [favorite, setFavorite] = useState(false);
 
   useEffect(() => {
     getCollection('articles').then((elem) => {
@@ -65,6 +72,18 @@ const Feed = () => {
     }
   };
 
+  const handleFavorite = () => {
+    if (articles.id !== favorite) {
+      makeEntityAdder('favorite', articles.id).then((result) => {
+        setFavorite(result.favorite === true);
+      });
+    } else {
+      makeEntityDeleter('favorite', articles.id).then((result) => {
+        setFavorite(result.favorite === false);
+      });
+    }
+  };
+
   return (
     <div className="containerFeed">
       <div className="searchArticleSelect">
@@ -80,10 +99,22 @@ const Feed = () => {
           }}
         />
       </div>
-      {/* <button type="button" className="buttonPres">
-        Like
-      </button> */}
       <div className="filterContainer">
+        <button type="button" className="buttonPres">
+          {favorite &&
+            favorite.map((art) => {
+              return (
+                <div key={art.id} className="articlesRow" favorite={false}>
+                  <div className="articlesInfos">
+                    <img className="imgArticle" src={art.url} alt="jardin" />
+                    <div className="text">
+                      {ReactHtmlParser(articles.title)}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+        </button>
         {allTags &&
           allTags.map((tag) => {
             return (
@@ -111,15 +142,10 @@ const Feed = () => {
               })
               .map((e) => {
                 return (
-                  <div key={e.id} className="articlesRow">
+                  <div key={e.id} className="articlesRow" favorite={false}>
                     <div className="articlesInfos">
-                      <Link to={`/articles/${e.id}`}>
-                        <img className="imgArticle" src={e.url} alt="jardin" />
-                        <div className="text">
-                          {ReactHtmlParser(e.title)}
-                          <br />
-                        </div>
-                      </Link>
+                      <img className="imgArticle" src={e.url} alt="jardin" />
+                      <div className="text">{ReactHtmlParser(e.title)}</div>
                     </div>
                   </div>
                 );
@@ -129,11 +155,22 @@ const Feed = () => {
                 <div key={e.id} className="articlesRow">
                   <div className="articlesInfos">
                     <Link to={`/articles/${e.id}`}>
-                      <img className="imgArticle" src={e.url} alt="jardin" />
-                      <div className="text">
-                        {ReactHtmlParser(e.title)}
-                        <br />
+                      <div
+                        className="likeButton"
+                        onClick={() => {
+                          handleFavorite();
+                        }}
+                        onKeyPress={() => {
+                          handleFavorite();
+                        }}
+                        role="button"
+                        tabIndex={0}
+                        favorite={false}
+                      >
+                        {/* ♥ */}
                       </div>
+                      <img className="imgArticle" src={e.url} alt="jardin" />
+                      <div className="text">{ReactHtmlParser(e.title)}</div>
                     </Link>
                   </div>
                 </div>
