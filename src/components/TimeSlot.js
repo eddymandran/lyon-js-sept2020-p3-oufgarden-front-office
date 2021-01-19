@@ -26,13 +26,14 @@ const TimeSlot = () => {
   } catch (err) {
     console.log(err);
   }
-
+  // Waiting for the API routes to be build
   const onSubmit = async (data) => {
     const newData = { time_slot_id: timeSelectionChoice.value, ...data };
     console.log(newData);
     await makeEntityAdder('timeSlots')(newData);
     setTimeSelectionChoice([]);
   };
+  // Waiting for the API routes to be build
 
   const handleChange = (e) => {
     if (!e) {
