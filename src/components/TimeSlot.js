@@ -20,17 +20,18 @@ const TimeSlot = (props) => {
       setTimeSelection(data);
     });
   }, []);
+
   let options = [];
-  try {
-    options = timeSelection.map((e) => {
-      return {
-        value: e.id,
-        label: `${e.start_time} - ${e.end_time}`,
-      };
-    });
-  } catch (err) {
-    console.log(err);
-  }
+  useEffect(() => {
+    if (timeSelection) {
+      options = timeSelection.map((e) => {
+        return {
+          value: e.id,
+          label: `${e.start_time} - ${e.end_time}`,
+        };
+      });
+    }
+  }, [timeSelection]);
 
   const onSubmit = async (data) => {
     const newData = {
