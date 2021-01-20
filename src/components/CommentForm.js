@@ -9,14 +9,17 @@ const CommentForm = () => {
     setCommentMessage(message);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const postComment = makeEntityAdder('comments');
-    postComment({ message: commentMessage, article_id: 6 }).then(console.log);
+    await makeEntityAdder('comments')({
+      message: commentMessage,
+      article_id: 5,
+    });
+    // postComment({ message: commentMessage, article_id: 6 }).then(console.log);
   };
 
   return (
-    <div className="Comment-form">
+    <div style={{ marginBottom: '200px' }} className="Comment-form">
       <form method="post">
         <div className="form-message">
           <textarea
