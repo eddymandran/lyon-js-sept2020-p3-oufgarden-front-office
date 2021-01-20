@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Select from 'react-select';
-/* import dayjs from 'dayjs'; */
 
 import { getCollection, makeEntityAdder } from '../services/API';
 import './style/TimeSlots.scss';
@@ -10,6 +9,11 @@ const TimeSlot = () => {
   const { register, handleSubmit } = useForm();
   const [timeSelection, setTimeSelection] = useState('');
   const [timeSelectionChoice, setTimeSelectionChoice] = useState([]);
+  /*  const {
+    params: {
+      match: { id },
+    },
+  } = props; */
 
   useEffect(() => {
     getCollection('timeSlots').then((data) => {
@@ -29,8 +33,14 @@ const TimeSlot = () => {
   }
   // Waiting for the API routes to be build
   const onSubmit = async (data) => {
-    const newData = { time_slot_id: timeSelectionChoice.value, ...data };
+    const newData = {
+      time_slot_id: timeSelectionChoice.value,
+      /* garden_id: id, */
+      // a cabler une fois les routes OK
+      ...data,
+    };
     console.log(newData);
+
     await makeEntityAdder('reservation')(newData);
     setTimeSelectionChoice([]);
   };
@@ -50,7 +60,7 @@ const TimeSlot = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="inputTimeSlots">
           <label htmlFor="Date">
-            <input type="date" name="reservation-date" ref={register} />
+            <input type="date" name="reservation_date" ref={register} />
           </label>
         </div>
         <Select
