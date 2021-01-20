@@ -5,15 +5,15 @@ import Select from 'react-select';
 import { getCollection, makeEntityAdder } from '../services/API';
 import './style/TimeSlots.scss';
 
-const TimeSlot = () => {
+const TimeSlot = (props) => {
   const { register, handleSubmit } = useForm();
   const [timeSelection, setTimeSelection] = useState('');
   const [timeSelectionChoice, setTimeSelectionChoice] = useState([]);
-  /*  const {
-    params: {
-      match: { id },
+  const {
+    match: {
+      params: { id },
     },
-  } = props; */
+  } = props;
 
   useEffect(() => {
     getCollection('timeSlots').then((data) => {
@@ -31,18 +31,22 @@ const TimeSlot = () => {
   } catch (err) {
     console.log(err);
   }
-  // Waiting for the API routes to be build
+
   const onSubmit = async (data) => {
     const newData = {
       time_slot_id: timeSelectionChoice.value,
-      /* garden_id: id, */
-      // a cabler une fois les routes OK
+      garden_id: id,
       ...data,
     };
     console.log(newData);
 
-    await makeEntityAdder('reservation')(newData);
-    setTimeSelectionChoice([]);
+    await makeEntityAdder('reservation')(newData)
+      .then(() => {
+        setTimeSelectionChoice([]);
+      })
+      .then(() => {
+        props.history.push('/garden');
+      });
   };
   // Waiting for the API routes to be build
 
