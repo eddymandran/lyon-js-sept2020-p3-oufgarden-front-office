@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import { getEntity } from '../services/API';
 import './style/ArticlesDetails.scss';
+import CommentForm from './CommentForm';
+import CommentList from './CommentList';
 
 const ArticlesDetails = (props) => {
   // eslint-disable-next-line react/destructuring-assignment
@@ -35,6 +37,8 @@ const ArticlesDetails = (props) => {
           {ReactHtmlParser(articlesDetails.content)}
         </div>
       </div>
+      <CommentList />
+      <CommentForm />
       {/* </div> */}
     </div>
   );
