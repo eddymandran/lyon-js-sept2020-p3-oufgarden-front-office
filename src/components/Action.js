@@ -6,7 +6,7 @@ import { useForm, Controller } from 'react-hook-form';
 import Select from 'react-select';
 import { getCollection, makeEntityAdder } from '../services/API';
 
-const Action = (/* props */) => {
+const Action = (props) => {
   // eslint-disable-next-line react/destructuring-assignment
   const { handleSubmit, control } = useForm();
   const [gardenAction, setgardenAction] = useState([]);
@@ -19,7 +19,7 @@ const Action = (/* props */) => {
   ]);
 
   useEffect(() => {
-    getCollection('action').then((elem) => {
+    getCollection('actions').then((elem) => {
       setgardenAction(elem);
       console.log(elem);
     });
@@ -31,11 +31,10 @@ const Action = (/* props */) => {
       label: elem.name,
     };
   });
-
   const handleInputChange = (e, index) => {
     const { name, value } = e.target;
     const deepCopyList = _.cloneDeep(inputList);
-    // const list = [...inputList]; careful, this does not work for nested arrays + it's a shallow copy
+
     deepCopyList[index][name] = value;
     setInputList(deepCopyList);
   };
@@ -50,27 +49,27 @@ const Action = (/* props */) => {
     setInputList(deepCopyList);
   };
 
+  /*   const onSubmit = async (data) => {
+    const newData = {
+      date: data.date,
+      time: data.time,
+      description: data.description,
+      ...data,
+    };
+    console.log(newData);
+    await makeEntityAdder('action')(newData);
+    setInputList([]);
+  }; 
+ */
   const onSubmit = (data, e) => {
     const newData = {
       date: data.date,
       time: data.time,
       description: data.description,
-      /* zone_details:
-        inputList.length === 1 &&
-        inputList[0].zone_name === '' &&
-        inputList[0].type === ''
-          ? []
-          : inputList, */
     };
+    console.log(data);
 
-    const formData = new FormData();
-    // We use JSON.stringify here to send neste object in formdata
-    formData.append('newData', JSON.stringify(newData));
-
-    makeEntityAdder('action')(formData)
-      // .then((elem) => {
-      //   console.log(elem);
-      // })
+    makeEntityAdder('action')(newData)
       .catch((err) => console.log(err.response.data))
       .then(() => {
         e.target.reset();
@@ -81,8 +80,8 @@ const Action = (/* props */) => {
             description: '',
           },
         ]);
-      });
-    /* .then(() => props.history.push('/garden')); */
+      })
+      .then(() => props.history.push('/garden'));
   };
 
   return (
@@ -110,7 +109,6 @@ const Action = (/* props */) => {
                       />
                     )}
                   />
-
                   <input
                     className="date"
                     name="date"
@@ -121,15 +119,15 @@ const Action = (/* props */) => {
                   />
                   <input
                     className="time"
-                    name="heure"
+                    name="time"
                     type="time"
-                    placeholder="heure"
+                    placeholder="time"
                     value={x.time}
                     onChange={(e) => handleInputChange(e, i)}
                   />
                   <div className="inputGroup">
                     <input id="radio1" name="radio" type="radio" />
-                    <label htmlFor="radio1">Yes</label>
+                    <label htmlFor="radio1" />
                   </div>
                   <textarea
                     className="description"
@@ -154,13 +152,13 @@ const Action = (/* props */) => {
               );
             })}
           </label>
+          <button
+            type="button"
+            className="sendButton" /* onClick={handleCreate} */
+          >
+            Créer
+          </button>
         </form>
-        <button
-          type="button"
-          className="sendButton" /* onClick={handleCreate} */
-        >
-          Créer
-        </button>
       </div>
     </div>
   );

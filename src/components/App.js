@@ -7,6 +7,7 @@ import Login from './Login';
 import Feed from './Feed';
 import Garden from './Garden';
 import Action from './Action';
+import TimeSlot from './TimeSlot';
 
 /* import { UserProvider } from './_context/UserContext'; */
 import history from '../history';
@@ -28,7 +29,7 @@ const App = () => {
               <Route exact path="/garden" component={Garden} />
               <Route exact path="/garden/:id" />
               <Route exact path="/garden/:id/action" component={Action} />
-              <Route exact path="/garden/:id/timeslot" />
+              <Route exact path="/garden/:id/timeslots" component={TimeSlot} />
               <Route exact path="/garden/:id/Plot" />
               <Route exact path="/garden/:id/Plot/confirm" />
               <Route exact path="/garden/:id/Plot/success" />

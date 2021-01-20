@@ -1,0 +1,23 @@
+.timeSlotsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  text-align: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    .inputTimeSlots {
+      padding: 20px;
+      input {
+        padding: 20px;
+      }
+    }
+    .selectTimeSlots {
+      width: 100%;
+      padding: 20px;
+    }
+  }
+}

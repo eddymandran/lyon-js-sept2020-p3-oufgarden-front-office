@@ -24,6 +24,11 @@ const Garden = () => {
                   Action sur le jardin
                 </button>
               </Link>
+              <Link to={`/garden/${e.id}/timeslots`}>
+                <button type="button" className="action">
+                  Reserver un creneaux
+                </button>
+              </Link>
             </div>
           </div>
         );
