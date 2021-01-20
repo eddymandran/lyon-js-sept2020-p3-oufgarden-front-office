@@ -38,7 +38,6 @@ const TimeSlot = (props) => {
       garden_id: id,
       ...data,
     };
-    console.log(newData);
 
     await makeEntityAdder('reservation')(newData)
       .then(() => {
@@ -48,7 +47,6 @@ const TimeSlot = (props) => {
         props.history.push('/garden');
       });
   };
-  // Waiting for the API routes to be build
 
   const handleChange = (e) => {
     if (!e) {
