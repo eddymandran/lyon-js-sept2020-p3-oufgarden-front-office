@@ -12,7 +12,7 @@ const CommentForm = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const postComment = makeEntityAdder('comments');
-    postComment({ message: commentMessage, article_id: 5 }).then(console.log);
+    postComment({ message: commentMessage, article_id: 6 }).then(console.log);
   };
 
   return (

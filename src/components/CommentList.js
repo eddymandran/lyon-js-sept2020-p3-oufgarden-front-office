@@ -6,7 +6,7 @@ const CommentList = ({ article }) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    getCollection('comment').then((elem) => {
+    getCollection('comments', { article_id: 6 }).then((elem) => {
       setComments(elem);
     });
   }, []);
