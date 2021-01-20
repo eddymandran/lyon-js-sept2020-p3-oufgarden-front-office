@@ -27,7 +27,13 @@ const Feed = () => {
     };
   });
 
-  const handleSelectArticleChange = () => {};
+  const handleSelectArticleChange = (elem) => {
+    if (!elem) {
+      setArticlesFiltered([]);
+    } else {
+      setArticlesFiltered(elem.map((e) => e.value));
+    }
+  };
 
   useEffect(() => {
     getCollection('tags').then((data) => setAllTags(data));
@@ -65,7 +71,7 @@ const Feed = () => {
           isMulti
           name="articles"
           placeholder="rechercher votre articles"
-          option={articleOption}
+          options={articleOption}
           className="basic-multi-select"
           classNamePrefix="select"
           onChange={(e) => {

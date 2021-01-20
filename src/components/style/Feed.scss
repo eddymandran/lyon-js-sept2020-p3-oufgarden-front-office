@@ -20,15 +20,11 @@
   height: 100%;
   padding: 3%;
 }
-
-.searchBar {
-  background-color: white;
-  border-radius: 50px;
-  border: unset;
-  outline: none;
-  padding: 8px;
-  margin: 5px;
-  width: 80vw;
+.basic-multi-select {
+  width: 90vw;
+  .css-yk16xz-control {
+    border-radius: 50px;
+  }
 }
 
 .filterContainer {
