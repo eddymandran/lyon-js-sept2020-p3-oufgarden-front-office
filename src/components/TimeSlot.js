@@ -5,10 +5,15 @@ import Select from 'react-select';
 import { getCollection, makeEntityAdder } from '../services/API';
 import './style/TimeSlots.scss';
 
-const TimeSlot = () => {
+const TimeSlot = (props) => {
   const { register, handleSubmit } = useForm();
   const [timeSelection, setTimeSelection] = useState('');
   const [timeSelectionChoice, setTimeSelectionChoice] = useState([]);
+  const {
+    match: {
+      params: { id },
+    },
+  } = props;
 
   useEffect(() => {
     getCollection('timeSlots').then((data) => {
@@ -26,14 +31,22 @@ const TimeSlot = () => {
   } catch (err) {
     console.log(err);
   }
-  // Waiting for the API routes to be build
+
   const onSubmit = async (data) => {
-    const newData = { time_slot_id: timeSelectionChoice.value, ...data };
-    console.log(newData);
-    await makeEntityAdder('timeSlots')(newData);
-    setTimeSelectionChoice([]);
+    const newData = {
+      time_slot_id: timeSelectionChoice.value,
+      garden_id: id,
+      ...data,
+    };
+
+    await makeEntityAdder('reservation')(newData)
+      .then(() => {
+        setTimeSelectionChoice([]);
+      })
+      .then(() => {
+        props.history.push('/garden');
+      });
   };
-  // Waiting for the API routes to be build
 
   const handleChange = (e) => {
     if (!e) {
@@ -49,7 +62,7 @@ const TimeSlot = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="inputTimeSlots">
           <label htmlFor="Date">
-            <input type="date" name="reservation-date" ref={register} />
+            <input type="date" name="reservation_date" ref={register} />
           </label>
         </div>
         <Select
