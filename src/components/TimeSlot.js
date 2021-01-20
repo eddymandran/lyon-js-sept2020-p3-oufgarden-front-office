@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Select from 'react-select';
+/* import dayjs from 'dayjs'; */
 
 import { getCollection, makeEntityAdder } from '../services/API';
 import './style/TimeSlots.scss';
@@ -30,7 +31,7 @@ const TimeSlot = () => {
   const onSubmit = async (data) => {
     const newData = { time_slot_id: timeSelectionChoice.value, ...data };
     console.log(newData);
-    await makeEntityAdder('timeSlots')(newData);
+    await makeEntityAdder('reservation')(newData);
     setTimeSelectionChoice([]);
   };
   // Waiting for the API routes to be build
