@@ -21,7 +21,6 @@ const Action = (props) => {
   useEffect(() => {
     getCollection('actions').then((elem) => {
       setgardenAction(elem);
-      console.log(elem);
     });
   }, []);
 
@@ -67,7 +66,6 @@ const Action = (props) => {
       time: data.time,
       description: data.description,
     };
-    console.log(data);
 
     makeEntityAdder('action')(newData)
       .catch((err) => console.log(err.response.data))

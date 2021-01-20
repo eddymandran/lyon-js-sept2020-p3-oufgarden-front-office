@@ -12,7 +12,6 @@ const ArticlesDetails = (props) => {
   useEffect(() => {
     getEntity('articles', id).then((elem) => {
       setArticlesDetails(elem);
-      console.log(elem);
     });
   }, []);
 
