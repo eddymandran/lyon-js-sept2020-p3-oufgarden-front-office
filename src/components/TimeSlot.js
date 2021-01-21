@@ -20,19 +20,24 @@ const TimeSlot = (props) => {
       setTimeSelection(data);
     });
   }, []);
+  let options;
+  try {
+    options = timeSelection.map((e) => {
+      return {
+        value: e.id,
+        label: `${e.start_time} - ${e.end_time}`,
+      };
+    });
+  } catch (err) {
+    console.log(err);
+  }
 
-  let options = [];
-  useEffect(() => {
+  /*  useEffect(() => {
     if (timeSelection) {
-      options = timeSelection.map((e) => {
-        return {
-          value: e.id,
-          label: `${e.start_time} - ${e.end_time}`,
-        };
-      });
+      console.log(timeSelection);
     }
-  }, [timeSelection]);
-
+  }); */
+  // a checker probleme de map si pas dans un tryc catch à voir...
   const onSubmit = async (data) => {
     const newData = {
       time_slot_id: timeSelectionChoice.value,
