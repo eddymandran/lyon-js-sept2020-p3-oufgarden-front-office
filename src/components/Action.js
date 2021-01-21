@@ -72,44 +72,56 @@ const Action = (props) => {
         <form className="formContainer" onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="actionGarden">
             <div className="actionGarden" key={gardenAction.id}>
-              <Controller
-                as={Select}
-                options={gardenOptions}
-                name="action"
-                isClearable
-                control={control}
-              />
-              <input
-                className="date"
-                name="date"
-                type="date"
-                placeholder="date d'action"
-                ref={register}
-              />
-              <input
-                className="time"
-                name="time"
-                type="time"
-                placeholder="time"
-                ref={register}
-              />
-              <Controller
-                as={Select}
-                options={zoneOption}
-                name="zone"
-                isClearable
-                control={control}
-              />
+              <label htmlFor="selectAction">
+                Selectionner votre action :
+                <Controller
+                  as={Select}
+                  options={gardenOptions}
+                  name="action"
+                  isClearable
+                  control={control}
+                />
+              </label>
+              <label htmlFor="date">
+                Date :
+                <input
+                  className="date"
+                  name="date"
+                  type="date"
+                  placeholder="date d'action"
+                  ref={register}
+                />
+              </label>
+              <label htmlFor="time">
+                Heure :
+                <input
+                  className="time"
+                  name="time"
+                  type="time"
+                  placeholder="time"
+                  ref={register}
+                />
+              </label>
+              <label htmlFor="zone">
+                Zone où vous avez agi
+                <Controller
+                  as={Select}
+                  options={zoneOption}
+                  name="zone"
+                  isClearable
+                  control={control}
+                />
+              </label>
               <textarea
                 className="description"
                 name="description"
                 type="text"
-                placeholder="Description de la zone"
+                placeholder="commentaire"
                 ref={register}
               />
+              <input type="submit" className="sendButton" value="Creer" />
             </div>
           </label>
-          <input type="submit" className="sendButton" value="Creer" />
         </form>
       </div>
     </div>

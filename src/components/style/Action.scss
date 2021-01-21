@@ -7,8 +7,8 @@
 }
 .actionGarden {
   display: flex;
+  align-items: center;
   flex-direction: column;
-  justify-content: center;
 }
 .action-infos {
   display: flex;
@@ -57,7 +57,7 @@
   text-align: center;
 }
 .date {
-  width: 270px;
+  width: 230px;
   border: unset;
   outline: none;
   margin: 5px;
@@ -65,7 +65,7 @@
   padding: 10px;
 }
 .time {
-  width: 270px;
+  width: 230px;
   border: unset;
   outline: none;
   margin: 5px;
@@ -73,7 +73,7 @@
   padding: 10px;
 }
 .description {
-  width: 270px;
+  width: 250px;
   height: 100px;
   border: unset;
   outline: none;
@@ -104,4 +104,15 @@
 #radio1 {
   display: flex;
   align-items: center;
+}
+
+.sendButton {
+  width: 150px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #27841fd5;
+  border: unset;
+  border-radius: 50px;
+  outline: none;
+  color: white;
 }
