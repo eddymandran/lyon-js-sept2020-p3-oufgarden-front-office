@@ -1,23 +1,15 @@
-import React, { useState } from 'react';
-import { makeEntityAdder } from '../services/API';
+import React from 'react';
+import './style/CommentForm.scss';
 
-const CommentForm = () => {
-  const [commentMessage, setCommentMessage] = useState('');
-
+const CommentForm = ({ onSubmit, setCommentMessage, commentMessage }) => {
   const handleFieldChange = (event) => {
     const message = event.target.value;
     setCommentMessage(message);
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    const postComment = makeEntityAdder('comments');
-    postComment({ message: commentMessage, article_id: 6 }).then(console.log);
-  };
-
   return (
     <div className="Comment-form">
-      <form method="post">
+      <form method="post" className="post">
         <div className="form-message">
           <textarea
             onChange={handleFieldChange}
@@ -30,11 +22,12 @@ const CommentForm = () => {
 
         <button
           type="button"
+          className="comment-button"
           onClick={(e) => {
             onSubmit(e);
           }}
         >
-          Envoyer
+          Commenter
         </button>
       </form>
     </div>

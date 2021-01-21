@@ -1,21 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { getCollection } from '../services/API';
+import React from 'react';
 import Comment from './Comment';
+import './style/CommentList.scss';
+import './style/Comment.scss';
 
-const CommentList = ({ article }) => {
-  const [comments, setComments] = useState([]);
-
-  useEffect(() => {
-    getCollection('comments', { article_id: 6 }).then((elem) => {
-      setComments(elem);
-    });
-  }, []);
-
+const CommentList = ({ article, comments }) => {
   return (
     <div className="commentList">
-      {comments.map((e) => (
-        <Comment key={e.id} articleId={article} comment={e.message} />
-      ))}
+      <div className="show-comments">
+        {comments.map((e) => (
+          <Comment key={e.id} articleId={article} comment={e.message} />
+        ))}
+      </div>
     </div>
   );
 };
