@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './style/Garden.scss';
+import './style/GardenInfos.scss';
 import { getEntity } from '../services/API';
 
 const GardenInfos = (props) => {

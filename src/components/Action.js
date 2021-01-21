@@ -102,7 +102,7 @@ const Action = (props) => {
                   ref={register}
                 />
               </label>
-              <label htmlFor="zone">
+              <label className="labelZone" htmlFor="zone">
                 Zone où vous avez agi
                 <Controller
                   as={Select}

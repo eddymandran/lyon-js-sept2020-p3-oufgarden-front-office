@@ -1,23 +1,18 @@
 .garden-list-action {
   width: 100vw;
   margin-top: 20px;
+  font-weight: bold;
+  h3 {
+    margin-left: 30px;
+    font-size: 1.5rem;
+  }
 }
 .actionTitle {
   margin: 10px;
 }
-.actionGarden {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-.action-infos {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 .action-row {
+  /* box-sizing: border-box; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,79 +26,53 @@
       0 3px 15px 0 rgba(0, 0, 0, 0.19);
   }
 }
-/* .basic-multi-select {
-  width: 80vw;
-  border: unset;
-  outline: none;
-  margin: 5px;
+.actionGarden {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  text-align: center;
+  width: 100vw;
+}
+
+.css-2b097c-container {
+  width: 300px;
+  margin: 10px;
   .css-yk16xz-control {
     border-radius: 50px;
   }
-  &:focus {
-    border: unset;
-    outline: none;
-  }
-  &:active {
-    border: unset;
-    outline: none;
-  }
-} */
-.css-2b097c-container {
-  width: 300px;
 }
 
-.actionGarden {
+.labelZone {
   margin-top: 20px;
-  text-align: center;
 }
+
 .date {
-  width: 230px;
+  width: 220px;
   border: unset;
   outline: none;
-  margin: 5px;
+  margin: 10px;
   border-radius: 50px;
   padding: 10px;
 }
 .time {
-  width: 230px;
+  width: 220px;
   border: unset;
   outline: none;
-  margin: 5px;
+  margin: 10px;
   border-radius: 50px;
   padding: 10px;
 }
 .description {
-  width: 250px;
+  width: 260px;
   height: 100px;
   border: unset;
   outline: none;
   margin: 5px;
+  margin-top: 10px;
   border-radius: 15px;
   padding: 10px;
   font-size: 15px;
-}
-.btnBox {
-  width: 300px;
-}
-.sendButton {
-  width: 300px;
-}
-
-.inputGroup {
-  width: 90%;
-  max-width: 70px;
-  height: 70px;
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 0.25em;
-  margin: 0.2em auto;
-  background-color: rgb(255, 255, 255);
-}
-
-#radio1 {
-  display: flex;
-  align-items: center;
 }
 
 .sendButton {
@@ -115,4 +84,18 @@
   border-radius: 50px;
   outline: none;
   color: white;
+}
+@media screen and (min-width: 500px) {
+  .date {
+    width: 54vw;
+  }
+  .time {
+    width: 54vw;
+  }
+  .description {
+    width: 58vw;
+  }
+  .css-2b097c-container {
+    width: 60vw;
+  }
 }
