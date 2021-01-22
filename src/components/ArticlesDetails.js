@@ -18,7 +18,6 @@ const ArticlesDetails = (props) => {
       setArticlesDetails(elem);
     });
   }, []);
-  console.log(articlesDetails);
 
   useEffect(() => {
     getCollection('comments', { article_id: id }).then((elem) => {
