@@ -27,7 +27,6 @@ const Login = (props) => {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
     API.post('/app/login', data)
       .then(() => {
         setIsLogged(true);

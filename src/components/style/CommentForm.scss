@@ -1,0 +1,44 @@
+.Comment-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.post {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form-message {
+  border: unset;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: #292929;
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 10px;
+  width: 80vw;
+  height: 10vh;
+  padding: 8px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  // overflow: scroll;
+  // position: relative;
+}
+
+.comment-button {
+  border: unset;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 20px;
+  margin: 10px;
+}
