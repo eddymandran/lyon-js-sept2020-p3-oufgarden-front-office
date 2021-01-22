@@ -17,22 +17,25 @@ const Garden = () => {
       {gardenList.map((e) => {
         return (
           <div key={e.id} className="garden-row">
-            <p>{e.name}</p>
-            <Link to={`/garden/${e.id}/action`}>
-              <button type="button" className="actionButton">
-                Action sur le jardin
-              </button>
-            </Link>
-            <Link to={`/garden/${e.id}/timeslots`}>
-              <button type="button" className="actionButton">
-                Reserver un creneaux
-              </button>
-            </Link>
-            <Link to={`/garden/${e.id}`}>
-              <button type="button" className="infosGarden">
-                Infos du jardin
-              </button>
-            </Link>
+            <img className="imgGarden" src={e.picture} alt="jardin" />
+            <p className="titleGarden">{e.name}</p>
+            <div className="linkGarden">
+              <Link to={`/garden/${e.id}/action`}>
+                <button type="button" className="actionButton">
+                  Action sur le jardin
+                </button>
+              </Link>
+              <Link to={`/garden/${e.id}/timeslots`}>
+                <button type="button" className="actionButton">
+                  Reserver un creneaux
+                </button>
+              </Link>
+              <Link to={`/garden/${e.id}`}>
+                <button type="button" className="infosGarden">
+                  Infos du jardin
+                </button>
+              </Link>
+            </div>
           </div>
         );
       })}

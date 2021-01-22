@@ -26,7 +26,11 @@ const GardenInfos = (props) => {
             </Link>
           </div>
         </div>
-        <img className="imgGarden" src={gardenInfos.picture} alt="jardin" />
+        <img
+          className="imgGarden-infos"
+          src={gardenInfos.picture}
+          alt="jardin"
+        />
         <div className="detailsGarden">
           <h3>{gardenInfos.name}</h3>
           <p>{gardenInfos.description}</p>
