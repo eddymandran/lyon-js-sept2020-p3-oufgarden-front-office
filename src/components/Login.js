@@ -29,7 +29,6 @@ const Login = (props) => {
   const onSubmit = (data) => {
     API.post('/app/login', data)
       .then(() => {
-        // setIsAdmin(true);
         setIsLogged(true);
         addToast('logged in successfully', {
           appearance: 'success',
