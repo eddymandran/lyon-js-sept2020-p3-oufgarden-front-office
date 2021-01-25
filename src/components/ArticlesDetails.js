@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
-import API, {
+import {
   getEntity,
   makeEntityAdder,
   getCollection,
+  makeEntityDeleter,
 } from '../services/API';
 import './style/ArticlesDetails.scss';
 import CommentForm from './CommentForm';
@@ -47,26 +48,29 @@ const ArticlesDetails = (props) => {
   useEffect(() => {
     getCollection('articles/favorites').then((data) => setFavorite(data));
   }, []);
-  console.log(favorite);
 
   useEffect(() => {
-    if (favorite.length > 0) {
+    if (favorite && favorite.length > 0) {
       setFavoriteId(favorite.map((elem) => elem.article_id));
     }
   }, [favorite]);
 
-  const handleFavorite = () => {
-    if (favoriteId && favoriteId.includes(id)) {
+  const handleFavorite = async () => {
+    /* if (favoriteId && favoriteId.includes(+id)) {
       API.delete('articles/favorites', { article_id: id }).then(() => {
         setFavorite();
+      }); */
+    if (favoriteId && favoriteId.includes(+id)) {
+      makeEntityDeleter('articles/favorites')(id).then(() => {
+        setFavorite([]);
       });
     } else {
       makeEntityAdder('articles/favorites')({ article_id: id }).then(() => {
-        setFavorite();
+        setFavorite([]);
       });
     }
   };
-
+  console.log(favoriteId, id, favorite);
   return (
     <div className="articleDetailsPage">
       {articlesDetails && (
