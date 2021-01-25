@@ -19,22 +19,18 @@ const Action = (props) => {
   useEffect(() => {
     getCollection('actions').then((elem) => {
       setgardenAction(elem);
+      console.log(elem);
     });
   }, []);
+  console.log(gardenAction);
 
   useEffect(() => {
     getCollection(`garden/${id}/zones`).then((elem) => {
       setgardenZone(elem);
-      console.log(gardenZone);
+      console.log(`les zones ${gardenZone}`);
     });
   }, []);
 
-  const gardenOptions = gardenAction.map((elem) => {
-    return {
-      value: elem.id,
-      label: `${elem.name}`,
-    };
-  });
   const zoneOption = gardenZone.map((elem) => {
     return {
       value: elem.id,
@@ -73,13 +69,11 @@ const Action = (props) => {
           <label htmlFor="actionGarden">
             <div className="actionGarden" key={gardenAction.id}>
               <label htmlFor="selectAction">
-                Selectionner votre action :
-                <Controller
-                  as={Select}
-                  options={gardenOptions}
-                  name="action"
-                  isClearable
-                  control={control}
+                <input
+                  id="arroser"
+                  name="arroser"
+                  type="hidden"
+                  value={gardenAction.id}
                 />
               </label>
               <label htmlFor="date">

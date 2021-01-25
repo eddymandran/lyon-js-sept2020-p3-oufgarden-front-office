@@ -87,3 +87,76 @@
   color: #292929;
   font-size: 16px;
 }
+.gardenAction {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  justify-items: center;
+  width: 80%;
+  .logoAction {
+    width: 60px;
+    height: 100px;
+  }
+  .action1 {
+    background-image: url('../../images/jardin.png');
+    background-size: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20vw;
+    height: 15vh;
+
+    grid-row: 1;
+  }
+  .action2 {
+    background-image: url('../../images/calendar.png');
+    background-size: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20vw;
+    height: 15vh;
+  }
+  .action3 {
+    background-image: url('../../images/jardin-active.png');
+    background-size: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20vw;
+    height: 15vh;
+  }
+  .action4 {
+    background-image: url('../../images/ouf-active.png');
+    background-size: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20vw;
+    height: 15vh;
+  }
+  .action5 {
+    background-image: url('../../images/user-active.png');
+    background-size: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20vw;
+    height: 15vh;
+    grid-row: 2;
+    grid-column: 2 / 4;
+  }
+  .action6 {
+    background-image: url('../../images/calendar.png');
+    background-size: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20vw;
+    height: 15vh;
+  }
+  .action7 {
+    background-image: url('../../images/jardin-active.png');
+    background-size: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20vw;
+    height: 15vh;
+    grid-row: 2;
+    grid-column: 1 / 3;
+  }
+}

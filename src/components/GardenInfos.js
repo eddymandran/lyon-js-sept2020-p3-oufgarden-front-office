@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import './style/GardenInfos.scss';
 import { Link } from 'react-router-dom';
-import { getEntity /* , getCollection */ } from '../services/API';
+/* import jardinAction from '../images/jardin-active.png'; */
+
+import { getEntity, getCollection } from '../services/API';
 
 const GardenInfos = (props) => {
   // eslint-disable-next-line react/destructuring-assignment
   const { id } = props.match.params;
   const [gardenInfos, setGardenInfos] = useState([]);
+  const [actionList, setActionList] = useState([]);
   /*   const [gardenActionFeed, setgardenActionFeed] = useState([]); */
 
   useEffect(() => {
     getEntity('garden', id).then((elem) => {
       setGardenInfos(elem);
+      console.log(elem);
+    });
+  }, []);
+
+  useEffect(() => {
+    getCollection('actions').then((elem) => {
+      setActionList(elem);
       console.log(elem);
     });
   }, []);
@@ -44,6 +54,17 @@ const GardenInfos = (props) => {
           <p>{gardenInfos.description}</p>
           <p>Exposition : {gardenInfos.exposition}</p>
           <p>Adresse : {gardenInfos.address_id}</p>
+        </div>
+        <div className="gardenAction">
+          {actionList.map((e) => {
+            return (
+              <div key={e.id} className={`action${e.id}`}>
+                <Link to={`/garden/${gardenInfos.id}/action/${e.id}`}>
+                  <div className="logoAction" type="image" alt="action" />
+                </Link>
+              </div>
+            );
+          })}
         </div>
         {/* {gardenActionFeed.map((e) => {
           return (
