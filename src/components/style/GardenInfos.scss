@@ -5,6 +5,7 @@
   align-items: center;
   background: #f2efec;
   height: 100vh;
+
   button {
     font-size: 15px;
     font-weight: bold;
@@ -90,13 +91,9 @@
 .gardenAction {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
   justify-items: center;
+  text-align: center;
   width: 80%;
-  .logoAction {
-    width: 60px;
-    height: 100px;
-  }
   .action1 {
     background-image: url('../../images/jardin.png');
     background-size: 60px;
@@ -104,8 +101,6 @@
     background-position: center;
     width: 20vw;
     height: 15vh;
-
-    grid-row: 1;
   }
   .action2 {
     background-image: url('../../images/calendar.png');

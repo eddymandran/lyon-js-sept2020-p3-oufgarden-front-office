@@ -60,7 +60,9 @@ const GardenInfos = (props) => {
             return (
               <div key={e.id} className={`action${e.id}`}>
                 <Link to={`/garden/${gardenInfos.id}/action/${e.id}`}>
-                  <div className="logoAction" type="image" alt="action" />
+                  <div className="logoAction" type="image" alt="action">
+                    {e.name}
+                  </div>
                 </Link>
               </div>
             );
