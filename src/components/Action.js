@@ -48,18 +48,6 @@ const Action = (props) => {
     setInputList(deepCopyList);
   };
 
-  /*   const onSubmit = async (data) => {
-    const newData = {
-      date: data.date,
-      time: data.time,
-      description: data.description,
-      ...data,
-    };
-    console.log(newData);
-    await makeEntityAdder('action')(newData);
-    setInputList([]);
-  }; 
- */
   const onSubmit = (data, e) => {
     const newData = {
       date: data.date,

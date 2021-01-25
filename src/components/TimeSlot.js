@@ -38,7 +38,6 @@ const TimeSlot = (props) => {
       garden_id: id,
       ...data,
     };
-    console.log(newData);
 
     await makeEntityAdder('reservation')(newData)
       .then(() => {
