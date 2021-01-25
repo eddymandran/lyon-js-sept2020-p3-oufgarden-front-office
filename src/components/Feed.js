@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useState, useEffect /* useContext  */ } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import Select from 'react-select';
@@ -10,11 +10,7 @@ import {
 } from '../services/API';
 import './style/Feed.scss';
 
-/* import { UserContext } from './Contexts/UserContextProvider'; */
-
 const Feed = () => {
-  /*  const { userDetails } = useContext(UserContext); */
-
   const [articles, setArticles] = useState([]);
   const [articlesFiltered, setArticlesFiltered] = useState([]);
   const [tagList, setTagList] = useState([]);

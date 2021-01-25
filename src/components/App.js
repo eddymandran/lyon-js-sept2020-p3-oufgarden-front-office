@@ -11,7 +11,6 @@ import Garden from './Garden';
 import Action from './Action';
 import TimeSlot from './TimeSlot';
 
-/* import { UserProvider } from './_context/UserContext'; */
 import history from '../history';
 import ArticlesDetails from './ArticlesDetails';
 import GardenInfos from './GardenInfos';
@@ -21,7 +20,6 @@ const App = () => {
   return (
     <div>
       <ToastProvider placement="top-right">
-        {/* <UserProvider> */}
         <Router history={history}>
           <Navbar />
           <div className="App">
@@ -41,7 +39,6 @@ const App = () => {
             </Switch>
           </div>
         </Router>
-        {/* </UserProvider> */}
       </ToastProvider>
     </div>
   );
