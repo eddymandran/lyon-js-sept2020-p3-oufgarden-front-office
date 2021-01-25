@@ -1,0 +1,20 @@
+.commentList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 90vw;
+}
+
+.show-comments {
+  border: unset;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: #292929;
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 10px;
+  width: 80vw;
+  padding: 8px;
+}

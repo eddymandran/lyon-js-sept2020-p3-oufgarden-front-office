@@ -1,17 +1,47 @@
 .garden-list-container {
-  margin: 100px 20px 20px 15%;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  button {
+    font-size: 15px;
+    font-weight: bold;
+    width: 100px;
+    margin: 5px;
+    background-color: #27841fbd;
+    border: unset;
+    border-radius: 50px;
+    padding: 8px;
+    width: 40vw;
+    outline: none;
+    color: white;
+  }
 }
 .garden-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  margin: 0 20px 20px 20px;
+  font-weight: bold;
+  text-align: center;
   background-color: #e5e7e9;
-  box-shadow: 10px;
-  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
-  &:hover {
-    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2),
-      0 3px 15px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 25px;
+}
+.imgGarden {
+  width: 100%;
+  height: 30vh;
+}
+.linkGarden {
+  padding: 10px;
+}
+.titleGarden {
+  margin: 15px 0px 0px;
+}
+@media screen and (min-width: 500px) {
+  .garden-list-container {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .garden-row {
+    width: 60%;
   }
 }

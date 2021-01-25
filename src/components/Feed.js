@@ -143,18 +143,27 @@ const Feed = () => {
               .map((e) => {
                 return (
                   <div key={e.id} className="articlesRow" favorite={false}>
-                    <div className="articlesInfos">
-                      <img className="imgArticle" src={e.url} alt="jardin" />
-                      <div className="text">{ReactHtmlParser(e.title)}</div>
-                    </div>
+                    <Link to={`/articles/${e.id}`}>
+                      <div className="articlesInfos">
+                        <img
+                          className="imgArticle"
+                          src={`http://localhost:5000/${e.url}`}
+                          alt="jardin"
+                        />
+                        <div className="text">{e.title}</div>
+                      </div>
+                    </Link>
                   </div>
                 );
               })
           : articles.map((e) => {
               return (
                 <div key={e.id} className="articlesRow">
-                  <div className="articlesInfos">
-                    <Link to={`/articles/${e.id}`}>
+                  <Link
+                    className="Link-to-articleDetails"
+                    to={`/articles/${e.id}`}
+                  >
+                    <div className="articlesInfos">
                       <div
                         className="likeButton"
                         onClick={() => {
@@ -169,10 +178,14 @@ const Feed = () => {
                       >
                         {/* ♥ */}
                       </div>
-                      <img className="imgArticle" src={e.url} alt="jardin" />
-                      <div className="text">{ReactHtmlParser(e.title)}</div>
-                    </Link>
-                  </div>
+                      <img
+                        className="imgArticle"
+                        src={`http://localhost:5000/${e.url}`}
+                        alt="jardin"
+                      />
+                      <div className="text">{e.title}</div>
+                    </div>
+                  </Link>
                 </div>
               );
             })}
