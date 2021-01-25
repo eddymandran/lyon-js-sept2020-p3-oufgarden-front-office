@@ -14,7 +14,7 @@ import TimeSlot from './TimeSlot';
 import history from '../history';
 import ArticlesDetails from './ArticlesDetails';
 import GardenInfos from './GardenInfos';
-import Calendar from './Calendar';
+import MyCalendar from './Calendar';
 
 const App = () => {
   return (
@@ -32,7 +32,7 @@ const App = () => {
               <Route exact path="/garden/:id" component={GardenInfos} />
               <Route exact path="/garden/:id/action" component={Action} />
               <Route exact path="/garden/:id/timeslots" component={TimeSlot} />
-              <Route exact path="/garden/:id/calendar" component={Calendar} />
+              <Route exact path="/garden/:id/calendar" component={MyCalendar} />
               <Route exact path="/garden/:id/Plot" />
               <Route exact path="/garden/:id/Plot/confirm" />
               <Route exact path="/garden/:id/Plot/success" />

@@ -6,26 +6,26 @@ import history from '../history';
 import { getCollection } from '../services/API';
 
 const Navbar = () => {
-  const [myGarden, setMyGarden] = useState([]);
+  const [myGardenId, setMyGardenId] = useState([]);
   useEffect(() => {
     getCollection('garden').then((elem) => {
-      setMyGarden(elem);
+      setMyGardenId(elem[0].id);
     });
   }, []);
   if (history.location.pathname === '/') {
     return false;
   }
-  console.log(myGarden);
-
   return (
     <div className="menu">
       <ul>
         <Link to="/articles">
           <div className="articles" />
         </Link>
-        <Link to={`garden/${myGarden.id}/calendar`}>
+
+        <Link to={`garden/${myGardenId}/calendar`}>
           <div className="calendar" />
         </Link>
+
         <Link to="/garden">
           <div className="jardin" />
         </Link>
