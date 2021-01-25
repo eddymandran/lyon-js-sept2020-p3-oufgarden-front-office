@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
-import { getEntity, makeEntityAdder, getCollection } from '../services/API';
+import API, {
+  getEntity,
+  makeEntityAdder,
+  getCollection,
+} from '../services/API';
 import './style/ArticlesDetails.scss';
 import CommentForm from './CommentForm';
 import CommentList from './CommentList';
@@ -12,6 +16,9 @@ const ArticlesDetails = (props) => {
   const [articlesDetails, setArticlesDetails] = useState(undefined);
   const [commentMessage, setCommentMessage] = useState('');
   const [comments, setComments] = useState([]);
+
+  const [favorite, setFavorite] = useState([]);
+  const [favoriteId, setFavoriteId] = useState(false);
 
   useEffect(() => {
     getEntity('articles', id).then((elem) => {
@@ -35,6 +42,29 @@ const ArticlesDetails = (props) => {
       setComments(comments);
       return null;
     });
+  };
+
+  useEffect(() => {
+    getCollection('articles/favorites').then((data) => setFavorite(data));
+  }, []);
+  console.log(favorite);
+
+  useEffect(() => {
+    if (favorite.length > 0) {
+      setFavoriteId(favorite.map((elem) => elem.article_id));
+    }
+  }, [favorite]);
+
+  const handleFavorite = () => {
+    if (favoriteId && favoriteId.includes(id)) {
+      API.delete('articles/favorites', { article_id: id }).then(() => {
+        setFavorite();
+      });
+    } else {
+      makeEntityAdder('articles/favorites')({ article_id: id }).then(() => {
+        setFavorite();
+      });
+    }
   };
 
   return (
@@ -69,6 +99,18 @@ const ArticlesDetails = (props) => {
               {ReactHtmlParser(articlesDetails.row.content)}
             </div>
           </div>
+          <div
+            role="button"
+            className="like-Button"
+            onClick={() => {
+              handleFavorite();
+            }}
+            onKeyPress={() => {
+              handleFavorite();
+            }}
+            aria-label="Boutton favori"
+            tabIndex={0}
+          />
         </div>
       )}
       <div className="commentaires">
