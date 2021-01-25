@@ -92,8 +92,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
-  text-align: center;
   width: 80%;
+  div:empty:before {
+    content: attr(data-placeholder);
+    color: black;
+  }
   .action1 {
     background-image: url('../../images/jardin.png');
     background-size: 60px;

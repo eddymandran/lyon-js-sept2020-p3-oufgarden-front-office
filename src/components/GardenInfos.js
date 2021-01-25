@@ -58,13 +58,18 @@ const GardenInfos = (props) => {
         <div className="gardenAction">
           {actionList.map((e) => {
             return (
-              <div key={e.id} className={`action${e.id}`}>
-                <Link to={`/garden/${gardenInfos.id}/action/${e.id}`}>
-                  <div className="logoAction" type="image" alt="action">
-                    {e.name}
-                  </div>
-                </Link>
-              </div>
+              <Link
+                to={`/garden/${gardenInfos.id}/action/${e.id}`}
+                className={`action${e.id}`}
+              >
+                <div
+                  key={e.id}
+                  type="image"
+                  alt="action"
+                  contentEditable="false"
+                  data-placeholder={e.name}
+                />
+              </Link>
             );
           })}
         </div>
