@@ -21,9 +21,12 @@ const Garden = () => {
             <p className="titleGarden">{e.name}</p>
             <div className="linkGarden">
               <Link to={`/garden/${e.id}/action`}>
-                <button type="button" className="actionButton">
-                  Action sur le jardin
-                </button>
+                <input
+                  type="image"
+                  id="image"
+                  alt="action"
+                  src="../images/jardin-active.png"
+                />
               </Link>
               <Link to={`/garden/${e.id}/timeslots`}>
                 <button type="button" className="actionButton">

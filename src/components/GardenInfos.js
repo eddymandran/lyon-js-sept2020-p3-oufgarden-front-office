@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './style/GardenInfos.scss';
 import { Link } from 'react-router-dom';
-import { getEntity } from '../services/API';
+import { getEntity /* , getCollection */ } from '../services/API';
 
 const GardenInfos = (props) => {
   // eslint-disable-next-line react/destructuring-assignment
   const { id } = props.match.params;
   const [gardenInfos, setGardenInfos] = useState([]);
+  /*   const [gardenActionFeed, setgardenActionFeed] = useState([]); */
 
   useEffect(() => {
     getEntity('garden', id).then((elem) => {
@@ -14,6 +15,13 @@ const GardenInfos = (props) => {
       console.log(elem);
     });
   }, []);
+
+  /*   useEffect(() => {
+    getCollection(`garden/${id}/actionFeed`).then((elem) => {
+      setgardenActionFeed(elem);
+      console.log(gardenActionFeed);
+    });
+  }, []); */
 
   return (
     <div className="garden-list-container-infos">
@@ -35,8 +43,19 @@ const GardenInfos = (props) => {
           <h3>{gardenInfos.name}</h3>
           <p>{gardenInfos.description}</p>
           <p>Exposition : {gardenInfos.exposition}</p>
-          <p>Adresse : {gardenInfos.address}</p>
+          <p>Adresse : {gardenInfos.address_id}</p>
         </div>
+        {/* {gardenActionFeed.map((e) => {
+          return (
+            <div key={e.id} className="gardenActionRow">
+              <div className="gardenActionInfos">
+                <p className="gardenNameAction" alt="jardin">
+                  {e.name}
+                </p>
+              </div>
+            </div>
+          );
+        })} */}
       </div>
     </div>
   );
