@@ -165,6 +165,7 @@ const Feed = () => {
                   >
                     <div className="articlesInfos">
                       <div
+                        role="button"
                         className="likeButton"
                         onClick={() => {
                           handleFavorite();
@@ -172,12 +173,9 @@ const Feed = () => {
                         onKeyPress={() => {
                           handleFavorite();
                         }}
-                        role="button"
                         tabIndex={0}
                         favorite={false}
-                      >
-                        {/* ♥ */}
-                      </div>
+                      />
                       <img
                         className="imgArticle"
                         src={`http://localhost:5000/${e.url}`}
