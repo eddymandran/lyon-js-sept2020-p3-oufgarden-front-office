@@ -7,8 +7,9 @@ import './style/TimeSlots.scss';
 
 const TimeSlot = (props) => {
   const { register, handleSubmit } = useForm();
-  const [timeSelection, setTimeSelection] = useState('');
+  const [timeSelection, setTimeSelection] = useState([]);
   const [timeSelectionChoice, setTimeSelectionChoice] = useState([]);
+  const [options, setOptions] = useState([]);
   const {
     match: {
       params: { id },
@@ -20,17 +21,16 @@ const TimeSlot = (props) => {
       setTimeSelection(data);
     });
   }, []);
-  let options = [];
-  try {
-    options = timeSelection.map((e) => {
-      return {
-        value: e.id,
-        label: `${e.start_time} - ${e.end_time}`,
-      };
-    });
-  } catch (err) {
-    console.log(err);
-  }
+  useEffect(() => {
+    setOptions(
+      timeSelection.map((e) => {
+        return {
+          value: e.id,
+          label: `${e.start_time} - ${e.end_time}`,
+        };
+      })
+    );
+  }, [timeSelection]);
 
   const onSubmit = async (data) => {
     const newData = {
