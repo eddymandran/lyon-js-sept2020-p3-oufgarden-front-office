@@ -1,0 +1,47 @@
+.garden-list-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  button {
+    font-size: 15px;
+    font-weight: bold;
+    width: 100px;
+    margin: 5px;
+    background-color: #27841fbd;
+    border: unset;
+    border-radius: 50px;
+    padding: 8px;
+    width: 40vw;
+    outline: none;
+    color: white;
+  }
+}
+.garden-row {
+  font-weight: bold;
+  text-align: center;
+  background-color: #e5e7e9;
+  border-radius: 25px;
+}
+.imgGarden {
+  width: 100%;
+  height: 30vh;
+}
+.linkGarden {
+  padding: 10px;
+}
+.titleGarden {
+  margin: 15px 0px 0px;
+}
+@media screen and (min-width: 500px) {
+  .garden-list-container {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .garden-row {
+    width: 60%;
+  }
+}

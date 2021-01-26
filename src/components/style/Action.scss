@@ -1,0 +1,104 @@
+.garden-list-action {
+  width: 100vw;
+  margin-top: 20px;
+  font-weight: bold;
+  h3 {
+    margin-left: 30px;
+    font-size: 1.5rem;
+  }
+}
+.actionTitle {
+  margin: 10px;
+}
+
+.action-row {
+  /* box-sizing: border-box; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 20px;
+  align-items: center;
+  padding: 20px;
+  margin: 0 20px 20px 20px;
+  background-color: #e5e7e9;
+  &:hover {
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2),
+      0 3px 15px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+.actionGarden {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  text-align: center;
+  width: 100vw;
+}
+
+.css-2b097c-container {
+  width: 300px;
+  margin: 10px;
+  .css-yk16xz-control {
+    border-radius: 50px;
+  }
+  .css-1pahdxg-control {
+    border-radius: 50px;
+  }
+}
+
+.labelZone {
+  margin-top: 20px;
+}
+
+.date {
+  width: 220px;
+  border: unset;
+  outline: none;
+  margin: 10px;
+  border-radius: 50px;
+  padding: 10px;
+}
+.time {
+  width: 220px;
+  border: unset;
+  outline: none;
+  margin: 10px;
+  border-radius: 50px;
+  padding: 10px;
+}
+.description {
+  width: 260px;
+  height: 100px;
+  border: unset;
+  outline: none;
+  margin: 5px;
+  margin-top: 10px;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.sendButton {
+  width: 150px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #27841fd5;
+  border: unset;
+  border-radius: 50px;
+  outline: none;
+  color: white;
+}
+@media screen and (min-width: 500px) {
+  .date {
+    width: 54vw;
+  }
+  .time {
+    width: 54vw;
+  }
+  .description {
+    width: 58vw;
+  }
+  .css-2b097c-container {
+    width: 60vw;
+  }
+}

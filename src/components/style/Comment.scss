@@ -1,0 +1,25 @@
+.comment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+}
+
+.all-comment {
+  margin-right: 30px;
+}
+
+.show-comment {
+  border: unset;
+  outline: none;
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: #292929;
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 10px;
+  width: 80vw;
+  padding: 8px;
+  margin: 10px;
+}
