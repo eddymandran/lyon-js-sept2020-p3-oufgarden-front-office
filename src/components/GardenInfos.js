@@ -15,6 +15,13 @@ const GardenInfos = (props) => {
   const [actionList, setActionList] = useState([]);
   const [gardenZone, setGardenZone] = useState([]);
   const [actionToFeed, setActionToFeed] = useState([]);
+  const [zoneActionOpen, setZoneActionOpen] = useState({});
+
+  const toggleDisplayZone = (zoneId) => {
+    setZoneActionOpen((openZone) => {
+      return { ...openZone, [zoneId]: !openZone[zoneId] };
+    });
+  };
 
   useEffect(() => {
     getCollection('actions').then((elem) => {
@@ -78,7 +85,10 @@ const GardenInfos = (props) => {
             gardenZone.map((e) => {
               return (
                 <div key={e.id} className="gardenZoneRow">
-                  {e.name}
+                  <button type="button" onClick={() => toggleDisplayZone(e.id)}>
+                    {e.name}
+                  </button>
+                  {zoneActionOpen[e.id] && <div>This text will show!</div>}
                 </div>
               );
             })}
