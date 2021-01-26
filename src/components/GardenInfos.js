@@ -13,6 +13,7 @@ const GardenInfos = (props) => {
   } = props;
   const [gardenInfos, setGardenInfos] = useState([]);
   const [actionList, setActionList] = useState([]);
+  const [gardenZone, setGardenZone] = useState([]);
   useEffect(() => {
     getCollection('actions').then((elem) => {
       setActionList(elem);
@@ -23,6 +24,14 @@ const GardenInfos = (props) => {
       setGardenInfos(data);
     });
   }, []);
+  useEffect(() => {
+    if (gardenInfos) {
+      getCollection(`garden/${id}/zones`).then((elem) => {
+        setGardenZone(elem);
+      });
+    }
+  }, [gardenInfos]);
+  console.log(gardenZone);
 
   return (
     <div className="garden-list-container-infos">
