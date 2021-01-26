@@ -80,7 +80,7 @@ const GardenInfos = (props) => {
           <p>Exposition : {gardenInfos.exposition}</p>
           <p>Adresse : {gardenInfos.address_id}</p>
         </div>
-        <div>
+        <div className="gardenZoneContainer">
           {gardenZone &&
             gardenZone.map((e) => {
               return (
