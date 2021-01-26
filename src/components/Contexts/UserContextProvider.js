@@ -1,19 +1,21 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { getEntity } from '../../services/API';
+import { getCollection } from '../../services/API';
 
 export const UserContext = createContext();
 
-const UserContextProvider = ({ children }) => {
-  const [userDetails, setUserDetails] = useState();
+const UserProvider = ({ children }) => {
+  const [gardenInfos, setGardenInfos] = useState([]);
 
   useEffect(() => {
-    getEntity('users').then((data) => setUserDetails(data));
+    getCollection('garden').then((data) => {
+      setGardenInfos(data);
+    });
   }, []);
   return (
-    <UserContext.Provider value={{ userDetails }}>
+    <UserContext.Provider value={{ gardenInfos }}>
       {children}
     </UserContext.Provider>
   );
 };
 
-export default UserContextProvider;
+export default UserProvider;

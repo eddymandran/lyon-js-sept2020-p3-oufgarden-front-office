@@ -1,33 +1,31 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './style/Action.scss';
 import { useForm, Controller } from 'react-hook-form';
 import Select from 'react-select';
 import { getCollection, makeEntityAdder } from '../services/API';
+import { UserContext } from './Contexts/UserContextProvider';
 
 const Action = (props) => {
+  const { register, handleSubmit, control } = useForm();
+  const [gardenAction, setgardenAction] = useState([]);
+  const [gardenZone, setGardenZone] = useState([]);
+  const { gardenInfos } = useContext(UserContext);
   const {
     match: {
       params: { id },
     },
   } = props;
-
-  const { register, handleSubmit, control } = useForm();
-  const [gardenAction, setgardenAction] = useState([]);
-  const [gardenZone, setgardenZone] = useState([]);
-
+  useEffect(() => {
+    if (gardenInfos.length > 0) {
+      getCollection(`garden/${gardenInfos[0].id}/zones`).then((elem) => {
+        setGardenZone(elem);
+      });
+    }
+  }, [gardenInfos]);
   useEffect(() => {
     getCollection('actions').then((elem) => {
       setgardenAction(elem);
-      console.log(elem);
-    });
-  }, []);
-  console.log(gardenAction);
-
-  useEffect(() => {
-    getCollection(`garden/${id}/zones`).then((elem) => {
-      setgardenZone(elem);
-      console.log(`les zones ${gardenZone}`);
     });
   }, []);
 
@@ -50,7 +48,7 @@ const Action = (props) => {
       )
         .then(() => {
           setgardenAction([]);
-          setgardenZone([]);
+          setGardenZone([]);
         })
         .then(() => {
           props.history.push('/garden');

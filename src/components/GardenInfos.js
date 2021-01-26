@@ -14,14 +14,12 @@ const GardenInfos = (props) => {
   useEffect(() => {
     getEntity('garden', id).then((elem) => {
       setGardenInfos(elem);
-      console.log(elem);
     });
   }, []);
 
   useEffect(() => {
     getCollection('actions').then((elem) => {
       setActionList(elem);
-      console.log(elem);
     });
   }, []);
 
@@ -51,7 +49,7 @@ const GardenInfos = (props) => {
           {actionList.map((e) => {
             return (
               <Link
-                to={`/garden/${gardenInfos.id}/action/${e.id}`}
+                to={`/garden/${id}/action/${e.id}`}
                 className={`action${e.id}`}
               >
                 <div
