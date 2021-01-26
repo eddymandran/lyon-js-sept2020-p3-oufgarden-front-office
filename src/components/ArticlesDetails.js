@@ -53,20 +53,23 @@ const ArticlesDetails = (props) => {
     if (favorite && favorite.length > 0) {
       setFavoriteId(favorite.map((elem) => elem.article_id));
     }
+    if (favorite && favorite.length === 0) {
+      setFavoriteId([]);
+    }
   }, [favorite]);
 
-  const handleFavorite = async () => {
+  const handleFavorite = () => {
     /* if (favoriteId && favoriteId.includes(+id)) {
       API.delete('articles/favorites', { article_id: id }).then(() => {
         setFavorite();
       }); */
     if (favoriteId && favoriteId.includes(+id)) {
       makeEntityDeleter('articles/favorites')(id).then(() => {
-        setFavorite([]);
+        getCollection('articles/favorites').then((data) => setFavorite(data));
       });
     } else {
       makeEntityAdder('articles/favorites')({ article_id: id }).then(() => {
-        setFavorite([]);
+        getCollection('articles/favorites').then((data) => setFavorite(data));
       });
     }
   };
