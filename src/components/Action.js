@@ -8,7 +8,7 @@ import { UserContext } from './Contexts/UserContextProvider';
 
 const Action = (props) => {
   const { register, handleSubmit, control } = useForm();
-  const [gardenAction, setgardenAction] = useState([]);
+  const [gardenAction, setGardenAction] = useState([]);
   const [gardenZone, setGardenZone] = useState([]);
   const { gardenInfos } = useContext(UserContext);
   const {
@@ -25,9 +25,10 @@ const Action = (props) => {
   }, [gardenInfos]);
   useEffect(() => {
     getCollection('actions').then((elem) => {
-      setgardenAction(elem);
+      setGardenAction(elem);
     });
   }, []);
+  console.log(gardenZone);
 
   const zoneOption = gardenZone.map((elem) => {
     return {
@@ -47,7 +48,7 @@ const Action = (props) => {
         newData
       )
         .then(() => {
-          setgardenAction([]);
+          setGardenAction([]);
           setGardenZone([]);
         })
         .then(() => {

@@ -1,5 +1,5 @@
-import './App.css';
 import React from 'react';
+import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import { Router } from 'react-router';
 import { ToastProvider } from 'react-toast-notifications';
