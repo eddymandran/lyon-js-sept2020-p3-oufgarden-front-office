@@ -34,6 +34,7 @@ const Action = (props) => {
       });
     }
   }, [gardenInfos]);
+
   useEffect(() => {
     getCollection('actions').then((elem) => {
       setGardenAction(elem);
