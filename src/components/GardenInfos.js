@@ -14,6 +14,8 @@ const GardenInfos = (props) => {
   const [gardenInfos, setGardenInfos] = useState([]);
   const [actionList, setActionList] = useState([]);
   const [gardenZone, setGardenZone] = useState([]);
+  const [actionToFeed, setActionToFeed] = useState([]);
+
   useEffect(() => {
     getCollection('actions').then((elem) => {
       setActionList(elem);
@@ -32,6 +34,30 @@ const GardenInfos = (props) => {
     }
   }, [gardenInfos]);
   console.log(gardenZone);
+
+  useEffect(() => {
+    if (gardenInfos) {
+      getCollection(`garden/${id}/zones`).then((elem) => {
+        setGardenZone(elem);
+      });
+    }
+  }, [gardenInfos]);
+  console.log(gardenZone);
+
+  useEffect(() => {
+    if (gardenZone.lenght > 0) {
+      gardenZone.map((elem) => {
+        console.log(elem.id);
+        return getCollection(`${id}/zones/${elem.id}/actionFeed`).then(
+          (data) => {
+            setActionToFeed((prevState) => [...prevState, data]);
+          }
+        );
+      });
+    }
+  });
+
+  console.log(actionToFeed);
 
   return (
     <div className="garden-list-container-infos">
@@ -54,6 +80,16 @@ const GardenInfos = (props) => {
           <p>{gardenInfos.description}</p>
           <p>Exposition : {gardenInfos.exposition}</p>
           <p>Adresse : {gardenInfos.address_id}</p>
+        </div>
+        <div>
+          {gardenZone &&
+            gardenZone.map((e) => {
+              return (
+                <div key={e.id} className="gardenZoneRow">
+                  {e.name}
+                </div>
+              );
+            })}
         </div>
         <div className="gardenAction">
           {actionList.map((e) => {
