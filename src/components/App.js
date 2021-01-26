@@ -32,7 +32,7 @@ const App = () => {
               <Route exact path="/garden/:id" component={GardenInfos} />
               <Route exact path="/garden/:id/action" component={Action} />
               <Route exact path="/garden/:id/timeslots" component={TimeSlot} />
-              <Route exact path="/garden/:id/calendar" component={MyCalendar} />
+              <Route path="/garden/:id/calendar" component={MyCalendar} />
               <Route exact path="/garden/:id/Plot" />
               <Route exact path="/garden/:id/Plot/confirm" />
               <Route exact path="/garden/:id/Plot/success" />

@@ -22,7 +22,7 @@ const Navbar = () => {
           <div className="articles" />
         </Link>
 
-        <Link to={`garden/${myGardenId}/calendar`}>
+        <Link to={`/garden/${myGardenId}/calendar`}>
           <div className="calendar" />
         </Link>
 
