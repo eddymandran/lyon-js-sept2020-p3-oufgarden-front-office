@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
-import API, {
+import {
   getEntity,
   makeEntityAdder,
   getCollection,
+  makeEntityDeleter,
 } from '../services/API';
 import './style/ArticlesDetails.scss';
 import CommentForm from './CommentForm';
@@ -21,6 +22,8 @@ const ArticlesDetails = (props) => {
 
   const [favorite, setFavorite] = useState([]);
   const [favoriteId, setFavoriteId] = useState(false);
+
+  const buttonFavorite = useRef(null);
 
   useEffect(() => {
     getEntity('articles', id).then((elem) => {
@@ -49,26 +52,47 @@ const ArticlesDetails = (props) => {
   useEffect(() => {
     getCollection('articles/favorites').then((data) => setFavorite(data));
   }, []);
-  console.log(favorite);
 
   useEffect(() => {
-    if (favorite.length > 0) {
+    if (favorite && favorite.length > 0) {
       setFavoriteId(favorite.map((elem) => elem.article_id));
+    }
+    if (favorite && favorite.length === 0) {
+      setFavoriteId([]);
     }
   }, [favorite]);
 
-  const handleFavorite = () => {
-    if (favoriteId && favoriteId.includes(id)) {
-      API.delete('articles/favorites', { article_id: id }).then(() => {
-        setFavorite();
+  const handleFavorite = (target) => {
+    if (favoriteId && favoriteId.includes(+id)) {
+      makeEntityDeleter('articles/favorites')(id).then(() => {
+        getCollection('articles/favorites').then((data) => setFavorite(data));
+        target.classList.toggle('selected-like-article');
       });
     } else {
       makeEntityAdder('articles/favorites')({ article_id: id }).then(() => {
-        setFavorite();
+        getCollection('articles/favorites').then((data) => setFavorite(data));
+        target.classList.toggle('selected-like-article');
       });
     }
   };
-  console.log(favoriteId);
+
+  useEffect(() => {
+    if (articlesDetails) {
+      if (favoriteId && favoriteId.includes(+id)) {
+        if (
+          !buttonFavorite.current.classList.contains('selected-like-article')
+        ) {
+          buttonFavorite.current.classList.add('selected-like-article');
+        }
+      } else if (favoriteId && !favoriteId.includes(+id)) {
+        if (
+          buttonFavorite.current.classList.contains('selected-like-article')
+        ) {
+          buttonFavorite.current.classList.remove('selected-like-article');
+        }
+      }
+    }
+  }, [favoriteId, articlesDetails]);
 
   return (
     <div className="articleDetailsPage">
@@ -105,11 +129,12 @@ const ArticlesDetails = (props) => {
           <div
             role="button"
             className="like-Button"
-            onClick={() => {
-              handleFavorite();
+            ref={buttonFavorite}
+            onClick={(e) => {
+              handleFavorite(e.target);
             }}
-            onKeyPress={() => {
-              handleFavorite();
+            onKeyPress={(e) => {
+              handleFavorite(e.target);
             }}
             aria-label="Boutton favori"
             tabIndex={0}

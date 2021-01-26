@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState, useEffect /* useContext  */ } from 'react';
 import { Link } from 'react-router-dom';
@@ -64,8 +65,10 @@ const Feed = () => {
     if (tagList.includes(+target.id)) {
       const newTagList = tagList.filter((item) => item !== +target.id);
       setTagList(newTagList);
+      target.classList.toggle('selected-tag-filter');
     } else {
       setTagList((prevState) => [...prevState, +target.id]);
+      target.classList.toggle('selected-tag-filter');
     }
   };
 
@@ -78,13 +81,11 @@ const Feed = () => {
       setFavoriteId(favorite.map((elem) => elem.article_id));
     }
   }, [favorite]);
-  console.log(favoriteId);
-  console.log(favorite);
 
-  const handleFavoriteList = () => {
+  const handleFavoriteList = (target) => {
     setShowFavoriteList(!showFavoriteList);
+    target.classList.toggle('selected-like-filter');
   };
-  console.log(showFavoriteList);
 
   // const handleFavorite = () => {
   //   if (favoriteId && favoriteId.includes(id)) {
@@ -117,7 +118,7 @@ const Feed = () => {
         <button
           type="button"
           className="buttonPres"
-          onClick={() => handleFavoriteList()}
+          onClick={(e) => handleFavoriteList(e.target)}
         />
         {allTags &&
           allTags.map((tag) => {
@@ -165,12 +166,12 @@ const Feed = () => {
                   })
                   .map((e) => {
                     return (
-                      <div key={e.id} className="articlesRow" favorite={false}>
+                      <div key={e.id} className="articlesRow">
                         <Link to={`/articles/${e.id}`}>
                           <div className="articlesInfos">
                             <img
                               className="imgArticle"
-                              src={`${URL}/${e.article_url}`}
+                              src={`${URL}/${e.url}`}
                               alt="jardin"
                             />
                             <div className="text">{e.title}</div>
@@ -187,7 +188,7 @@ const Feed = () => {
                         to={`/articles/${e.id}`}
                       >
                         <div className="articlesInfos">
-                          <div
+                          {/* <div
                             className="likeButton"
                             // onClick={(e) => {
                             //   handleFavorite(e.id);
@@ -197,10 +198,10 @@ const Feed = () => {
                             // }}
                             // role="button"
                             // tabIndex={0}
-                          />
+                          /> */}
                           <img
                             className="imgArticle"
-                            src={`${URL}/${e.article_url}`}
+                            src={`${URL}/${e.url}`}
                             alt="jardin"
                           />
                           <div className="text">{e.title}</div>

@@ -120,24 +120,16 @@
   background-repeat: no-repeat;
   background-position: center;
   background-color: none;
-  &:focus {
-    background-image: url('../../images/heart-full.png');
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: center;
-    outline: 0;
-    width: 70px;
-    height: 70px;
-  }
-  &:after {
-    background-image: url('../../images/heart-full.png');
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: center;
-    outline: 0;
-    width: 70px;
-    height: 70px;
-  }
+  outline: 0;
+}
+.selected-like-article {
+  background-image: url('../../images/heart-full.png');
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  outline: 0;
+  width: 70px;
+  height: 70px;
 }
 
 .comments-title {
