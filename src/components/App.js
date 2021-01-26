@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import { Router } from 'react-router';
@@ -19,7 +20,6 @@ const App = () => {
   return (
     <div>
       <ToastProvider placement="top-right">
-        {/* <UserProvider> */}
         <Router history={history}>
           <Navbar />
           <div className="App">
@@ -38,7 +38,6 @@ const App = () => {
             </Switch>
           </div>
         </Router>
-        {/* </UserProvider> */}
       </ToastProvider>
     </div>
   );

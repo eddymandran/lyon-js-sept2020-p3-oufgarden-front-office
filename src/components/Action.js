@@ -13,12 +13,12 @@ const Action = (props) => {
   } = props;
 
   const { register, handleSubmit, control } = useForm();
-  const [gardenAction, setgardenAction] = useState([]);
-  const [gardenZone, setgardenZone] = useState([]);
+  const [gardenAction, setGardenAction] = useState([]);
+  const [gardenZone, setGardenZone] = useState([]);
 
   useEffect(() => {
     getCollection('actions').then((elem) => {
-      setgardenAction(elem);
+      setGardenAction(elem);
       console.log(elem);
     });
   }, []);
@@ -26,10 +26,10 @@ const Action = (props) => {
 
   useEffect(() => {
     getCollection(`garden/${id}/zones`).then((elem) => {
-      setgardenZone(elem);
-      console.log(`les zones ${gardenZone}`);
+      setGardenZone(elem);
     });
   }, []);
+  console.log(gardenZone);
 
   const zoneOption = gardenZone.map((elem) => {
     return {
@@ -49,8 +49,8 @@ const Action = (props) => {
         newData
       )
         .then(() => {
-          setgardenAction([]);
-          setgardenZone([]);
+          setGardenAction([]);
+          setGardenZone([]);
         })
         .then(() => {
           props.history.push('/garden');
