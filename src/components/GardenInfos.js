@@ -45,18 +45,25 @@ const GardenInfos = (props) => {
   console.log(gardenZone);
 
   useEffect(() => {
-    if (gardenZone.lenght > 0) {
+    if (gardenZone.length > 0) {
       gardenZone.map((elem) => {
-        console.log(elem.id);
-        return getCollection(`${id}/zones/${elem.id}/actionFeed`).then(
+        return getCollection(`garden/${id}/zones/${elem.id}/actionFeed`).then(
           (data) => {
             setActionToFeed((prevState) => [...prevState, data]);
           }
         );
       });
     }
-  });
-
+  }, [gardenZone]);
+  /*  useEffect(() => {
+    if (gardenZone.length > 0) {
+      getCollection(`garden/${id}/zones/${gardenZone[0].id}/actionFeed`).then(
+        (data) => {
+          setActionToFeed(data);
+        }
+      );
+    }
+  }, [gardenZone]); */
   console.log(actionToFeed);
 
   return (
