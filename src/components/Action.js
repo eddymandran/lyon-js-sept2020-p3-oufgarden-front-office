@@ -24,10 +24,12 @@ const Action = (props) => {
     getEntity('garden', gardenId).then((data) => {
       setGardenInfos(data);
     });
-  });
+  }, []);
+  console.log(gardenInfos);
+
   useEffect(() => {
-    if (gardenInfos.length > 0) {
-      getCollection(`garden/${gardenInfos[0].id}/zones`).then((elem) => {
+    if (gardenInfos) {
+      getCollection(`garden/${gardenId}/zones`).then((elem) => {
         setGardenZone(elem);
       });
     }
