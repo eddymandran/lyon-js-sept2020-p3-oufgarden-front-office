@@ -28,7 +28,6 @@ const Action = (props) => {
       setGardenAction(elem);
     });
   }, []);
-  console.log(gardenZone);
 
   const zoneOption = gardenZone.map((elem) => {
     return {
@@ -39,7 +38,7 @@ const Action = (props) => {
   const onSubmit = async (data, e) => {
     const newData = {
       ...data,
-      action_id: data.action.value,
+      action_id: id,
       zone_id: data.zone.value,
     };
 
