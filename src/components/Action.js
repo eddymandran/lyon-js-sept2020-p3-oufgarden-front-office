@@ -1,21 +1,30 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style/Action.scss';
 import { useForm, Controller } from 'react-hook-form';
 import Select from 'react-select';
-import { getCollection, makeEntityAdder } from '../services/API';
-import { UserContext } from './Contexts/UserContextProvider';
+import { getCollection, getEntity, makeEntityAdder } from '../services/API';
 
 const Action = (props) => {
   const { register, handleSubmit, control } = useForm();
   const [gardenAction, setGardenAction] = useState([]);
   const [gardenZone, setGardenZone] = useState([]);
-  const { gardenInfos } = useContext(UserContext);
+  const [gardenInfos, setGardenInfos] = useState([]);
   const {
     match: {
       params: { id },
     },
   } = props;
+  const {
+    match: {
+      params: { gardenId },
+    },
+  } = props;
+  useEffect(() => {
+    getEntity('garden', gardenId).then((data) => {
+      setGardenInfos(data);
+    });
+  });
   useEffect(() => {
     if (gardenInfos.length > 0) {
       getCollection(`garden/${gardenInfos[0].id}/zones`).then((elem) => {
@@ -36,6 +45,7 @@ const Action = (props) => {
     };
   });
   const onSubmit = async (data, e) => {
+    console.log(data);
     const newData = {
       ...data,
       action_id: id,

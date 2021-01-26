@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style/GardenInfos.scss';
 import { Link } from 'react-router-dom';
-import { UserContext } from './Contexts/UserContextProvider';
-
-import { getCollection } from '../services/API';
+/* import { UserContext } from './Contexts/UserContextProvider';
+ */
+import { getEntity, getCollection } from '../services/API';
 
 const GardenInfos = (props) => {
   const {
@@ -11,18 +11,22 @@ const GardenInfos = (props) => {
       params: { id },
     },
   } = props;
-
+  const [gardenInfos, setGardenInfos] = useState([]);
   const [actionList, setActionList] = useState([]);
-  const { gardenInfos } = useContext(UserContext);
   useEffect(() => {
     getCollection('actions').then((elem) => {
       setActionList(elem);
     });
   }, []);
+  useEffect(() => {
+    getEntity('garden', id).then((data) => {
+      setGardenInfos(data);
+    });
+  }, []);
 
   return (
     <div className="garden-list-container-infos">
-      <div key={gardenInfos.id} className="garden-row-infos">
+      <div key={id} className="garden-row-infos">
         <div className="whitebar-infos">
           <div className="back-home-infos">
             <Link className="link-back-feed-garden" to="/garden">
