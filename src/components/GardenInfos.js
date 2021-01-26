@@ -11,7 +11,6 @@ const GardenInfos = (props) => {
   const [gardenInfos, setGardenInfos] = useState([]);
   const [actionList, setActionList] = useState([]);
   /*   const [gardenActionFeed, setgardenActionFeed] = useState([]); */
-
   useEffect(() => {
     getEntity('garden', id).then((elem) => {
       setGardenInfos(elem);
@@ -25,13 +24,6 @@ const GardenInfos = (props) => {
       console.log(elem);
     });
   }, []);
-
-  /*   useEffect(() => {
-    getCollection(`garden/${id}/actionFeed`).then((elem) => {
-      setgardenActionFeed(elem);
-      console.log(gardenActionFeed);
-    });
-  }, []); */
 
   return (
     <div className="garden-list-container-infos">
