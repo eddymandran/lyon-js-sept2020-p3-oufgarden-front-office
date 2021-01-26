@@ -7,6 +7,7 @@ import { getCollection } from '../services/API';
 import './style/Feed.scss';
 
 /* import { UserContext } from './Contexts/UserContextProvider'; */
+const URL = process.env.REACT_APP_API_BASE_URL;
 
 const Feed = () => {
   const [articles, setArticles] = useState([]);
@@ -143,7 +144,7 @@ const Feed = () => {
                   <div className="articlesInfos">
                     <img
                       className="imgArticle"
-                      src={`http://localhost:5000/${e.article_url}`}
+                      src={`${URL}/${e.article_url}`}
                       alt="jardin"
                     />
                     <div className="text">{e.article_title}</div>
@@ -169,7 +170,7 @@ const Feed = () => {
                           <div className="articlesInfos">
                             <img
                               className="imgArticle"
-                              src={`http://localhost:5000/${e.url}`}
+                              src={`${URL}/${e.article_url}`}
                               alt="jardin"
                             />
                             <div className="text">{e.title}</div>
@@ -188,17 +189,18 @@ const Feed = () => {
                         <div className="articlesInfos">
                           <div
                             className="likeButton"
-                            // onClick={() => {
+                            // onClick={(e) => {
                             //   handleFavorite(e.id);
                             // }}
-                            // onKeyPress={() => {
+                            // onKeyPress={(e) => {
                             //   handleFavorite(e.id);
                             // }}
+                            // role="button"
                             // tabIndex={0}
                           />
                           <img
                             className="imgArticle"
-                            src={`http://localhost:5000/${e.url}`}
+                            src={`${URL}/${e.article_url}`}
                             alt="jardin"
                           />
                           <div className="text">{e.title}</div>

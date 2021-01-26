@@ -10,6 +10,8 @@ import './style/ArticlesDetails.scss';
 import CommentForm from './CommentForm';
 import CommentList from './CommentList';
 
+const URL = process.env.REACT_APP_API_BASE_URL;
+
 const ArticlesDetails = (props) => {
   // eslint-disable-next-line react/destructuring-assignment
   const { id } = props.match.params;
@@ -66,6 +68,7 @@ const ArticlesDetails = (props) => {
       });
     }
   };
+  console.log(favoriteId);
 
   return (
     <div className="articleDetailsPage">
@@ -73,7 +76,7 @@ const ArticlesDetails = (props) => {
         <div className="articlesDetails">
           <img
             className="imgArticleDetails"
-            src={`http://localhost:5000/${articlesDetails.row.url}`}
+            src={`${URL}/${articlesDetails.row.url}`}
             alt="jardin"
           />
           <div className="whitebar">
