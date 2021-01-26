@@ -1,24 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './style/GardenInfos.scss';
 import { Link } from 'react-router-dom';
-/* import jardinAction from '../images/jardin-active.png'; */
+import { UserContext } from './Contexts/UserContextProvider';
 
-import { getEntity, getCollection } from '../services/API';
+import { getCollection } from '../services/API';
 
 const GardenInfos = (props) => {
-  // eslint-disable-next-line react/destructuring-assignment
-  const { id } = props.match.params;
-  const [gardenInfos, setGardenInfos] = useState([]);
-  const [actionList, setActionList] = useState([]);
-  /* const [gardenZone, setgardenZone] = useState([]); */
-  /*  const [zoneActionOpen, setZoneActionOpen] = useState(true); */
-  /*   const [gardenActionFeed, setgardenActionFeed] = useState([]); */
-  useEffect(() => {
-    getEntity('garden', id).then((elem) => {
-      setGardenInfos(elem);
-    });
-  }, []);
+  const {
+    match: {
+      params: { id },
+    },
+  } = props;
 
+  const [actionList, setActionList] = useState([]);
+  const { gardenInfos } = useContext(UserContext);
   useEffect(() => {
     getCollection('actions').then((elem) => {
       setActionList(elem);
@@ -47,21 +42,6 @@ const GardenInfos = (props) => {
           <p>Exposition : {gardenInfos.exposition}</p>
           <p>Adresse : {gardenInfos.address_id}</p>
         </div>
-        {/*  <div>
-          {.map((e) => {
-            return (
-              <div key={e.id} className="gardenActionRow">
-                <button
-                  type="button"
-                  onClick={() => setZoneActionOpen(!zoneActionOpen)}
-                >
-                  Toggle Text
-                </button>
-                {zoneActionOpen && <div>This text will show!</div>}
-              </div>
-            );
-          })}
-        </div> */}
         <div className="gardenAction">
           {actionList.map((e) => {
             return (
@@ -80,18 +60,6 @@ const GardenInfos = (props) => {
             );
           })}
         </div>
-
-        {/* {gardenActionFeed.map((e) => {
-          return (
-            <div key={e.id} className="gardenActionRow">
-              <div className="gardenActionInfos">
-                <p className="gardenNameAction" alt="jardin">
-                  {e.name}
-                </p>
-              </div>
-            </div>
-          );
-        })} */}
       </div>
     </div>
   );
