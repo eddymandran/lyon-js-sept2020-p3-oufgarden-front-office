@@ -43,28 +43,20 @@
     width: 5vw;
     height: 5vh;
     border: none;
+    border: 2px solid white;
     color: #082852;
     background-image: url('../../images/heart.png');
     background-size: 50%;
     background-repeat: no-repeat;
     background-position: center;
     outline: 0;
-    &:focus {
-      border: 2px solid #082852;
-      outline: 0;
-      border: 2px solid #082852;
-      background-image: url('../../images/heart-full.png');
-      background-size: 50%;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-    &:after {
-      border: 1px solid #082852;
-      background-image: url('../../images/heart-full.png');
-      background-size: 50%;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
+  }
+  .selected-like-filter {
+    border: 2px solid #082852;
+    background-image: url('../../images/heart-full.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   .filterButton {
@@ -77,14 +69,11 @@
     border-radius: 20px;
     margin: 10px;
     height: 40px;
-    &:focus {
-      border: 2px solid #082852;
-      outline: 0;
-    }
-    &:active {
-      border: 2px solid #082852;
-      outline: 0;
-    }
+    outline: 0;
+  }
+  .selected-tag-filter {
+    border: 2px solid #082852;
+    outline: 0;
   }
 
   .articleListContainer {
@@ -118,43 +107,43 @@
     font-size: 16px;
   }
 
-  .likeButton {
-    display: inline-block;
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    left: 75%;
-    top: 17%;
-    border: none;
-    cursor: pointer;
-    background-image: url('../../images/heart-pure-white.png');
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: none;
-    &:focus {
-      background-image: url('../../images/heart-pure-white.png');
-      background-size: 50%;
-      background-repeat: no-repeat;
-      background-position: center;
-      position: absolute;
-      outline: 0;
-      width: 70px;
-      height: 70px;
-      left: 75%;
-      top: 17%;
-    }
-    &:after {
-      background-image: url('../../images/heart-full.png');
-      background-size: 50%;
-      background-repeat: no-repeat;
-      background-position: center;
-      position: absolute;
-      outline: 0;
-      width: 70px;
-      height: 70px;
-      left: 75%;
-      top: 17%;
-    }
-  }
+  // .likeButton {
+  //   display: inline-block;
+  //   position: absolute;
+  //   width: 70px;
+  //   height: 70px;
+  //   left: 75%;
+  //   top: 17%;
+  //   border: none;
+  //   cursor: pointer;
+  //   background-image: url('../../images/heart-pure-white.png');
+  //   background-size: 50%;
+  //   background-repeat: no-repeat;
+  //   background-position: center;
+  //   background-color: none;
+  //   &:focus {
+  //     background-image: url('../../images/heart-pure-white.png');
+  //     background-size: 50%;
+  //     background-repeat: no-repeat;
+  //     background-position: center;
+  //     position: absolute;
+  //     outline: 0;
+  //     width: 70px;
+  //     height: 70px;
+  //     left: 75%;
+  //     top: 17%;
+  //   }
+  //   &:after {
+  //     background-image: url('../../images/heart-full.png');
+  //     background-size: 50%;
+  //     background-repeat: no-repeat;
+  //     background-position: center;
+  //     position: absolute;
+  //     outline: 0;
+  //     width: 70px;
+  //     height: 70px;
+  //     left: 75%;
+  //     top: 17%;
+  //   }
+  // }
 }

@@ -1,10 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
-import { getEntity, makeEntityAdder, getCollection } from '../services/API';
+import {
+  getEntity,
+  makeEntityAdder,
+  getCollection,
+  makeEntityDeleter,
+} from '../services/API';
 import './style/ArticlesDetails.scss';
 import CommentForm from './CommentForm';
 import CommentList from './CommentList';
+
+const URL = process.env.REACT_APP_API_BASE_URL;
 
 const ArticlesDetails = (props) => {
   // eslint-disable-next-line react/destructuring-assignment
@@ -12,6 +19,11 @@ const ArticlesDetails = (props) => {
   const [articlesDetails, setArticlesDetails] = useState(undefined);
   const [commentMessage, setCommentMessage] = useState('');
   const [comments, setComments] = useState([]);
+
+  const [favorite, setFavorite] = useState([]);
+  const [favoriteId, setFavoriteId] = useState(false);
+
+  const buttonFavorite = useRef(null);
 
   useEffect(() => {
     getEntity('articles', id).then((elem) => {
@@ -37,13 +49,58 @@ const ArticlesDetails = (props) => {
     });
   };
 
+  useEffect(() => {
+    getCollection('articles/favorites').then((data) => setFavorite(data));
+  }, []);
+
+  useEffect(() => {
+    if (favorite && favorite.length > 0) {
+      setFavoriteId(favorite.map((elem) => elem.article_id));
+    }
+    if (favorite && favorite.length === 0) {
+      setFavoriteId([]);
+    }
+  }, [favorite]);
+
+  const handleFavorite = (target) => {
+    if (favoriteId && favoriteId.includes(+id)) {
+      makeEntityDeleter('articles/favorites')(id).then(() => {
+        getCollection('articles/favorites').then((data) => setFavorite(data));
+        target.classList.toggle('selected-like-article');
+      });
+    } else {
+      makeEntityAdder('articles/favorites')({ article_id: id }).then(() => {
+        getCollection('articles/favorites').then((data) => setFavorite(data));
+        target.classList.toggle('selected-like-article');
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (articlesDetails) {
+      if (favoriteId && favoriteId.includes(+id)) {
+        if (
+          !buttonFavorite.current.classList.contains('selected-like-article')
+        ) {
+          buttonFavorite.current.classList.add('selected-like-article');
+        }
+      } else if (favoriteId && !favoriteId.includes(+id)) {
+        if (
+          buttonFavorite.current.classList.contains('selected-like-article')
+        ) {
+          buttonFavorite.current.classList.remove('selected-like-article');
+        }
+      }
+    }
+  }, [favoriteId, articlesDetails]);
+
   return (
     <div className="articleDetailsPage">
       {articlesDetails && (
         <div className="articlesDetails">
           <img
             className="imgArticleDetails"
-            src={`http://localhost:5000/${articlesDetails.row.url}`}
+            src={`${URL}/${articlesDetails.row.url}`}
             alt="jardin"
           />
           <div className="whitebar">
@@ -69,6 +126,19 @@ const ArticlesDetails = (props) => {
               {ReactHtmlParser(articlesDetails.row.content)}
             </div>
           </div>
+          <div
+            role="button"
+            className="like-Button"
+            ref={buttonFavorite}
+            onClick={(e) => {
+              handleFavorite(e.target);
+            }}
+            onKeyPress={(e) => {
+              handleFavorite(e.target);
+            }}
+            aria-label="Boutton favori"
+            tabIndex={0}
+          />
         </div>
       )}
       <div className="commentaires">
