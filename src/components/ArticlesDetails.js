@@ -94,8 +94,6 @@ const ArticlesDetails = (props) => {
     }
   }, [favoriteId, articlesDetails]);
 
-  console.log(comments);
-
   return (
     <div className="articleDetailsPage">
       {articlesDetails && (
