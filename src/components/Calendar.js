@@ -44,7 +44,7 @@ const MyCalendar = (props) => {
     );
   }, [myReservations]);
   return (
-    <div className="calendar-container" style={{ width: 10, height: 200 }}>
+    <div className="calendar-container">
       <Calendar
         events={events}
         startAccessor="start"
