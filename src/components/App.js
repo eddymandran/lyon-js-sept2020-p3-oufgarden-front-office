@@ -36,9 +36,6 @@ const App = () => {
               />
               <Route exact path="/garden/:id/timeslots" component={TimeSlot} />
               <Route path="/garden/:id/calendar" component={MyCalendar} />
-              <Route exact path="/garden/:id/Plot" />
-              <Route exact path="/garden/:id/Plot/confirm" />
-              <Route exact path="/garden/:id/Plot/success" />
             </Switch>
           </div>
         </Router>
