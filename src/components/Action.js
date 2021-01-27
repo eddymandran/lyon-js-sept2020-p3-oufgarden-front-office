@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
 import './style/Action.scss';
 import { useForm, Controller } from 'react-hook-form';
@@ -25,7 +26,6 @@ const Action = (props) => {
   useEffect(() => {
     getCollection(`garden/${id}/zones`).then((elem) => {
       setgardenZone(elem);
-      console.log(gardenZone);
     });
   }, []);
 
