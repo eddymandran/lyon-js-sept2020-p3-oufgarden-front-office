@@ -79,14 +79,14 @@
 }
 
 .gardenZoneContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   justify-items: center;
-  width: 60vw;
+  width: 80vw;
   .gardenZoneRow {
+    margin: 10px;
     button {
-      height: 90px;
-      width: 90px;
+      font-weight: bold;
+      width: 80%;
+      margin: 5px;
       font-size: 15px;
       font-weight: bold;
       background-color: #082852;
