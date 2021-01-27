@@ -195,3 +195,25 @@
 .gardenZoneContainer {
   margin-bottom: 10px;
 }
+
+@media screen and (min-width: 500px) {
+  .gardenAction {
+    display: flex;
+
+    .action-Arroser {
+      background-size: 80px;
+    }
+    .action-Desherber {
+      background-size: 80px;
+    }
+    .action-Planter {
+      background-size: 80px;
+    }
+    .action-Recolter {
+      background-size: 80px;
+    }
+    .action-Semer {
+      background-size: 80px;
+    }
+  }
+}
