@@ -14,6 +14,14 @@ const GardenInfos = (props) => {
   const [gardenInfos, setGardenInfos] = useState([]);
   const [actionList, setActionList] = useState([]);
   const [gardenZone, setGardenZone] = useState([]);
+  const [zoneActionOpen, setZoneActionOpen] = useState({});
+
+  const toggleDisplayZone = (zoneId) => {
+    setZoneActionOpen((openZone) => {
+      return { ...openZone, [zoneId]: !openZone[zoneId] };
+    });
+  };
+  console.log(zoneActionOpen);
 
   useEffect(() => {
     getCollection('actions').then((elem) => {
@@ -54,34 +62,48 @@ const GardenInfos = (props) => {
           <p>Exposition : {gardenInfos.exposition}</p>
           <p>Adresse : {gardenInfos.address_id}</p>
         </div>
-        <div>
+        <div className="gardenZoneContainer">
           {gardenZone &&
             gardenZone.map((e) => {
               return (
                 <div key={e.id} className="gardenZoneRow">
-                  {e.name}
-                  <FetchActionToZones gardenId={id} gardenZone={e.id} />
+                  <button type="button" onClick={() => toggleDisplayZone(e.id)}>
+                    {e.name}
+                  </button>
+                  {zoneActionOpen[e.id] && (
+                    <FetchActionToZones gardenId={id} gardenZone={e.id} />
+                  )}
                 </div>
               );
             })}
         </div>
-        <div className="gardenAction">
-          {actionList.map((e) => {
-            return (
-              <Link
-                to={`/garden/${id}/action/${e.id}`}
-                className={`action${e.id}`}
-              >
-                <div
-                  key={e.id}
-                  type="image"
-                  alt="action"
-                  contentEditable="false"
-                  data-placeholder={e.name}
-                />
-              </Link>
-            );
-          })}
+        <div className="buttonGardenAction">
+          <button
+            type="button"
+            onClick={() => toggleDisplayZone(gardenInfos.id)}
+          >
+            Action
+          </button>
+          {zoneActionOpen[gardenInfos.id] && (
+            <div className="gardenAction">
+              {actionList.map((e) => {
+                return (
+                  <Link
+                    to={`/garden/${id}/action/${e.id}`}
+                    className={`action-${e.name}`}
+                  >
+                    <div
+                      key={e.id}
+                      type="image"
+                      alt="action"
+                      contentEditable="false"
+                      data-placeholder={e.name}
+                    />
+                  </Link>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
     </div>
