@@ -18,7 +18,7 @@ const Garden = () => {
         return (
           <div key={e.id} className="garden-row">
             <img className="imgGarden" src={e.picture} alt="jardin" />
-            <p className="titleGarden">{e.name}</p>
+            <h2 className="titleGarden">{e.name}</h2>
             <div className="linkGarden">
               <Link to={`/garden/${e.id}/timeslots`}>
                 <button type="button" className="actionButton">

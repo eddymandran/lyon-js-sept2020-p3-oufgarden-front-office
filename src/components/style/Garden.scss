@@ -13,21 +13,12 @@
     border: unset;
     border-radius: 10px;
     padding: 8px;
-    width: 40vw;
+    width: 30vw;
     outline: none;
     color: white;
   }
 }
 
-/* .actionButton {
-  background-size: 30px;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 25vw;
-  height: 10vh;
-  background-image: url('../../images/jardin-active.png');
-  background-position: center;
-} */
 .garden-row {
   font-weight: bold;
   text-align: center;
@@ -39,7 +30,13 @@
   height: 30vh;
 }
 .linkGarden {
+  display: flex;
+  justify-content: center;
   padding: 10px;
+  button {
+    height: 10vh;
+    margin: 10px;
+  }
 }
 .titleGarden {
   margin: 15px 0px 0px;
