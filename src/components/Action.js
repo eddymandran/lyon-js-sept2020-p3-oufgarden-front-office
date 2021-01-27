@@ -25,7 +25,6 @@ const Action = (props) => {
       setGardenInfos(data);
     });
   }, []);
-  console.log(gardenInfos);
 
   useEffect(() => {
     if (gardenInfos) {

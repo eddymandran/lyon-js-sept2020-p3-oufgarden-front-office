@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './style/GardenInfos.scss';
 import { Link } from 'react-router-dom';
-/* import { UserContext } from './Contexts/UserContextProvider';
- */
+import FetchActionToZones from './FetchActionToZone';
+
 import { getEntity, getCollection } from '../services/API';
 
 const GardenInfos = (props) => {
@@ -14,7 +14,6 @@ const GardenInfos = (props) => {
   const [gardenInfos, setGardenInfos] = useState([]);
   const [actionList, setActionList] = useState([]);
   const [gardenZone, setGardenZone] = useState([]);
-  const [actionToFeed, setActionToFeed] = useState([]);
 
   useEffect(() => {
     getCollection('actions').then((elem) => {
@@ -32,40 +31,7 @@ const GardenInfos = (props) => {
         setGardenZone(elem);
       });
     }
-  }, [gardenInfos]);
-  console.log(gardenZone);
-
-  useEffect(() => {
-    if (gardenInfos) {
-      getCollection(`garden/${id}/zones`).then((elem) => {
-        setGardenZone(elem);
-      });
-    }
-  }, [gardenInfos]);
-  console.log(gardenZone);
-
-  useEffect(() => {
-    if (gardenZone.length > 0) {
-      gardenZone.map((elem) => {
-        return getCollection(`garden/${id}/zones/${elem.id}/actionFeed`).then(
-          (data) => {
-            setActionToFeed((prevState) => [...prevState, data]);
-          }
-        );
-      });
-    }
-  }, [gardenZone]);
-  /*  useEffect(() => {
-    if (gardenZone.length > 0) {
-      getCollection(`garden/${id}/zones/${gardenZone[0].id}/actionFeed`).then(
-        (data) => {
-          setActionToFeed(data);
-        }
-      );
-    }
-  }, [gardenZone]); */
-  console.log(actionToFeed);
-
+  }, []);
   return (
     <div className="garden-list-container-infos">
       <div key={id} className="garden-row-infos">
@@ -116,6 +82,9 @@ const GardenInfos = (props) => {
             );
           })}
         </div>
+      </div>
+      <div>
+        <FetchActionToZones gardenId={id} gardenZone={gardenZone} />
       </div>
     </div>
   );
