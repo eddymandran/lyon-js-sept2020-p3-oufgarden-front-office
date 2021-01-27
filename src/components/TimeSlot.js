@@ -44,7 +44,7 @@ const TimeSlot = (props) => {
         setTimeSelectionChoice([]);
       })
       .then(() => {
-        props.history.push('/garden');
+        props.history.push(`/garden/${newData.garden_id}/calendar`);
       });
   };
 
