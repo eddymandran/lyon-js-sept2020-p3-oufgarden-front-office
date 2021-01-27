@@ -94,7 +94,7 @@ const GardenInfos = (props) => {
               );
             })}
         </div>
-        <div className="buttonGardenAction">
+        <div className="gardenActionContainer">
           <button
             type="button"
             onClick={() => toggleDisplayZone(gardenInfos.id)}
