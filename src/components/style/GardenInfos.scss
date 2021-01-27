@@ -125,7 +125,12 @@
     content: attr(data-placeholder);
     color: black;
   }
+  .nameAction {
+    margin-top: 12vh;
+  }
+
   .action-Arroser {
+    text-decoration: none;
     background-image: url('../../images/arroser.png');
     background-size: 60px;
     background-repeat: no-repeat;
@@ -134,6 +139,7 @@
     height: 15vh;
   }
   .action-Desherber {
+    text-decoration: none;
     background-image: url('../../images/desherber.png');
     background-size: 60px;
     background-repeat: no-repeat;
@@ -142,6 +148,7 @@
     height: 15vh;
   }
   .action-Planter {
+    text-decoration: none;
     background-image: url('../../images/planter.png');
     background-size: 60px;
     background-repeat: no-repeat;
@@ -150,6 +157,7 @@
     height: 15vh;
   }
   .action-Recolter {
+    text-decoration: none;
     background-image: url('../../images/recolter.png');
     background-size: 60px;
     background-repeat: no-repeat;
@@ -160,6 +168,7 @@
     grid-column: 1 / 3;
   }
   .action-Semer {
+    text-decoration: none;
     background-image: url('../../images/semer.png');
     background-size: 60px;
     background-repeat: no-repeat;
