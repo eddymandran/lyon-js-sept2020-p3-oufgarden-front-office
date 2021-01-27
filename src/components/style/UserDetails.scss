@@ -1,0 +1,65 @@
+.member-detail-container {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 12vh;
+
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2efec;
+    width: 100%;
+    padding: 30px 0 20px 0;
+
+    .user-avatar-container {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+    }
+
+    .user-avatar {
+      object-fit: cover;
+      object-position: center;
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+
+    .edit-button {
+      border-radius: 20px;
+      background-color: white;
+      margin-top: 10px;
+      padding: 6px 10px;
+      cursor: pointer;
+      -webkit-box-shadow: 1px 3px 5px 0px rgba(150, 150, 150, 1);
+      -moz-box-shadow: 1px 3px 5px 0px rgba(150, 150, 150, 1);
+      box-shadow: 1px 3px 5px 0px rgba(150, 150, 150, 1);
+    }
+  }
+
+  .user-infos {
+    margin: 0 15px;
+
+    .membership-infos,
+    .garden-infos {
+      border-top: 2px solid #f2efec;
+    }
+
+    p {
+      margin-left: 15px;
+    }
+
+    p.vertical-align {
+      display: flex;
+      align-items: center;
+    }
+    h3 {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

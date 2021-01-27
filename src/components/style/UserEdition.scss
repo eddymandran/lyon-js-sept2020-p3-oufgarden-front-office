@@ -1,0 +1,147 @@
+.user-edition-container {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  margin-bottom: 15vh;
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+
+    h3 {
+      font-size: 16px;
+    }
+  }
+
+  .avatar-edition-container {
+    // border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    width: 100%;
+    background-color: #f2efec;
+
+    .title {
+      h2 {
+        font-size: 20px;
+      }
+    }
+
+    .uploadRows {
+      margin-left: 10px;
+
+      input {
+        margin-top: 10px;
+      }
+    }
+
+    .form-submit {
+      text-align: center;
+      margin-bottom: 5px;
+
+      input {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+
+        border-radius: 20px;
+        background-color: white;
+        margin-top: 10px;
+        padding: 6px 10px;
+        cursor: pointer;
+        -webkit-box-shadow: 1px 3px 5px 0px rgba(150, 150, 150, 1);
+        -moz-box-shadow: 1px 3px 5px 0px rgba(150, 150, 150, 1);
+        box-shadow: 1px 3px 5px 0px rgba(150, 150, 150, 1);
+      }
+    }
+  }
+
+  .main-form {
+    line-height: 1.3em;
+
+    .alert {
+      font-size: 14px;
+      font-style: oblique;
+      margin: 20px;
+      margin-bottom: 10px;
+    }
+
+    div.styling-inputs {
+      padding: 10px 20px 10px 20px;
+      background-color: #f2efec;
+
+      .select-gender {
+        width: 150px;
+        font: inherit;
+        margin-top: 5px;
+      }
+
+      label {
+        display: flex;
+        flex-direction: column;
+
+        input {
+          background: none;
+          color: inherit;
+          border: none;
+          padding: 0;
+          font: inherit;
+          cursor: pointer;
+          outline: inherit;
+
+          background-color: white;
+          padding: 6px 10px;
+          margin-top: 5px;
+          margin-left: -5px;
+          border-radius: 20px;
+        }
+      }
+    }
+
+    .basic-multi-select {
+      width: 90%;
+
+      .select__control {
+        background-color: #f2efec;
+        padding: 5px;
+      }
+
+      .select__multi-value__label {
+        background-color: white;
+        border-radius: 5px;
+      }
+    }
+
+    .submitFormBtn {
+      text-align: center;
+    }
+
+    .submitFormBtn input {
+      background: none;
+      color: inherit;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+      outline: inherit;
+
+      border-radius: 20px;
+      background-color: white;
+      margin-top: 10px;
+      padding: 6px 10px;
+      cursor: pointer;
+      -webkit-box-shadow: 1px 3px 5px 0px rgba(150, 150, 150, 1);
+      -moz-box-shadow: 1px 3px 5px 0px rgba(150, 150, 150, 1);
+      box-shadow: 1px 3px 5px 0px rgba(150, 150, 150, 1);
+    }
+  }
+}

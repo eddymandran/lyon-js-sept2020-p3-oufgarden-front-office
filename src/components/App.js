@@ -7,7 +7,8 @@ import Navbar from './Navbar';
 import Login from './Login';
 import Feed from './Feed';
 import Garden from './Garden';
-
+import UserDetails from './UserDetails';
+import UserEdition from './UserEdition';
 import Action from './Action';
 import TimeSlot from './TimeSlot';
 
@@ -28,6 +29,8 @@ const App = () => {
             <Switch>
               <Route exact path="/" component={Login} />
               <Route exact path="/feed" component={Feed} />
+              <Route exact path="/user" component={UserDetails} />
+              <Route exact path="/user/edition" component={UserEdition} />
               <Route exact path="/articles" /* component={Articles}  */ />
               <Route exact path="/articles/:id" component={ArticlesDetails} />
               <Route exact path="/garden" component={Garden} />
