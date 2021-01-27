@@ -60,6 +60,7 @@ const GardenInfos = (props) => {
               return (
                 <div key={e.id} className="gardenZoneRow">
                   {e.name}
+                  <FetchActionToZones gardenId={id} gardenZone={e.id} />
                 </div>
               );
             })}
@@ -82,9 +83,6 @@ const GardenInfos = (props) => {
             );
           })}
         </div>
-      </div>
-      <div>
-        <FetchActionToZones gardenId={id} gardenZone={gardenZone} />
       </div>
     </div>
   );

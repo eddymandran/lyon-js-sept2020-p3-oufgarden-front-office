@@ -3,23 +3,24 @@ import { getCollection } from '../services/API';
 
 const FetchActionToZones = ({ gardenId, gardenZone }) => {
   const [actionToFeed, setActionToFeed] = useState([]);
-  useEffect(() => {
-    if (gardenZone.length > 0) {
-      gardenZone.map((elem) => {
-        return getCollection(
-          `garden/${gardenId}/zones/${elem.id}/actionFeed`
-        ).then((data) => {
-          setActionToFeed((prevState) => [...prevState, data]);
-        });
-      });
-    }
-  }, [gardenZone]);
 
+  useEffect(() => {
+    getCollection(`garden/${gardenId}/zones/${gardenZone}/actionFeed`).then(
+      (data) => {
+        setActionToFeed(data);
+      }
+    );
+  }, []);
   console.log(actionToFeed);
-  console.log(gardenZone);
   return (
     <div>
-      <p>TEST</p>
+      {actionToFeed.map((action) => {
+        return (
+          <div className="rowsWithActionsFromZone">
+            <p>{action.description}</p>
+          </div>
+        );
+      })}
     </div>
   );
 };
