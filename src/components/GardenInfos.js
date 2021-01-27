@@ -62,27 +62,13 @@ const GardenInfos = (props) => {
           <p>Exposition : {gardenInfos.exposition}</p>
           <p>Adresse : {gardenInfos.address_id}</p>
         </div>
-        <div className="gardenZoneContainer">
-          {gardenZone &&
-            gardenZone.map((e) => {
-              return (
-                <div key={e.id} className="gardenZoneRow">
-                  <button type="button" onClick={() => toggleDisplayZone(e.id)}>
-                    {e.name}
-                  </button>
-                  {zoneActionOpen[e.id] && (
-                    <FetchActionToZones gardenId={id} gardenZone={e.id} />
-                  )}
-                </div>
-              );
-            })}
-        </div>
-        <div className="buttonGardenAction">
+
+        <div className="gardenActionContainer">
           <button
             type="button"
             onClick={() => toggleDisplayZone(gardenInfos.id)}
           >
-            Action
+            Action effectuée
           </button>
           {zoneActionOpen[gardenInfos.id] && (
             <div className="gardenAction">
@@ -104,6 +90,21 @@ const GardenInfos = (props) => {
               })}
             </div>
           )}
+        </div>
+        <div className="gardenZoneContainer">
+          {gardenZone &&
+            gardenZone.map((e) => {
+              return (
+                <div key={e.id} className="gardenZoneRow">
+                  <button type="button" onClick={() => toggleDisplayZone(e.id)}>
+                    {e.name}
+                  </button>
+                  {zoneActionOpen[e.id] && (
+                    <FetchActionToZones gardenId={id} gardenZone={e.id} />
+                  )}
+                </div>
+              );
+            })}
         </div>
       </div>
     </div>

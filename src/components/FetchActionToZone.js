@@ -25,8 +25,7 @@ const FetchActionToZones = ({ gardenId, gardenZone }) => {
       );
     }
   }, [actionToFeed]);
-  console.log(actionToFeed);
-  console.log(actionToFeedWithFullDate);
+
   return (
     <div>
       {actionToFeedWithFullDate.map((action) => {
