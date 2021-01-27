@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import FetchActionToZones from './FetchActionToZone';
 
 import { getEntity, getCollection } from '../services/API';
+
 const URL = process.env.REACT_APP_API_BASE_URL;
 
 const GardenInfos = (props) => {
