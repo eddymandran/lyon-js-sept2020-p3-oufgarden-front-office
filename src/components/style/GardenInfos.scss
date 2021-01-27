@@ -5,6 +5,21 @@
   align-items: center;
   background: #f2efec;
   padding-bottom: 10vh;
+  height: 100vh;
+
+  button {
+    font-size: 15px;
+    font-weight: bold;
+    width: 100px;
+    margin: 5px;
+    background-color: #27841fd5;
+    border: unset;
+    border-radius: 50px;
+    padding: 8px;
+    width: 40vw;
+    outline: none;
+    color: white;
+  }
 }
 
 .whitebar-infos {
@@ -49,10 +64,7 @@
   width: 100%;
   box-sizing: border-box;
   text-align: center;
-  /*   padding: 20px;
-  margin: 0 20px 20px 20px;
-  background-color: #e5e7e9;
-  border-radius: 20px; */
+  padding-bottom: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;

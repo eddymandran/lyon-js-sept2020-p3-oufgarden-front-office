@@ -13,7 +13,6 @@ const GardenInfos = (props) => {
       params: { id },
     },
   } = props;
-  console.log(id);
   const [gardenInfos, setGardenInfos] = useState([]);
   const [actionList, setActionList] = useState([]);
   const [gardenZone, setGardenZone] = useState([]);
@@ -24,7 +23,6 @@ const GardenInfos = (props) => {
       return { ...openZone, [zoneId]: !openZone[zoneId] };
     });
   };
-  console.log(zoneActionOpen);
 
   useEffect(() => {
     getCollection('actions').then((elem) => {
