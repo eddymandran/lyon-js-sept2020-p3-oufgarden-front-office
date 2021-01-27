@@ -70,7 +70,7 @@ const UserEdition = (props) => {
     // data is updated to add the array with garden ids, before submit
 
     // here add data validation
-    let newData = { ...data };
+    const newData = { ...data };
 
     if (newData.password === '') {
       delete newData.password;

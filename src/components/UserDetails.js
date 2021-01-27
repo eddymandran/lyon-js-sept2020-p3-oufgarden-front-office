@@ -1,9 +1,6 @@
 /* eslint-disable no-nested-ternary */
-/* eslint-disable import/first */
-/* eslint-disable import/order */
 
 import React, { useEffect, useState } from 'react';
-import { getCollection } from '../services/API';
 import { MdEmail, MdAccountCircle } from 'react-icons/md';
 import {
   FaBirthdayCake,
@@ -14,7 +11,9 @@ import {
 import { IconContext } from 'react-icons';
 
 import dayjs from 'dayjs';
+import { getCollection } from '../services/API';
 import './style/UserDetails.scss';
+
 const today = dayjs();
 
 const URL = process.env.REACT_APP_API_BASE_URL;
