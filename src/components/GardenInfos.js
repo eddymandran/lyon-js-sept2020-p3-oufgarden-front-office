@@ -107,7 +107,7 @@ const GardenInfos = (props) => {
                 return (
                   <Link
                     to={`/garden/${id}/action/${e.id}`}
-                    className={`action${e.id}`}
+                    className={`action-${e.name}`}
                   >
                     <div
                       key={e.id}
