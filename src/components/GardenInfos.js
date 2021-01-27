@@ -22,6 +22,7 @@ const GardenInfos = (props) => {
       return { ...openZone, [zoneId]: !openZone[zoneId] };
     });
   };
+  console.log(zoneActionOpen);
 
   useEffect(() => {
     getCollection('actions').then((elem) => {
@@ -93,23 +94,33 @@ const GardenInfos = (props) => {
               );
             })}
         </div>
-        <div className="gardenAction">
-          {actionList.map((e) => {
-            return (
-              <Link
-                to={`/garden/${id}/action/${e.id}`}
-                className={`action${e.id}`}
-              >
-                <div
-                  key={e.id}
-                  type="image"
-                  alt="action"
-                  contentEditable="false"
-                  data-placeholder={e.name}
-                />
-              </Link>
-            );
-          })}
+        <div className="buttonGardenAction">
+          <button
+            type="button"
+            onClick={() => toggleDisplayZone(gardenInfos.id)}
+          >
+            Action
+          </button>
+          {zoneActionOpen[gardenInfos.id] && (
+            <div className="gardenAction">
+              {actionList.map((e) => {
+                return (
+                  <Link
+                    to={`/garden/${id}/action/${e.id}`}
+                    className={`action${e.id}`}
+                  >
+                    <div
+                      key={e.id}
+                      type="image"
+                      alt="action"
+                      contentEditable="false"
+                      data-placeholder={e.name}
+                    />
+                  </Link>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
     </div>
