@@ -23,7 +23,6 @@ const GardenInfos = (props) => {
       return { ...openZone, [zoneId]: !openZone[zoneId] };
     });
   };
-  console.log(zoneActionOpen);
 
   useEffect(() => {
     getCollection('actions').then((elem) => {
