@@ -13,8 +13,7 @@ const FetchActionToZones = ({ gardenId, gardenZone }) => {
       }
     );
   }, []);
-  console.log(gardenId, gardenZone);
-  console.log(actionToFeed);
+
   useEffect(() => {
     if (actionToFeed.length > 0) {
       setActionToFeedWithFullDate(
