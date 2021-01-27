@@ -3,6 +3,8 @@ import './style/Garden.scss';
 import { Link } from 'react-router-dom';
 import { getCollection } from '../services/API';
 
+const URL = process.env.REACT_APP_API_BASE_URL;
+
 const Garden = () => {
   const [gardenList, setGardenList] = useState([]);
 
@@ -17,7 +19,11 @@ const Garden = () => {
       {gardenList.map((e) => {
         return (
           <div key={e.id} className="garden-row">
-            <img className="imgGarden" src={e.picture} alt="jardin" />
+            <img
+              className="imgGarden"
+              src={`${URL}/${e.picture}`}
+              alt="jardin"
+            />
             <p className="titleGarden">{e.name}</p>
             <div className="linkGarden">
               <Link to={`/garden/${e.id}/timeslots`}>
