@@ -20,6 +20,7 @@ const Action = (props) => {
       params: { gardenId },
     },
   } = props;
+  console.log(gardenId, id);
   useEffect(() => {
     getEntity('garden', gardenId).then((data) => {
       setGardenInfos(data);
