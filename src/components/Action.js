@@ -44,13 +44,13 @@ const Action = (props) => {
   useEffect(() => {
     setActionName(gardenAction.filter((action) => action.id === +id));
   }, [gardenAction]);
+
   const zoneOption = gardenZone.map((elem) => {
     return {
       value: elem.id,
       label: `${elem.name}`,
     };
   });
-  console.log(actionName);
   const onSubmit = async (data, e) => {
     const newData = {
       ...data,
