@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import FetchActionToZones from './FetchActionToZone';
 
 import { getEntity, getCollection } from '../services/API';
+const URL = process.env.REACT_APP_API_BASE_URL;
 
 const GardenInfos = (props) => {
   const {
@@ -53,7 +54,7 @@ const GardenInfos = (props) => {
         </div>
         <img
           className="imgGarden-infos"
-          src={gardenInfos.picture}
+          src={`${URL}/${gardenInfos.picture}`}
           alt="jardin"
         />
         <div className="detailsGarden">

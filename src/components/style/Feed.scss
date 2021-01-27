@@ -7,111 +7,143 @@
   background: #f2efec;
   height: 100%;
   padding: 3%;
-}
 
-.basic-multi-select {
-  width: 80vw;
-  border: unset;
-  outline: none;
-  margin: 5px;
-  .css-yk16xz-control {
-    border-radius: 50px;
-  }
-  &:focus {
+  .basic-multi-select {
+    width: 80vw;
     border: unset;
     outline: none;
+    margin: 5px;
+    .css-yk16xz-control {
+      border-radius: 50px;
+    }
+    &:focus {
+      border: unset;
+      outline: none;
+    }
+    &:active {
+      border: unset;
+      outline: none;
+    }
   }
-  &:active {
-    border: unset;
-    outline: none;
+
+  .filterContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: scroll;
+    position: relative;
+    width: 90vw;
+    height: 10vh;
   }
-}
 
-.filterContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  overflow: scroll;
-  position: relative;
-  width: 90vw;
-  height: 10vh;
-}
-
-.buttonPres {
-  background-color: white;
-  padding: 20px;
-  border-radius: 100px;
-  width: 5vw;
-  height: 5vh;
-  font-size: 1em;
-  color: #082852;
-  content: '♥';
-}
-
-.filterButton {
-  font-family: 'Montserrat', sans-serif, 600;
-  width: 40vw;
-  background-color: white;
-  color: #082852;
-  &:focus {
-    border: 2px solid #082852;
-  }
-  &:active {
-    border: 2px solid #082852;
-  }
-}
-
-.articleListContainer {
-  border-radius: 20px;
-  width: 90vw;
-  padding-bottom: 25%;
-}
-
-.articlesInfos {
-  background-color: white;
-  border-radius: 20px;
-  width: 90vw;
-  margin-bottom: 3%;
-}
-
-.imgArticle {
-  border-radius: 20px 20px 0px 0px;
-  width: 90vw;
-}
-
-.text {
-  background-color: white;
-  border-radius: 0px 0px 20px 20px;
-  width: 60vw;
-  height: 5vh;
-  padding: 3%;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  text-decoration: none;
-  color: #292929;
-  font-size: 16px;
-}
-
-.likeButton {
-  display: inline-block;
-  position: relative;
-  width: 90vw;
-  font-size: 32px;
-  cursor: pointer;
-  &::before {
-    font-size: 1.5em;
+  .buttonPres {
+    background-color: white;
+    padding: 20px;
+    border-radius: 100px;
+    width: 5vw;
+    height: 5vh;
+    border: none;
+    border: 2px solid white;
     color: #082852;
-    content: '♥';
-    position: absolute;
-    left: 80%;
-    top: 50%;
+    background-image: url('../../images/heart.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    outline: 0;
   }
-  &::after {
-    font-size: 1.5em;
-    color: #f2efec;
-    content: '♥';
-    position: absolute;
-    left: 80%;
-    top: 50%;
+  .selected-like-filter {
+    border: 2px solid #082852;
+    background-image: url('../../images/heart-full.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
   }
+
+  .filterButton {
+    font-family: 'Montserrat', sans-serif, 600;
+    width: 40vw;
+    background-color: white;
+    border: 2px solid white;
+    color: #082852;
+    border: none;
+    border-radius: 20px;
+    margin: 10px;
+    height: 40px;
+    outline: 0;
+  }
+  .selected-tag-filter {
+    border: 2px solid #082852;
+    outline: 0;
+  }
+
+  .articleListContainer {
+    border-radius: 20px;
+    width: 90vw;
+    padding-bottom: 25%;
+  }
+
+  .articlesInfos {
+    background-color: white;
+    border-radius: 20px;
+    width: 90vw;
+    margin-bottom: 3%;
+  }
+
+  .imgArticle {
+    border-radius: 20px 20px 0px 0px;
+    width: 90vw;
+  }
+
+  .text {
+    background-color: white;
+    border-radius: 0px 0px 20px 20px;
+    width: 60vw;
+    height: 5vh;
+    padding: 3%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    color: #292929;
+    font-size: 16px;
+  }
+
+  // .likeButton {
+  //   display: inline-block;
+  //   position: absolute;
+  //   width: 70px;
+  //   height: 70px;
+  //   left: 75%;
+  //   top: 17%;
+  //   border: none;
+  //   cursor: pointer;
+  //   background-image: url('../../images/heart-pure-white.png');
+  //   background-size: 50%;
+  //   background-repeat: no-repeat;
+  //   background-position: center;
+  //   background-color: none;
+  //   &:focus {
+  //     background-image: url('../../images/heart-pure-white.png');
+  //     background-size: 50%;
+  //     background-repeat: no-repeat;
+  //     background-position: center;
+  //     position: absolute;
+  //     outline: 0;
+  //     width: 70px;
+  //     height: 70px;
+  //     left: 75%;
+  //     top: 17%;
+  //   }
+  //   &:after {
+  //     background-image: url('../../images/heart-full.png');
+  //     background-size: 50%;
+  //     background-repeat: no-repeat;
+  //     background-position: center;
+  //     position: absolute;
+  //     outline: 0;
+  //     width: 70px;
+  //     height: 70px;
+  //     left: 75%;
+  //     top: 17%;
+  //   }
+  // }
 }

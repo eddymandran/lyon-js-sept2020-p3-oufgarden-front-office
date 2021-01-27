@@ -1,0 +1,60 @@
+.commentList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 90vw;
+}
+
+.show-comments {
+  border: unset;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: #292929;
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 10px;
+  width: 80vw;
+  padding: 8px;
+}
+
+.show-comment-details-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.show-comment-name {
+  border: unset;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: #292929;
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 10px;
+  width: 60vw;
+  padding: 8px;
+}
+
+.show-comment-avatar {
+  border: unset;
+  outline: none;
+  border-radius: 100px;
+  width: 10vw;
+  height: 10vw;
+}
+
+.show-comment-message {
+  border: unset;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: #292929;
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 10px;
+  width: 80vw;
+  padding: 8px;
+}
