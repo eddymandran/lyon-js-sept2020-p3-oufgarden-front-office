@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   background: #f2efec;
+<<<<<<< HEAD
   height: 100vh;
 
   button {
@@ -19,6 +20,9 @@
     outline: none;
     color: white;
   }
+=======
+  padding-bottom: 10vh;
+>>>>>>> 686cf7ba661ceb01bbf3b3b937c470487572f2fe
 }
 
 .whitebar-infos {
@@ -99,7 +103,8 @@
     margin: 10px;
     button {
       font-weight: bold;
-      width: 80%;
+      width: 50%;
+      height: 40px;
       margin: 5px;
       font-size: 15px;
       font-weight: bold;
@@ -135,11 +140,19 @@
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   width: 100vw;
+  margin-bottom: 25px;
   div:empty:before {
     content: attr(data-placeholder);
     color: black;
   }
+  .nameAction {
+    margin-top: 12vh;
+  }
+
   .action-Arroser {
+    color: #082852;
+    font-weight: bold;
+    text-decoration: none;
     background-image: url('../../images/arroser.png');
     background-size: 60px;
     background-repeat: no-repeat;
@@ -148,6 +161,9 @@
     height: 15vh;
   }
   .action-Desherber {
+    color: #082852;
+    font-weight: bold;
+    text-decoration: none;
     background-image: url('../../images/desherber.png');
     background-size: 60px;
     background-repeat: no-repeat;
@@ -156,6 +172,9 @@
     height: 15vh;
   }
   .action-Planter {
+    color: #082852;
+    font-weight: bold;
+    text-decoration: none;
     background-image: url('../../images/planter.png');
     background-size: 60px;
     background-repeat: no-repeat;
@@ -164,6 +183,9 @@
     height: 15vh;
   }
   .action-Recolter {
+    color: #082852;
+    font-weight: bold;
+    text-decoration: none;
     background-image: url('../../images/recolter.png');
     background-size: 60px;
     background-repeat: no-repeat;
@@ -174,6 +196,9 @@
     grid-column: 1 / 3;
   }
   .action-Semer {
+    color: #082852;
+    font-weight: bold;
+    text-decoration: none;
     background-image: url('../../images/semer.png');
     background-size: 60px;
     background-repeat: no-repeat;
@@ -187,4 +212,26 @@
 
 .gardenZoneContainer {
   margin-bottom: 10px;
+}
+
+@media screen and (min-width: 500px) {
+  .gardenAction {
+    display: flex;
+
+    .action-Arroser {
+      background-size: 80px;
+    }
+    .action-Desherber {
+      background-size: 80px;
+    }
+    .action-Planter {
+      background-size: 80px;
+    }
+    .action-Recolter {
+      background-size: 80px;
+    }
+    .action-Semer {
+      background-size: 80px;
+    }
+  }
 }

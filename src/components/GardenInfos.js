@@ -62,7 +62,10 @@ const GardenInfos = (props) => {
           <h3>{gardenInfos.name}</h3>
           <p>{gardenInfos.description}</p>
           <p>Exposition : {gardenInfos.exposition}</p>
-          <p>Adresse : {gardenInfos.address_id}</p>
+          <p>
+            Adresse : {gardenInfos.street} {gardenInfos.zip_code}{' '}
+            {gardenInfos.city}
+          </p>
         </div>
 
         <div className="gardenActionContainer">
@@ -80,13 +83,17 @@ const GardenInfos = (props) => {
                     to={`/garden/${id}/action/${e.id}`}
                     className={`action-${e.name}`}
                   >
-                    <div
-                      key={e.id}
-                      type="image"
-                      alt="action"
-                      contentEditable="false"
-                      data-placeholder={e.name}
-                    />
+                    <div className="imageActionContainer">
+                      <div
+                        key={e.id}
+                        type="image"
+                        alt="action"
+                        contentEditable="false"
+                      />
+                      <div className="nameAction">
+                        <p>{e.name}</p>
+                      </div>
+                    </div>
                   </Link>
                 );
               })}

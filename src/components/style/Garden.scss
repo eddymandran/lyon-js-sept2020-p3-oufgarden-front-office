@@ -5,33 +5,24 @@
   flex-direction: column;
 
   button {
-    font-size: 15px;
+    font-size: 2vh;
     font-weight: bold;
     width: 100px;
     margin: 5px;
-    background-color: #27841fbd;
+    background-color: #082852;
     border: unset;
     border-radius: 10px;
     padding: 8px;
-    width: 40vw;
+    width: 30vw;
     outline: none;
     color: white;
   }
 }
 
-/* .actionButton {
-  background-size: 30px;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 25vw;
-  height: 10vh;
-  background-image: url('../../images/jardin-active.png');
-  background-position: center;
-} */
 .garden-row {
   font-weight: bold;
   text-align: center;
-  background-color: #e5e7e9;
+  background-color: #ffffff;
   border-radius: 25px;
 }
 .imgGarden {
@@ -39,7 +30,13 @@
   height: 30vh;
 }
 .linkGarden {
+  display: flex;
+  justify-content: center;
   padding: 10px;
+  button {
+    height: 10vh;
+    margin: 10px;
+  }
 }
 .titleGarden {
   margin: 15px 0px 0px;
