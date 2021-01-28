@@ -19,6 +19,7 @@ const Navbar = (props) => {
   useEffect(() => {
     if (myGardenId) {
       props.history.push(`/garden/${myGardenId}/calendar`);
+      setMyGardenId(undefined);
     }
   }, [myGardenId]);
   if (history.location.pathname === '/') {
