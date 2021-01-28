@@ -6,87 +6,107 @@
   background: #dfdddb;
   width: 100vw;
   height: 100vh;
-}
-.logo {
-  background-image: url('../../images/black_logo.png');
-  background-size: 60%;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100px;
-  width: 40%;
-  padding: 10%;
-}
 
-.boxLogin {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
+  .logo {
+    background-image: url('../../images/black_logo.png');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100px;
+    width: 40%;
+    padding: 10%;
+  }
 
-.field {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
+  .boxLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
-.form-control {
-  margin: 5px;
-  background-color: white;
-  border: unset;
-  border-radius: 50px;
-  padding: 8px;
-  width: 70vw;
-  outline: none;
-}
+  .field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
-.form-group {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
+  .form-control {
+    margin: 5px;
+    background-color: white;
+    border: unset;
+    border-radius: 50px;
+    padding: 8px;
+    width: 70vw;
+    max-width: 400px;
+    outline: none;
+  }
 
-.button {
-  margin: 5px;
-  background-color: #28841f;
-  border: unset;
-  border-radius: 50px;
-  padding: 8px;
-  width: 40vw;
-  outline: none;
-  color: white;
-}
-.infoCreation {
-  margin: 10px;
-  width: 70vw;
-  text-align: center;
-}
+  .form-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
-button:hover {
-  cursor: pointer;
-  color: #292929;
-}
+  .button {
+    margin: 5px;
+    background-color: #28841f;
+    border: unset;
+    border-radius: 50px;
+    padding: 8px;
+    width: 40vw;
+    max-width: 300px;
+    outline: none;
+    color: white;
+  }
 
-.invalid-feedback {
-  display: block !important;
-  color: red;
-  font-size: 12px;
-}
+  .infoCreation {
+    margin: 10px;
+    width: 70vw;
+    text-align: center;
+  }
 
-.stay-connected-container {
-  display: flex;
-  justify-content: center;
+  button:hover {
+    cursor: pointer;
+    color: #292929;
+  }
 
-  .stay-connected {
-    font-size: 15px;
+  .invalid-feedback {
+    display: block !important;
+    color: red;
+    font-size: 12px;
+  }
 
-    #stayConnected {
-      margin: 20px;
+  .stay-connected-container {
+    display: flex;
+    justify-content: center;
+
+    .stay-connected {
+      font-size: 15px;
+
+      #stayConnected {
+        margin: 20px;
+        -ms-transform: scale(1.2); /* IE */
+        -moz-transform: scale(1.2); /* FF */
+        -webkit-transform: scale(1.2); /* Safari and Chrome */
+        -o-transform: scale(1.2); /* Opera */
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .forgotten-password {
+    color: rgb(100, 100, 100);
+    font-size: 14px;
+
+    .email-admin {
+      color: inherit;
+      cursor: pointer;
     }
   }
 }
+
 @media screen and (max-width: 480px) {
   .logo {
     width: 80%;
