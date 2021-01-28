@@ -48,7 +48,7 @@ const GardenInfos = (props) => {
           <div className="back-home-infos">
             <Link className="link-back-feed-garden" to="/garden">
               <div className="back-arrow-infos" />
-              <div className="retour-infos">Retour</div>
+              <div className="back-infos">Retour</div>
             </Link>
           </div>
         </div>

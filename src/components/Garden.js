@@ -18,7 +18,7 @@ const Garden = () => {
     <div className="garden-list-container">
       {gardenList.map((e) => {
         return (
-          <div key={e.id} className="garden-row-garden">
+          <div key={e.id} className="garden-row">
             <img
               className="imgGarden"
               src={`${URL}/${e.picture}`}
@@ -27,7 +27,7 @@ const Garden = () => {
             <p className="titleGarden">{e.name}</p>
             <div className="linkGarden">
               <Link to={`garden/${e.id}/timeslots`}>
-                <button type="button" className="actionButton">
+                <button type="button" className="timeslotsButton">
                   Reserver un creneaux
                 </button>
               </Link>
