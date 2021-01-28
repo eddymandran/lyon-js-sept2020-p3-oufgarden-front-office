@@ -99,10 +99,7 @@ const Login = (props) => {
               </div>
               <div className="forgotten-password">
                 Mot de passe oublié ?{' '}
-                <a
-                  className="email-admin"
-                  href={`mailto:contact@oufgarden.com`}
-                >
+                <a className="email-admin" href="mailto:contact@oufgarden.com">
                   Contacter OufGarden
                 </a>
               </div>
