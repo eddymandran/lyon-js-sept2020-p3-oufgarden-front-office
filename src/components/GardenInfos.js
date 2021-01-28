@@ -18,11 +18,16 @@ const GardenInfos = (props) => {
   const [actionList, setActionList] = useState([]);
   const [gardenZone, setGardenZone] = useState([]);
   const [zoneActionOpen, setZoneActionOpen] = useState({});
+  const [displayActionButtons, setDisplayActionButtons] = useState(false);
 
   const toggleDisplayZone = (zoneId) => {
     setZoneActionOpen((openZone) => {
       return { ...openZone, [zoneId]: !openZone[zoneId] };
     });
+  };
+
+  const toggleDisplayActionButtons = () => {
+    setDisplayActionButtons((prevState) => !prevState);
   };
 
   useEffect(() => {
@@ -71,13 +76,10 @@ const GardenInfos = (props) => {
         </div>
 
         <div className="gardenActionContainer">
-          <button
-            type="button"
-            onClick={() => toggleDisplayZone(gardenInfos.id)}
-          >
-            Action effectuée
+          <button type="button" onClick={() => toggleDisplayActionButtons()}>
+            Publier une action
           </button>
-          {zoneActionOpen[gardenInfos.id] && (
+          {displayActionButtons && (
             <div className="gardenAction">
               {actionList.map((e, i) => {
                 return (
