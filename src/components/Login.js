@@ -97,6 +97,15 @@ const Login = (props) => {
                   de la réception de l'adhésion.
                 </p>
               </div>
+              <div className="forgotten-password">
+                Mot de passe oublié ?{' '}
+                <a
+                  className="email-admin"
+                  href={`mailto:contact@oufgarden.com`}
+                >
+                  Contacter OufGarden
+                </a>
+              </div>
             </div>
           </div>
         </form>

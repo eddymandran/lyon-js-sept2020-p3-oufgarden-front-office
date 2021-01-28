@@ -92,7 +92,7 @@ const Feed = () => {
         <Select
           isMulti
           name="articles"
-          placeholder="rechercher votre articles"
+          placeholder="rechercher votre article"
           options={articleOption}
           className="basic-multi-select"
           classNamePrefix="select"
