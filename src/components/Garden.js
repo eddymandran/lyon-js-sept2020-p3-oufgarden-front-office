@@ -18,7 +18,7 @@ const Garden = () => {
     <div className="garden-list-container">
       {gardenList.map((e) => {
         return (
-          <div key={e.id} className="garden-row">
+          <div key={e.id} className="garden-row-garden">
             <img
               className="imgGarden"
               src={`${URL}/${e.picture}`}
