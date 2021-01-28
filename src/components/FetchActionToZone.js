@@ -28,9 +28,10 @@ const FetchActionToZones = ({ gardenId, gardenZone }) => {
 
   return (
     <div>
-      {actionToFeedWithFullDate.map((action) => {
+      {actionToFeedWithFullDate.map((action, i) => {
         return (
-          <div className="rowsWithActionsFromZone">
+          // eslint-disable-next-line react/no-array-index-key
+          <div key={i} className="rowsWithActionsFromZone">
             <p>
               {action.name}: {action.firstname} {action.lastname}{' '}
               {action.fullDate}
