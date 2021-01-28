@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
-/* import { useQuery } from 'react-query'; */
 import { useForm } from 'react-hook-form';
 import './style/Login.scss';
 import { useToasts } from 'react-toast-notifications';
 
 import API from '../services/API';
-// import { UserContext } from './_context/UserContext';
-
-/* require('dotenv').config(); */
 
 const Login = (props) => {
   const { addToast } = useToasts();
-  /* const { setIsAdmin } = useContext(UserContext);
-   */
+
   const { register, handleSubmit, errors } = useForm();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -104,10 +99,7 @@ const Login = (props) => {
               </div>
               <div className="forgotten-password">
                 Mot de passe oublié ?{' '}
-                <a
-                  className="email-admin"
-                  href={`mailto:contact@oufgarden.com`}
-                >
+                <a className="email-admin" href="mailto:contact@oufgarden.com">
                   Contacter OufGarden
                 </a>
               </div>

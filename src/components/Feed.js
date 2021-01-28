@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useState, useEffect /* useContext  */ } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 // import ReactHtmlParser from 'react-html-parser';
 import Select from 'react-select';
@@ -86,19 +86,6 @@ const Feed = () => {
     setShowFavoriteList(!showFavoriteList);
     target.classList.toggle('selected-like-filter');
   };
-
-  // const handleFavorite = () => {
-  //   if (favoriteId && favoriteId.includes(id)) {
-  //     API.delete('articles/favorites', { article_id: id }).then(() => {
-  //       setFavorite();
-  //     });
-  //   } else {
-  //     makeEntityAdder('articles/favorites')({ article_id: id }).then(() => {
-  //       setFavorite();
-  //     });
-  //   }
-  // };
-
   return (
     <div className="containerFeed">
       <div className="searchArticleSelect">
@@ -188,17 +175,6 @@ const Feed = () => {
                         to={`/articles/${e.id}`}
                       >
                         <div className="articlesInfos">
-                          {/* <div
-                            className="likeButton"
-                            // onClick={(e) => {
-                            //   handleFavorite(e.id);
-                            // }}
-                            // onKeyPress={(e) => {
-                            //   handleFavorite(e.id);
-                            // }}
-                            // role="button"
-                            // tabIndex={0}
-                          /> */}
                           <img
                             className="imgArticle"
                             src={`${URL}/${e.url}`}
