@@ -9,7 +9,7 @@
 
   .logo {
     background-image: url('../../images/black_logo.png');
-    background-size: 60%;
+    background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
     height: 100px;
@@ -81,12 +81,13 @@
   .stay-connected-container {
     display: flex;
     justify-content: center;
+    align-items: center;
 
     .stay-connected {
       font-size: 15px;
 
       #stayConnected {
-        margin: 20px;
+        margin: 20px 10px 20px 10px;
         -ms-transform: scale(1.2); /* IE */
         -moz-transform: scale(1.2); /* FF */
         -webkit-transform: scale(1.2); /* Safari and Chrome */
