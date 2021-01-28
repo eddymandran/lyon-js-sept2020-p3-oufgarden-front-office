@@ -55,9 +55,7 @@ const UserEdition = (props) => {
         lastname: userToEdit.lastname,
         firstname: userToEdit.firstname,
         birthdate: dayjs(userToEdit.birthdate).format('YYYY-MM-DD'),
-        membership_start: dayjs(userToEdit.membership_start).format(
-          'YYYY-MM-DD'
-        ),
+
         email: userToEdit.email,
         emailConfirmation: userToEdit.emailConfirmation,
         phone: userToEdit.phone,
@@ -206,23 +204,6 @@ const UserEdition = (props) => {
                     setData((prevState) => ({
                       ...prevState,
                       birthdate: e.target.value,
-                    }))
-                  }
-                />
-              </label>
-            </div>
-
-            <div className="styling-inputs">
-              <label htmlFor="membership_start">
-                Date de début d'adhésion
-                <input
-                  type="date"
-                  name="membership_start"
-                  value={data.membership_start}
-                  onChange={(e) =>
-                    setData((prevState) => ({
-                      ...prevState,
-                      membership_start: e.target.value,
                     }))
                   }
                 />
