@@ -53,11 +53,13 @@ const GardenInfos = (props) => {
             </Link>
           </div>
         </div>
-        <img
-          className="imgGarden-infos"
-          src={`${URL}/${gardenInfos.picture}`}
-          alt="jardin"
-        />
+        {gardenInfos.picture && (
+          <img
+            className="imgGarden-infos"
+            src={`${URL}/${gardenInfos.picture}`}
+            alt="jardin"
+          />
+        )}
         <div className="detailsGarden">
           <h3>{gardenInfos.name}</h3>
           <p>{gardenInfos.description}</p>
