@@ -19,7 +19,7 @@ import MyCalendar from './Calendar';
 
 const App = () => {
   return (
-    <div>
+    <div className="global-page">
       <ToastProvider placement="top-right">
         <Router history={history}>
           <Navbar />

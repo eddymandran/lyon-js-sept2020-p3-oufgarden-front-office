@@ -107,8 +107,7 @@ const GardenInfos = (props) => {
         </div>
         <div className="gardenZoneContainer">
           <p className="titleZoneContainer">
-            {' '}
-            Les zones du jardins et les actions effectuées :
+            Voir les actions effectuées pour chaque zone les 7 derniers jours
           </p>
           {gardenZone &&
             gardenZone.map((e) => {
