@@ -82,7 +82,7 @@ const Login = (props) => {
                     value={stayConnected}
                     onClick={() => setStayConnected(true)}
                   />
-                  Stay connected ?
+                  Rester connecté(e)
                 </label>
               </div>
             </div>
@@ -100,7 +100,7 @@ const Login = (props) => {
               <div className="forgotten-password">
                 Mot de passe oublié ?{' '}
                 <a className="email-admin" href="mailto:contact@oufgarden.com">
-                  Contacter OufGarden
+                  Contacter Ouf!
                 </a>
               </div>
             </div>
