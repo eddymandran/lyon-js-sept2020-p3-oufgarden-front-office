@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   background: #f2efec;
+  padding-bottom: 10vh;
   height: 100vh;
 
   button {
@@ -93,7 +94,21 @@
   justify-items: center;
   width: 80vw;
   .gardenZoneRow {
-    margin: 10px;
+    border: unset;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: #292929;
+    font-size: 12px;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 80vw;
+    p {
+      background-color: white;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
     button {
       font-weight: bold;
       width: 50%;

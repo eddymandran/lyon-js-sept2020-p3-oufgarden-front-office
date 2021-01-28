@@ -26,7 +26,7 @@ const Garden = () => {
             />
             <p className="titleGarden">{e.name}</p>
             <div className="linkGarden">
-              <Link to={`/garden/${e.id}/timeslots`}>
+              <Link to={`garden/${e.id}/timeslots`}>
                 <button type="button" className="actionButton">
                   Reserver un creneaux
                 </button>

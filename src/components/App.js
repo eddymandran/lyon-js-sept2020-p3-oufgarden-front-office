@@ -14,20 +14,18 @@ import TimeSlot from './TimeSlot';
 import history from '../history';
 import ArticlesDetails from './ArticlesDetails';
 import GardenInfos from './GardenInfos';
-import Calendar from './Calendar';
+import MyCalendar from './Calendar';
 
 const App = () => {
   return (
     <div>
       <ToastProvider placement="top-right">
-        {/* <UserProvider> */}
         <Router history={history}>
           <Navbar />
           <div className="App">
             <Switch>
               <Route exact path="/" component={Login} />
               <Route exact path="/feed" component={Feed} />
-              <Route exact path="/articles" /* component={Articles}  */ />
               <Route exact path="/articles/:id" component={ArticlesDetails} />
               <Route exact path="/garden" component={Garden} />
               <Route exact path="/garden/:id" component={GardenInfos} />
@@ -37,14 +35,10 @@ const App = () => {
                 component={Action}
               />
               <Route exact path="/garden/:id/timeslots" component={TimeSlot} />
-              <Route exact path="/garden/:id/calendar" component={Calendar} />
-              <Route exact path="/garden/:id/Plot" />
-              <Route exact path="/garden/:id/Plot/confirm" />
-              <Route exact path="/garden/:id/Plot/success" />
+              <Route path="/garden/:id/calendar" component={MyCalendar} />
             </Switch>
           </div>
         </Router>
-        {/* </UserProvider> */}
       </ToastProvider>
     </div>
   );

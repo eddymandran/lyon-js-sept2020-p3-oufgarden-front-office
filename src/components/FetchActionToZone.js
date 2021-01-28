@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import { getCollection } from '../services/API';
 
 const FetchActionToZones = ({ gardenId, gardenZone }) => {
@@ -13,7 +12,6 @@ const FetchActionToZones = ({ gardenId, gardenZone }) => {
       }
     );
   }, []);
-  console.log(actionToFeed);
 
   useEffect(() => {
     if (actionToFeed.length > 0) {
