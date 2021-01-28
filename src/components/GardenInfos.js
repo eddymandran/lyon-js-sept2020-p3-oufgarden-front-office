@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useEffect, useState } from 'react';
 import './style/GardenInfos.scss';
 import { Link } from 'react-router-dom';
@@ -76,11 +77,12 @@ const GardenInfos = (props) => {
           </button>
           {zoneActionOpen[gardenInfos.id] && (
             <div className="gardenAction">
-              {actionList.map((e) => {
+              {actionList.map((e, i) => {
                 return (
                   <Link
                     to={`/garden/${id}/action/${e.id}`}
                     className={`action-${e.name}`}
+                    key={i}
                   >
                     <div className="imageActionContainer">
                       <div
