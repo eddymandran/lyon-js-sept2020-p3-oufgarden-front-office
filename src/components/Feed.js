@@ -1,14 +1,14 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ReactHtmlParser from 'react-html-parser';
+// import ReactHtmlParser from 'react-html-parser';
 import Select from 'react-select';
-import {
-  getCollection,
-  makeEntityDeleter,
-  makeEntityAdder,
-} from '../services/API';
+import { getCollection } from '../services/API';
 import './style/Feed.scss';
+
+/* import { UserContext } from './Contexts/UserContextProvider'; */
+const URL = process.env.REACT_APP_API_BASE_URL;
 
 const Feed = () => {
   const [articles, setArticles] = useState([]);
@@ -16,7 +16,9 @@ const Feed = () => {
   const [tagList, setTagList] = useState([]);
   const [allTags, setAllTags] = useState([]);
 
-  const [favorite, setFavorite] = useState(false);
+  const [favorite, setFavorite] = useState([]);
+  const [favoriteId, setFavoriteId] = useState(false);
+  const [showFavoriteList, setShowFavoriteList] = useState(false);
 
   useEffect(() => {
     getCollection('articles').then((elem) => {
@@ -63,22 +65,39 @@ const Feed = () => {
     if (tagList.includes(+target.id)) {
       const newTagList = tagList.filter((item) => item !== +target.id);
       setTagList(newTagList);
+      target.classList.toggle('selected-tag-filter');
     } else {
       setTagList((prevState) => [...prevState, +target.id]);
+      target.classList.toggle('selected-tag-filter');
     }
   };
 
-  const handleFavorite = () => {
-    if (articles.id !== favorite) {
-      makeEntityAdder('favorite', articles.id).then((result) => {
-        setFavorite(result.favorite === true);
-      });
-    } else {
-      makeEntityDeleter('favorite', articles.id).then((result) => {
-        setFavorite(result.favorite === false);
-      });
+  useEffect(() => {
+    getCollection('articles/favorites').then((data) => setFavorite(data));
+  }, []);
+
+  useEffect(() => {
+    if (favorite.length > 0) {
+      setFavoriteId(favorite.map((elem) => elem.article_id));
     }
+  }, [favorite]);
+
+  const handleFavoriteList = (target) => {
+    setShowFavoriteList(!showFavoriteList);
+    target.classList.toggle('selected-like-filter');
   };
+
+  // const handleFavorite = () => {
+  //   if (favoriteId && favoriteId.includes(id)) {
+  //     API.delete('articles/favorites', { article_id: id }).then(() => {
+  //       setFavorite();
+  //     });
+  //   } else {
+  //     makeEntityAdder('articles/favorites')({ article_id: id }).then(() => {
+  //       setFavorite();
+  //     });
+  //   }
+  // };
 
   return (
     <div className="containerFeed">
@@ -96,21 +115,11 @@ const Feed = () => {
         />
       </div>
       <div className="filterContainer">
-        <button type="button" className="buttonPres">
-          {favorite &&
-            favorite.map((art) => {
-              return (
-                <div key={art.id} className="articlesRow" favorite={false}>
-                  <div className="articlesInfos">
-                    <img className="imgArticle" src={art.url} alt="jardin" />
-                    <div className="text">
-                      {ReactHtmlParser(articles.title)}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-        </button>
+        <button
+          type="button"
+          className="buttonPres"
+          onClick={(e) => handleFavoriteList(e.target)}
+        />
         {allTags &&
           allTags.map((tag) => {
             return (
@@ -128,63 +137,81 @@ const Feed = () => {
           })}
       </div>
       <div className="articleListContainer">
-        {articlesFiltered.length > 0
-          ? articles
-              .filter((article) => {
-                if (articlesFiltered.includes(article.id)) {
-                  return true;
-                }
-                return false;
-              })
-              .map((e) => {
-                return (
-                  <div key={e.id} className="articlesRow" favorite={false}>
-                    <Link to={`/articles/${e.id}`}>
-                      <div className="articlesInfos">
-                        <img
-                          className="imgArticle"
-                          src={`http://localhost:5000/${e.url}`}
-                          alt="jardin"
-                        />
-                        <div className="text">{e.title}</div>
-                      </div>
-                    </Link>
+        {showFavoriteList &&
+          favorite.map((e) => {
+            return (
+              <div key={e.article_id} className="articlesRow">
+                <Link to={`/articles/${e.article_id}`}>
+                  <div className="articlesInfos">
+                    <img
+                      className="imgArticle"
+                      src={`${URL}/${e.article_url}`}
+                      alt="jardin"
+                    />
+                    <div className="text">{e.article_title}</div>
                   </div>
-                );
-              })
-          : articles.map((e) => {
-              return (
-                <div key={e.id} className="articlesRow">
-                  <Link
-                    className="Link-to-articleDetails"
-                    to={`/articles/${e.id}`}
-                  >
-                    <div className="articlesInfos">
-                      <div
-                        className="likeButton"
-                        onClick={() => {
-                          handleFavorite();
-                        }}
-                        onKeyPress={() => {
-                          handleFavorite();
-                        }}
-                        role="button"
-                        tabIndex={0}
-                        favorite={false}
-                      >
-                        {/* ♥ */}
+                </Link>
+              </div>
+            );
+          })}
+        {!showFavoriteList && (
+          <>
+            {articlesFiltered.length > 0
+              ? articles
+                  .filter((article) => {
+                    if (articlesFiltered.includes(article.id)) {
+                      return true;
+                    }
+                    return false;
+                  })
+                  .map((e) => {
+                    return (
+                      <div key={e.id} className="articlesRow">
+                        <Link to={`/articles/${e.id}`}>
+                          <div className="articlesInfos">
+                            <img
+                              className="imgArticle"
+                              src={`${URL}/${e.url}`}
+                              alt="jardin"
+                            />
+                            <div className="text">{e.title}</div>
+                          </div>
+                        </Link>
                       </div>
-                      <img
-                        className="imgArticle"
-                        src={`http://localhost:5000/${e.url}`}
-                        alt="jardin"
-                      />
-                      <div className="text">{e.title}</div>
+                    );
+                  })
+              : articles.map((e) => {
+                  return (
+                    <div key={e.id} className="articlesRow">
+                      <Link
+                        className="Link-to-articleDetails"
+                        to={`/articles/${e.id}`}
+                      >
+                        <div className="articlesInfos">
+                          {/* <div
+                            className="likeButton"
+                            // onClick={(e) => {
+                            //   handleFavorite(e.id);
+                            // }}
+                            // onKeyPress={(e) => {
+                            //   handleFavorite(e.id);
+                            // }}
+                            // role="button"
+                            // tabIndex={0}
+                          /> */}
+                          <img
+                            className="imgArticle"
+                            src={`${URL}/${e.url}`}
+                            alt="jardin"
+                          />
+                          <div className="text">{e.title}</div>
+                        </div>
+                      </Link>
                     </div>
-                  </Link>
-                </div>
-              );
-            })}
+                  );
+                })}
+          </>
+        )}
       </div>
     </div>
   );

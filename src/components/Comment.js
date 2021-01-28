@@ -1,19 +1,25 @@
 import React from 'react';
 import './style/Comment.scss';
 
-const Comment = ({ comment }) => {
+import dayjs from 'dayjs';
+
+const Comment = ({ avatar, firstname, lastname, date, comment }) => {
   return (
     <div className="comment">
       <div className="all-comment">
-        {/* <img
-        className="avatar-comment"
-        // src={userDetails.avatar}
-        // alt={userDetails.name}
-      /> */}
-
         <div className="show-comment">
-          {/* <h6 className="avatar-name">{userDetails.name}</h6> */}
-          {comment}
+          <div className="show-comment-details-user">
+            <img
+              className="show-comment-avatar"
+              alt="utilisateur"
+              src={avatar}
+            />
+            <div className="show-comment-name">{`${firstname} ${lastname}`}</div>
+            <div className="show-comment-date">
+              {dayjs(date).format('DD/MM/YYYY, HH:mm')}
+            </div>
+          </div>
+          <div className="show-comment-message">{comment}</div>
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <div className="menu">
       <ul>
-        <Link to="/articles">
+        <Link to="/feed">
           <div className="articles" />
         </Link>
 

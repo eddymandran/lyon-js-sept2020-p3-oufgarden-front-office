@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './style/Calendar.scss';
 import { getEntity } from '../services/API';
 
@@ -44,7 +43,7 @@ const MyCalendar = (props) => {
     );
   }, [myReservations]);
   return (
-    <div className="calendar-container" style={{ width: 10, height: 200 }}>
+    <div className="calendar-container">
       <Calendar
         events={events}
         startAccessor="start"
@@ -52,7 +51,7 @@ const MyCalendar = (props) => {
         defaultDate={moment().toDate()}
         localizer={localizer}
         views={['month', 'day', 'agenda']}
-        min={new Date(2017, 10, 0, 10, 0, 0)}
+        min={new Date(2017, 10, 0, 8, 0, 0)}
         max={new Date(2017, 10, 0, 22, 0, 0)}
       />
     </div>
