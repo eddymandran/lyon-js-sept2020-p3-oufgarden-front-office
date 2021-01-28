@@ -1,10 +1,27 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable react/jsx-no-comment-textnodes */
+import React, { useEffect, useState } from 'react';
 import './style/Navbar.scss';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import history from '../history';
+import { getCollection } from '../services/API';
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const [myGardenId, setMyGardenId] = useState(undefined);
+
+  const handleGetMyCalendar = () => {
+    getCollection('garden').then((elem) => {
+      setMyGardenId(elem[0].id);
+    });
+  };
+  useEffect(() => {
+    if (myGardenId) {
+      props.history.push(`/garden/${myGardenId}/calendar`);
+      setMyGardenId(undefined);
+    }
+  }, [myGardenId]);
   if (history.location.pathname === '/') {
     return false;
   }
@@ -14,9 +31,7 @@ const Navbar = () => {
         <Link to="/feed">
           <div className="articles" />
         </Link>
-        <Link to="/calendar">
-          <div className="calendar" />
-        </Link>
+        <div className="calendar" onClick={handleGetMyCalendar} />
         <Link to="/garden">
           <div className="jardin" />
         </Link>

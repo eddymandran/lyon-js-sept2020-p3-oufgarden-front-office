@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
-/* import { useQuery } from 'react-query'; */
 import { useForm } from 'react-hook-form';
 import './style/Login.scss';
 import { useToasts } from 'react-toast-notifications';
 
 import API from '../services/API';
-// import { UserContext } from './_context/UserContext';
-
-/* require('dotenv').config(); */
 
 const Login = (props) => {
   const { addToast } = useToasts();
-  /* const { setIsAdmin } = useContext(UserContext);
-   */
+
   const { register, handleSubmit, errors } = useForm();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -87,7 +82,7 @@ const Login = (props) => {
                     value={stayConnected}
                     onClick={() => setStayConnected(true)}
                   />
-                  Stay connected ?
+                  Rester connecté(e)
                 </label>
               </div>
             </div>
@@ -101,6 +96,12 @@ const Login = (props) => {
                   La création de votre espace peut prendre jusqu'à 72h à compter
                   de la réception de l'adhésion.
                 </p>
+              </div>
+              <div className="forgotten-password">
+                Mot de passe oublié ?{' '}
+                <a className="email-admin" href="mailto:contact@oufgarden.com">
+                  Contacter Ouf!
+                </a>
               </div>
             </div>
           </div>

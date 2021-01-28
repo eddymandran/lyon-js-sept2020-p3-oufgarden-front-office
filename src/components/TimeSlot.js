@@ -44,7 +44,7 @@ const TimeSlot = (props) => {
         setTimeSelectionChoice([]);
       })
       .then(() => {
-        props.history.push('/garden');
+        props.history.push(`/garden/${newData.garden_id}/calendar`);
       });
   };
 
@@ -58,7 +58,7 @@ const TimeSlot = (props) => {
 
   return (
     <div className="timeSlotsContainer">
-      <h3>Merci de réserver votre créneaux parmis les horaires disponibles</h3>
+      <h3>Merci de réserver votre créneau parmis les horaires disponibles</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="inputTimeSlots">
           <label htmlFor="Date">

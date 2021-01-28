@@ -1,40 +1,45 @@
 .garden-list-container {
+  margin-top: 50px;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
   flex-direction: column;
-
-  button {
-    font-size: 15px;
+  padding-bottom: 10vh;
+  .garden-row {
+    margin: 10px;
     font-weight: bold;
-    width: 100px;
-    margin: 5px;
-    background-color: #27841fbd;
-    border: unset;
-    border-radius: 50px;
-    padding: 8px;
-    width: 40vw;
-    outline: none;
-    color: white;
+    text-align: center;
+    background-color: #ffffff;
+  }
+  .imgGarden {
+    width: 100%;
+    height: 30vh;
+    border-radius: 30px 30px 0 0;
+  }
+  .linkGarden {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    button {
+      outline: none;
+      color: white;
+      background-color: #082852;
+      border: unset;
+      border-radius: 10px;
+      font-size: 2vh;
+      font-weight: bold;
+      width: 30vw;
+      height: 10vh;
+      margin: 10px;
+      padding: 8px;
+    }
+  }
+  .titleGarden {
+    margin: 15px 0px 0px;
   }
 }
-.garden-row {
-  font-weight: bold;
-  text-align: center;
-  background-color: #e5e7e9;
-  border-radius: 25px;
-}
-.imgGarden {
-  width: 100%;
-  height: 30vh;
-}
-.linkGarden {
-  padding: 10px;
-}
-.titleGarden {
-  margin: 15px 0px 0px;
-}
-@media screen and (min-width: 500px) {
+
+@media screen and (min-width: 1024px) {
   .garden-list-container {
     margin-bottom: 20px;
     display: flex;
@@ -43,5 +48,14 @@
   }
   .garden-row {
     width: 60%;
+    .imgGarden {
+      width: 50vw;
+      height: 60vh;
+    }
+    .linkGarden {
+      button {
+        width: 15vw;
+      }
+    }
   }
 }
