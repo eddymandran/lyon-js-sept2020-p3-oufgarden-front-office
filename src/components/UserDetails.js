@@ -89,6 +89,20 @@ const MemberDetail = (props) => {
                   {dayjs(userDetails.birthdate).format('DD/MM/YYYY')}
                 </p>
               </div>
+
+              <div className="garden-infos">
+                <h3>
+                  <FaLeaf size={25} style={{ marginRight: '5px' }} />
+                  Jardins associés
+                </h3>
+                {gardenArray.length > 0 ? (
+                  gardenList
+                    .filter((garden) => gardenArray.includes(garden.id))
+                    .map((garden) => <p>{garden.name}</p>)
+                ) : (
+                  <p>Aucun jardin associé actuellement</p>
+                )}
+              </div>
               <div className="membership-infos">
                 <h3>
                   <FaRegCalendarAlt size={25} style={{ marginRight: '5px' }} />
@@ -116,23 +130,6 @@ const MemberDetail = (props) => {
                     jours
                   </span>
                 </p>
-                <p>
-                  <span className="emph">Profil d'utilisateur créé le : </span>
-                  {dayjs(userDetails.user_creation).format('DD/MM/YYYY')}
-                </p>
-              </div>
-              <div className="garden-infos">
-                <h3>
-                  <FaLeaf size={25} style={{ marginRight: '5px' }} />
-                  Jardins associés
-                </h3>
-                {gardenArray.length > 0 ? (
-                  gardenList
-                    .filter((garden) => gardenArray.includes(garden.id))
-                    .map((garden) => <p>{garden.name}</p>)
-                ) : (
-                  <p>Aucun jardin associé actuellement</p>
-                )}
               </div>
             </div>
           </IconContext.Provider>
