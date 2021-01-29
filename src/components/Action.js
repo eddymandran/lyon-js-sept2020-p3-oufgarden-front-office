@@ -60,15 +60,15 @@ const Action = (props) => {
     };
 
     try {
-      await makeEntityAdder(`garden/${id}/zones/${data.zone.value}/actionFeed`)(
-        newData
-      )
+      await makeEntityAdder(
+        `garden/${gardenId}/zones/${data.zone.value}/actionFeed`
+      )(newData)
         .then(() => {
           setGardenAction([]);
           setGardenZone([]);
         })
         .then(() => {
-          props.history.push('/garden');
+          props.history.push(`/garden/${gardenId}`);
         });
     } catch (err) {
       console.log(err);
@@ -100,7 +100,7 @@ const Action = (props) => {
                       name="date"
                       type="date"
                       placeholder="date d'action"
-                      ref={register}
+                      ref={register({ required: true })}
                     />
                   </label>
                   <label htmlFor="time">
@@ -110,7 +110,7 @@ const Action = (props) => {
                       name="time"
                       type="time"
                       placeholder="time"
-                      ref={register}
+                      ref={register({ required: true })}
                     />
                   </label>
                   <label className="labelZone" htmlFor="zone">
@@ -121,6 +121,7 @@ const Action = (props) => {
                       name="zone"
                       isClearable
                       control={control}
+                      rules={{ required: true }}
                     />
                   </label>
                   <textarea
@@ -130,7 +131,11 @@ const Action = (props) => {
                     placeholder="commentaire"
                     ref={register}
                   />
-                  <input type="submit" className="sendButton" value="Creer" />
+                  <input
+                    type="submit"
+                    className="sendButton"
+                    value="Enregistrer"
+                  />
                 </div>
               </label>
             </form>

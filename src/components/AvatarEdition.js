@@ -27,7 +27,7 @@ const AvatarEdition = ({ id }) => {
         autoDismiss: true,
       });
     } catch (err) {
-      addToast("Erreur lors de la mise à jour de l'adhérent", {
+      addToast("Erreur lors de la mise à jour de l'image de profil", {
         appearance: 'error',
         autoDismiss: true,
       });
