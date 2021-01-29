@@ -38,7 +38,10 @@ const FetchActionToZones = ({ gardenId, gardenZone }) => {
             </p>
           </div>
         );
-      })}
+      })}{' '}
+      {actionToFeedWithFullDate.length === 0 && (
+        <p>Aucune action effectuée au cours des 7 derniers jours</p>
+      )}
     </div>
   );
 };
