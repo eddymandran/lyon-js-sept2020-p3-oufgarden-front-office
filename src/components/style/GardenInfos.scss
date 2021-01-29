@@ -29,6 +29,9 @@
       position: absolute;
       top: 5px;
     }
+    a.link-back-feed-garden {
+      text-decoration: none;
+    }
 
     .link-back-feed-garden {
       width: 100px;
@@ -210,19 +213,19 @@
   .gardenAction {
     display: flex;
 
-    .action-Arroser {
+    .action-arroser {
       background-size: 80px;
     }
-    .action-Desherber {
+    .action-désherber {
       background-size: 80px;
     }
-    .action-Planter {
+    .action-planter {
       background-size: 80px;
     }
-    .action-Recolter {
+    .action-récolter {
       background-size: 80px;
     }
-    .action-Semer {
+    .action-semer {
       background-size: 80px;
     }
   }
