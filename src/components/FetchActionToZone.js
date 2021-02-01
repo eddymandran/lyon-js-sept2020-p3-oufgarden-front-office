@@ -35,6 +35,8 @@ const FetchActionToZones = ({ gardenId, gardenZone }) => {
             <p>
               {action.name}: {action.firstname} {action.lastname}{' '}
               {action.fullDate}
+              <br />
+              commentaire: {action.description}
             </p>
           </div>
         );

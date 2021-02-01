@@ -83,21 +83,23 @@
 }
 
 .user {
-  background-image: url('../../images/user.png');
-  background-size: 30px;
-  background-repeat: no-repeat;
-  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 25vw;
   height: 10vh;
   cursor: pointer;
   &:active {
-    background-image: url('../../images/user-active.png');
     background-color: #e6e6e6;
     background-position: center;
   }
   &:hover {
-    background-image: url('../../images/user-active.png');
     background-position: center;
     background-color: #e6e6e6;
+  }
+  img {
+    border-radius: 50px;
+    width: 45px;
+    height: 45px;
   }
 }
