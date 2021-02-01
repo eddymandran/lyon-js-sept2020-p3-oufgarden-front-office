@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useEffect, createContext, useState } from 'react';
 import useLocalStorage from 'use-local-storage';
 
 import { getCollection } from '../../services/API';
@@ -12,9 +12,9 @@ export const LoginProvider = (props) => {
 
   useEffect(() => {
     setIsLogged(false);
-    getCollection('currentUser').then((data) => {
+    getCollection('currentUser').then((infos) => {
       setIsLogged(true);
-      setUserDetails(data);
+      setUserDetails(infos);
     });
   }, []);
   return (

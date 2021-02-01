@@ -59,11 +59,13 @@ const TimeSlot = (props) => {
 
   return (
     <div className="timeSlotsContainer">
-      <div className="back-gardenList">
-        <Link className="link-back-gardenList" to="/garden">
-          <div className="back-arrow" />
-        </Link>
-        <div className="reservation-Title">Je m'inscris sur un crénau</div>
+      <div className="title-reservation-page">
+        <div className="back-gardenList">
+          <Link className="link-back-gardenList" to="/garden">
+            <div className="back-arrow" />
+          </Link>
+          <div className="reservation-Title">Je m'inscris sur un crénau</div>
+        </div>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="inputTimeSlots">
