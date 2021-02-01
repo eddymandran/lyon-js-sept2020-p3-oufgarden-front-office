@@ -18,16 +18,11 @@ const GardenInfos = (props) => {
   const [actionList, setActionList] = useState([]);
   const [gardenZone, setGardenZone] = useState([]);
   const [zoneActionOpen, setZoneActionOpen] = useState({});
-  const [displayActionButtons, setDisplayActionButtons] = useState(false);
 
   const toggleDisplayZone = (zoneId) => {
     setZoneActionOpen((openZone) => {
       return { ...openZone, [zoneId]: !openZone[zoneId] };
     });
-  };
-
-  const toggleDisplayActionButtons = () => {
-    setDisplayActionButtons((prevState) => !prevState);
   };
 
   useEffect(() => {
@@ -76,34 +71,29 @@ const GardenInfos = (props) => {
         </div>
 
         <div className="gardenActionContainer">
-          <button type="button" onClick={() => toggleDisplayActionButtons()}>
-            Publier une action
-          </button>
-          {displayActionButtons && (
-            <div className="gardenAction">
-              {actionList.map((e, i) => {
-                return (
-                  <Link
-                    to={`/garden/${id}/action/${e.id}`}
-                    className={`action-${e.name}`}
-                    key={i}
-                  >
-                    <div className="imageActionContainer">
-                      <div
-                        key={e.id}
-                        type="image"
-                        alt="action"
-                        contentEditable="false"
-                      />
-                      <div className="nameAction">
-                        <p>{e.name}</p>
-                      </div>
+          <div className="gardenAction">
+            {actionList.map((e, i) => {
+              return (
+                <Link
+                  to={`/garden/${id}/action/${e.id}`}
+                  className={`action-${e.name}`}
+                  key={i}
+                >
+                  <div className="imageActionContainer">
+                    <div
+                      key={e.id}
+                      type="image"
+                      alt="action"
+                      contentEditable="false"
+                    />
+                    <div className="nameAction">
+                      <p>{e.name}</p>
                     </div>
-                  </Link>
-                );
-              })}
-            </div>
-          )}
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
         <div className="gardenZoneContainer">
           <p className="titleZoneContainer">
