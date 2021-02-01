@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Select from 'react-select';
+import { Link } from 'react-router-dom';
 
 import { getCollection, makeEntityAdder } from '../services/API';
 import './style/TimeSlots.scss';
@@ -58,19 +59,32 @@ const TimeSlot = (props) => {
 
   return (
     <div className="timeSlotsContainer">
-      <h3>Merci de réserver votre créneau parmi les horaires disponibles</h3>
+      <div className="back-gardenList">
+        <Link className="link-back-gardenList" to="/garden">
+          <div className="back-arrow" />
+        </Link>
+        <div className="reservation-Title">Je m'inscris sur un crénau</div>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="inputTimeSlots">
           <label htmlFor="Date">
+            Date :
             <input type="date" name="reservation_date" ref={register} />
           </label>
         </div>
-        <Select
-          className="selectTimeSlots"
-          options={options}
-          onChange={(e) => handleChange(e)}
-        />
-        <button type="submit">Réserver !</button>
+        <div className="hours">
+          <label htmlFor="time">
+            Heure :
+            <Select
+              className="selectTimeSlots"
+              options={options}
+              onChange={(e) => handleChange(e)}
+            />
+          </label>
+        </div>
+        <button type="submit" className="reservation-button">
+          Réserver !
+        </button>
       </form>
     </div>
   );
