@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+
 .garden-list-container-infos {
   box-sizing: border-box;
   display: flex;
@@ -77,20 +79,8 @@
     }
     .gardenActionContainer {
       width: 100%;
-      button {
-        font-size: 15px;
-        font-weight: bold;
-        width: 100px;
-        margin: 5px;
-        background-color: #082852;
-        border: unset;
-        border-radius: 50px;
-        padding: 8px;
-        width: 40vw;
-        outline: none;
-        color: white;
-        cursor: pointer;
-      }
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
 
       .gardenAction {
         display: grid;
@@ -174,6 +164,8 @@
   justify-items: center;
   width: 80vw;
   margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
 
   .gardenZoneRow {
     border: unset;
@@ -192,13 +184,12 @@
     }
 
     button {
-      font-weight: bold;
       width: 50%;
       height: 40px;
       margin: 5px;
       font-size: 15px;
-      font-weight: bold;
-      background-color: #082852;
+      font-weight: 600;
+      background-color: #27841fd5;
       border: unset;
       border-radius: 10px;
       padding: 8px;
