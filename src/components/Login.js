@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import './style/Login.scss';
 import { useToasts } from 'react-toast-notifications';
+import useLocalStorage from 'use-local-storage';
+
 import API from '../services/API';
 
 const Login = (props) => {
@@ -11,31 +13,21 @@ const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // eslint-disable-next-line no-unused-vars
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useLocalStorage('isLogged', false);
   const [stayConnected, setStayConnected] = useState(false);
   const required = 'Veuillez saisir une adresse e-mail valide';
   const requiredPassword = 'Veuillez saisir votre mot de passe';
 
-  // useEffect(() => {
-  //   getCollection('garden').then((elem) => {
-  //     if (elem[0].id) {
-  //       props.history.push('/feed');
-  //     } else {
-  //       props.history.push('/');
-  //     }
-  //   });
-  // }, []);
-
-  useEffect(() => {
-    if (stayConnected === true) {
-      props.history.push('/feed');
-    }
-  }, []);
-
   const errorMessage = (error) => {
     return <div className="invalid-feedback">{error}</div>;
   };
-
+  useEffect(() => {
+    if (isLogged === false) {
+      props.history.push('/');
+    } else {
+      props.history.push('/feed');
+    }
+  }, [isLogged]);
   const onSubmit = (data) => {
     API.post('/app/login', data)
       .then(() => {
@@ -53,6 +45,7 @@ const Login = (props) => {
           autoDismiss: true,
         });
       });
+    setPassword('');
   };
 
   return (
