@@ -16,7 +16,7 @@ export const LoginProvider = (props) => {
       setIsLogged(true);
       setUserDetails(infos);
     });
-  }, []);
+  }, [userDetails]);
   return (
     <LoginContext.Provider value={{ isLogged, setIsLogged, userDetails }}>
       {children}
