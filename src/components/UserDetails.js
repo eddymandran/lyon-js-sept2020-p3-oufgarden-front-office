@@ -9,9 +9,11 @@ import {
   FaLeaf,
 } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
+import { useToasts } from 'react-toast-notifications';
 
 import dayjs from 'dayjs';
-import { getCollection } from '../services/API';
+import API, { getCollection } from '../services/API';
+import history from '../history';
 import './style/UserDetails.scss';
 
 const today = dayjs();
@@ -42,6 +44,20 @@ const MemberDetail = (props) => {
   useEffect(() => {
     getCollection('garden').then((data) => setGardenList(data));
   }, []);
+
+  const { addToast } = useToasts();
+  const logout = async () => {
+    try {
+      await API.get('/login');
+      addToast('Déconnecté avec succès !', {
+        appearance: 'success',
+        autoDismiss: true,
+      });
+      history.push('/');
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <>
@@ -131,6 +147,9 @@ const MemberDetail = (props) => {
                   </span>
                 </p>
               </div>
+            </div>
+            <div className="deconexion-button" onClick={logout}>
+              Déconnexion
             </div>
           </IconContext.Provider>
         </div>

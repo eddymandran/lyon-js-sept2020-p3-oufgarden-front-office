@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './style/Login.scss';
 import { useToasts } from 'react-toast-notifications';
-
 import API from '../services/API';
 
 const Login = (props) => {
@@ -16,6 +15,16 @@ const Login = (props) => {
   const [stayConnected, setStayConnected] = useState(false);
   const required = 'Veuillez saisir une adresse e-mail valide';
   const requiredPassword = 'Veuillez saisir votre mot de passe';
+
+  // useEffect(() => {
+  //   getCollection('garden').then((elem) => {
+  //     if (elem[0].id) {
+  //       props.history.push('/feed');
+  //     } else {
+  //       props.history.push('/');
+  //     }
+  //   });
+  // }, []);
 
   const errorMessage = (error) => {
     return <div className="invalid-feedback">{error}</div>;
