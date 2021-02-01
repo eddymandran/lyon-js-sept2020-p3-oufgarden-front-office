@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './style/Login.scss';
 import { useToasts } from 'react-toast-notifications';
+import useLocalStorage from 'use-local-storage';
 
 import API from '../services/API';
 
@@ -12,7 +13,7 @@ const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // eslint-disable-next-line no-unused-vars
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useLocalStorage('isLogged', false);
   const [stayConnected, setStayConnected] = useState(false);
   const required = 'Veuillez saisir une adresse e-mail valide';
   const requiredPassword = 'Veuillez saisir votre mot de passe';
@@ -20,7 +21,13 @@ const Login = (props) => {
   const errorMessage = (error) => {
     return <div className="invalid-feedback">{error}</div>;
   };
-
+  useEffect(() => {
+    if (isLogged === false) {
+      props.history.push('/');
+    } else {
+      props.history.push('/feed');
+    }
+  }, [isLogged]);
   const onSubmit = (data) => {
     API.post('/app/login', data)
       .then(() => {
