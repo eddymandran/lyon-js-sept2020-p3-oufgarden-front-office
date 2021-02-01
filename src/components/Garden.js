@@ -33,7 +33,7 @@ const Garden = () => {
               </Link>
               <Link to={`/garden/${e.id}`}>
                 <button type="button" className="infosGarden">
-                  Infos du jardin
+                  Entrez au jardin
                 </button>
               </Link>
             </div>
