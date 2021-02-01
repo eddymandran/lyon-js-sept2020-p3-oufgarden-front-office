@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './style/Action.scss';
 import { useForm, Controller } from 'react-hook-form';
 import Select from 'react-select';
@@ -77,10 +78,15 @@ const Action = (props) => {
   };
 
   return (
-    <>
+    <div className="Action-all-page">
       {actionName.length > 0 && (
         <div className="garden-list-action">
-          <h3 className="actionTitle">Action: {actionName[0].name}</h3>
+          <div className="back-gardenList">
+            <Link className="link-back-gardenList" to="/garden">
+              <div className="back-arrow" />
+            </Link>
+            <div className="actionTitle">Je viens de {actionName[0].name}</div>
+          </div>
           <div key={gardenAction.id} className="action-row">
             <form className="formContainer" onSubmit={handleSubmit(onSubmit)}>
               <label htmlFor="actionGarden">
@@ -114,7 +120,7 @@ const Action = (props) => {
                     />
                   </label>
                   <label className="labelZone" htmlFor="zone">
-                    Zone où vous avez agi
+                    Sélectionner la zone
                     <Controller
                       as={Select}
                       options={zoneOption}
@@ -131,18 +137,14 @@ const Action = (props) => {
                     placeholder="commentaire"
                     ref={register}
                   />
-                  <input
-                    type="submit"
-                    className="sendButton"
-                    value="Enregistrer"
-                  />
+                  <input type="submit" className="sendButton" value="Valider" />
                 </div>
               </label>
             </form>
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

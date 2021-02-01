@@ -1,16 +1,47 @@
-.garden-list-action {
-  width: 100vw;
-  margin-top: 20px;
-  font-weight: bold;
-  h3 {
-    margin-left: 30px;
-    font-size: 1.5rem;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+
+.Action-all-page {
+  background: #f2efec;
+  height: 100vh;
+  padding-bottom: 15%;
 }
 
-.actionTitle {
-  margin: 5vh;
-  text-align: center;
+.garden-list-action {
+  width: 100vw;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+
+  .back-gardenList {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    margin-left: 20px;
+    padding-bottom: 7%;
+    padding-top: 7%;
+  }
+
+  // .link-back-gardenList {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   flex-direction: row;
+  // }
+  .back-arrow {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-image: url('../../images/Fichier 2.png');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .actionTitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-left: 10px;
+  }
 }
 
 .action-row {
@@ -22,11 +53,7 @@
   align-items: center;
   padding: 20px;
   margin: 0 20px 20vh 20px;
-  background-color: #e5e7e9;
-  &:hover {
-    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2),
-      0 3px 15px 0 rgba(0, 0, 0, 0.19);
-  }
+  background-color: #ffffff;
 }
 .actionGarden {
   display: flex;
@@ -78,6 +105,9 @@
   border-radius: 15px;
   padding: 10px;
   font-size: 15px;
+  background-color: #e5e7e9;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
 }
 
 .sendButton {
