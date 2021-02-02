@@ -23,7 +23,6 @@ const Feed = () => {
   const { setIsLogged, setUserDetails } = useContext(LoginContext);
   useEffect(() => {
     getCollection('currentUser').then((infos) => {
-      console.log('coucou');
       setIsLogged(true);
       setUserDetails(infos);
     });

@@ -9,10 +9,11 @@
   height: 100vh;
   background: #f2efec;
   font-family: 'Montserrat', sans-serif;
+  overflow: scroll;
 
   .garden-row {
     margin: 10px;
-    margin-top: 10vh;
+    margin-top: 3vh;
     font-weight: bold;
     text-align: center;
     background-color: #ffffff;
@@ -47,6 +48,11 @@
     font-size: 1.5em;
     margin: 15px 0px 0px;
   }
+  // .white-space {
+  //   background: #f2efec;
+  //   width: 200px;
+  //   height: 500px;
+  // }
 }
 
 @media screen and (min-width: 1024px) {
