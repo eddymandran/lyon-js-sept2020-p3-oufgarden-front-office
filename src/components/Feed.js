@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 // import ReactHtmlParser from 'react-html-parser';
 import Select from 'react-select';
 import { getCollection } from '../services/API';
 import './style/Feed.scss';
+import { LoginContext } from './_context/LoginContext';
 
 /* import { UserContext } from './Contexts/UserContextProvider'; */
 const URL = process.env.REACT_APP_API_BASE_URL;
@@ -19,6 +20,14 @@ const Feed = () => {
   const [favorite, setFavorite] = useState([]);
   const [favoriteId, setFavoriteId] = useState(false);
   const [showFavoriteList, setShowFavoriteList] = useState(false);
+  const { setIsLogged, setUserDetails } = useContext(LoginContext);
+  useEffect(() => {
+    getCollection('currentUser').then((infos) => {
+      console.log('coucou');
+      setIsLogged(true);
+      setUserDetails(infos);
+    });
+  }, []);
 
   useEffect(() => {
     getCollection('articles').then((elem) => {
