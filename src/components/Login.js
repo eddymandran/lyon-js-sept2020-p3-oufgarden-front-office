@@ -38,8 +38,7 @@ const Login = (props) => {
         });
         props.history.push('/feed');
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         addToast('Vos acces ne sont pas valides', {
           appearance: 'error',
           autoDismiss: true,
