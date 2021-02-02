@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useToasts } from 'react-toast-notifications';
+import { LoginContext } from './_context/LoginContext';
 
 import { makeEntityUpdater } from '../services/API';
 
 const AvatarEdition = ({ id }) => {
   const { addToast } = useToasts();
+  const { userDetails, setUserDetails } = useContext(LoginContext);
 
   const { register, handleSubmit } = useForm();
 
@@ -18,8 +20,9 @@ const AvatarEdition = ({ id }) => {
     formData.append('picture', data.picture[0]);
     formData.append('data', JSON.stringify(newData));
     try {
-      await makeEntityUpdater('users')(id, formData).then(() => {
+      await makeEntityUpdater('users')(id, formData).then((res) => {
         // props.history.push('/adherents');
+        setUserDetails(res);
         console.log('update image ok');
       });
       addToast('Image mise à jour avec succès', {
@@ -34,6 +37,7 @@ const AvatarEdition = ({ id }) => {
     }
     e.target.reset();
   };
+  console.log(userDetails);
 
   return (
     <div>
