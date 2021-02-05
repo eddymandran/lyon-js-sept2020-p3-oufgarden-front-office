@@ -8,6 +8,7 @@ const localizer = momentLocalizer(moment);
 
 const MyCalendar = (props) => {
   const [myReservations, setMyReservations] = useState([]);
+  const [gardenReservations, setGardenReservations] = useState([]);
   const [events, setEvents] = useState([]);
   const {
     match: {
@@ -19,6 +20,12 @@ const MyCalendar = (props) => {
       setMyReservations(data);
     });
   }, []);
+  useEffect(() => {
+    getEntity('reservation/multiple', id).then((data) => {
+      setGardenReservations(data);
+    });
+  }, []);
+  console.log(gardenReservations);
 
   useEffect(() => {
     setEvents(
@@ -42,7 +49,6 @@ const MyCalendar = (props) => {
       })
     );
   }, [myReservations]);
-  console.log(myReservations);
   return (
     <div className="calendar-container">
       <Calendar
