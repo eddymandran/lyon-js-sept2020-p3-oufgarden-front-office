@@ -42,7 +42,6 @@ const MyCalendar = (props) => {
       })
     );
   }, [myReservations]);
-  console.log(myReservations);
   return (
     <div className="calendar-container">
       <Calendar

@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { MdEmail, MdAccountCircle } from 'react-icons/md';
 import {
   FaBirthdayCake,
@@ -15,6 +15,7 @@ import dayjs from 'dayjs';
 import API, { getCollection } from '../services/API';
 import history from '../history';
 import './style/UserDetails.scss';
+import { LoginContext } from './_context/LoginContext';
 
 const today = dayjs();
 
@@ -24,6 +25,7 @@ const MemberDetail = (props) => {
   const [userDetails, setUserDetails] = useState();
   const [gardenList, setGardenList] = useState([]);
   const [gardenArray, setGardenArray] = useState([]);
+  const { setIsLogged } = useContext(LoginContext);
 
   useEffect(() => {
     getCollection('currentUser').then((data) => {
@@ -49,6 +51,7 @@ const MemberDetail = (props) => {
   const logout = async () => {
     try {
       await API.get('/login');
+      setIsLogged(false);
       addToast('Déconnecté avec succès !', {
         appearance: 'success',
         autoDismiss: true,

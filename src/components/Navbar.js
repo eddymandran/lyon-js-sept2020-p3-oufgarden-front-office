@@ -29,8 +29,6 @@ const Navbar = (props) => {
     return false;
   }
 
-  console.log(userDetails.picture_url);
-
   return (
     <div className="menu">
       <ul>

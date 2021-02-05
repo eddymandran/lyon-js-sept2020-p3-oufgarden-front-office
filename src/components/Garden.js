@@ -45,6 +45,7 @@ const Garden = () => {
           </div>
         );
       })}
+      {/* <div className="white-space" /> */}
     </div>
   );
 };
