@@ -7,29 +7,28 @@ import { getEntity } from '../services/API';
 const localizer = momentLocalizer(moment);
 
 const MyCalendar = (props) => {
-  const [myReservations, setMyReservations] = useState([]);
-  const [gardenReservations, setGardenReservations] = useState([]);
+  /*   const [myReservations, setMyReservations] = useState([]);
+   */ const [gardenReservations, setGardenReservations] = useState([]);
   const [events, setEvents] = useState([]);
   const {
     match: {
       params: { id },
     },
   } = props;
-  useEffect(() => {
+  /*  useEffect(() => {
     getEntity('reservation', id).then((data) => {
       setMyReservations(data);
     });
-  }, []);
+  }, []); */
   useEffect(() => {
     getEntity('reservation/multiple', id).then((data) => {
       setGardenReservations(data);
     });
   }, []);
-  console.log(gardenReservations);
 
   useEffect(() => {
     setEvents(
-      myReservations.map((elem) => {
+      gardenReservations.map((elem) => {
         return {
           ...elem,
           start: moment(
@@ -44,11 +43,12 @@ const MyCalendar = (props) => {
           )
             .add(1, 'days')
             .toDate(),
-          title: `${elem.firstname} ${elem.lastname}`,
+          title: `${elem.firstname} ${elem.lastname} ${elem.name}`,
+          ressources: `${elem.name}`,
         };
       })
     );
-  }, [myReservations]);
+  }, [gardenReservations]);
   return (
     <div className="calendar-container">
       <Calendar
