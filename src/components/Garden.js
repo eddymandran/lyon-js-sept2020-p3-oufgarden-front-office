@@ -28,7 +28,7 @@ const Garden = () => {
             <div className="linkGarden">
               <Link to={`garden/${e.id}/timeslots`}>
                 <button type="button" className="timeslotsButton">
-                  Réserver un creneau
+                  Réservez un creneau
                 </button>
               </Link>
               <Link to={`/garden/${e.id}`}>
@@ -36,10 +36,16 @@ const Garden = () => {
                   Entrez au jardin
                 </button>
               </Link>
+              <Link to={`/garden/${e.id}/calendar`}>
+                <button type="button" className="link-calendar-button">
+                  Agenda du jardin
+                </button>
+              </Link>
             </div>
           </div>
         );
       })}
+      {/* <div className="white-space" /> */}
     </div>
   );
 };

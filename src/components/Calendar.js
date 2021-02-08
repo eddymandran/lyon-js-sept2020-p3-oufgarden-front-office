@@ -48,7 +48,9 @@ const MyCalendar = (props) => {
         };
       })
     );
+
   }, [gardenReservations]);
+
   return (
     <>
       {garden && (

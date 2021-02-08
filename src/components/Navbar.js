@@ -28,6 +28,7 @@ const Navbar = (props) => {
   if (history.location.pathname === '/') {
     return false;
   }
+
   return (
     <div className="menu">
       <ul>
