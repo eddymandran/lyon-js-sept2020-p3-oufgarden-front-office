@@ -2,13 +2,11 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-// import ReactHtmlParser from 'react-html-parser';
 import Select from 'react-select';
 import { getCollection } from '../services/API';
 import './style/Feed.scss';
 import { LoginContext } from './_context/LoginContext';
 
-/* import { UserContext } from './Contexts/UserContextProvider'; */
 const URL = process.env.REACT_APP_API_BASE_URL;
 
 const Feed = () => {

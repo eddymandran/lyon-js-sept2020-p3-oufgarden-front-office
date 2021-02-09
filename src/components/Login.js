@@ -28,6 +28,7 @@ const Login = (props) => {
       props.history.push('/feed');
     }
   }, [isLogged]);
+
   const onSubmit = (data) => {
     API.post('/app/login', data)
       .then(() => {
