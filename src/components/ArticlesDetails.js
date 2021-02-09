@@ -112,13 +112,14 @@ const ArticlesDetails = (props) => {
             </div>
           </div>
           <div className="article-tags">
-            {articlesDetails.tag.map((t) => {
-              return (
-                <div key={t.id}>
-                  <div className="tag-of-article">{t.name}</div>
-                </div>
-              );
-            })}
+            {articlesDetails.tag &&
+              articlesDetails.tag.map((t) => {
+                return (
+                  <div key={t.id}>
+                    <div className="tag-of-article">{t.name}</div>
+                  </div>
+                );
+              })}
           </div>
           <div className="fullText">
             <div className="title">{articlesDetails.row.title}</div>
